@@ -1,0 +1,8 @@
+{
+  "uk": {
+    "title": "Українська Греко-Католицька Церква в Лозанні",
+    "content": "<section class=\"hero\"><div class=\"container\"><h2>☩ Ласкаво просимо до нашої парафії ☩</h2><p>«Де двоє або троє зібрані в ім'я Моє, там і Я посеред них» (Мт. 18:20)<br>Українська Греко-Католицька Церква в Лозанні - духовний дім для українців у Швейцарії.</p><a href=\"#schedule\" class=\"btn btn-primary\">Розклад богослужінь</a></div></section>"  },
+  "en": {
+    "title": "Ukrainian Greek Catholic Church in Lausanne",
+    "content": "<section class=\"hero\"><div class=\"container\"><h2>☩ Welcome to our parish ☩</h2><p>\"Where two or three are gathered in My name, there am I among them\" (Mt. 18:20)<br>The Ukrainian Greek Catholic Church in Lausanne is a spiritual home for Ukrainians in Switzerland.</p><a href=\"#schedule\" class=\"btn btn-primary\">Service Schedule</a></div></section>"  }
+}

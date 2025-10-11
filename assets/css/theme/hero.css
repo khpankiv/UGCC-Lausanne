@@ -1,0 +1,60 @@
+.faith-hero, .hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+.faith-hero-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('/assets/images/unnamed-2.jpg') center/cover no-repeat;
+}
+.faith-hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.54);
+}
+.faith-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+}
+.faith-hero-title {
+    font-size: 2.8rem;
+    color: var(--secondary-color);
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 8px rgba(191,167,106,0.2);
+    margin-bottom: 1.2rem;
+}
+.faith-hero-quote {
+    font-size: 1.3rem;
+    color: var(--white);
+    font-style: italic;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(128,0,32,0.15);
+}
+.faith-cta-btn {
+    display: inline-block;
+    background: var(--gradient-gold);
+    color: var(--primary-color);
+    font-family: 'Georgia', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 12px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(212,175,55,0.15);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.faith-cta-btn:hover {
+    background: var(--gradient-primary);
+    color: var(--white);
+    box-shadow: 0 8px 24px rgba(128,0,32,0.18);
+}

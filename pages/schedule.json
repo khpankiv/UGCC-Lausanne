@@ -1,0 +1,10 @@
+{
+  "uk": {
+    "title": "Розклад",
+    "content": "<h1>Розклад богослужінь</h1><ul><li>Неділя: 10:00, 12:00</li><li>Середа: 18:00</li></ul>"
+  },
+  "en": {
+    "title": "Schedule",
+    "content": "<h1>Service Schedule</h1><ul><li>Sunday: 10:00, 12:00</li><li>Wednesday: 18:00</li></ul>"
+  }
+}

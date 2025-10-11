@@ -1,0 +1,29 @@
+<header class="faith-header">
+    <div class="faith-navbar">
+        <div class="faith-logo">
+            <span class="faith-logo-icon">☩</span>
+            <span class="faith-logo-title">УГКЦ Лозанна</span>
+        </div>
+        <nav class="faith-nav">
+            {# Build links to pages in the current language folder (e.g., /uk/about.html) #}
+            <a href="/{{ lang }}/index.html">Головна</a>
+            <a href="/{{ lang }}/about.html">Про нас</a>
+            <a href="/{{ lang }}/gallery.html">Фотогалерея</a>
+            <a href="/{{ lang }}/schedule.html">Розклад</a>
+            <a href="/{{ lang }}/events.html">Події</a>
+            <a href="/{{ lang }}/resources.html">Ресурси</a>
+            <a href="/{{ lang }}/ukrainian-events.html">Українські події</a>
+            <a href="/{{ lang }}/contacts.html">Контакти</a>
+            <span class="faith-social">
+                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </span>
+            <div class="lang-switcher">
+                <a class="lang-btn" href="/uk/{{ pageName }}.html" data-lang="uk">UK</a>
+                <a class="lang-btn" href="/en/{{ pageName }}.html" data-lang="en">EN</a>
+                <a class="lang-btn" href="/fr/{{ pageName }}.html" data-lang="fr">FR</a>
+            </div>
+        </nav>
+    </div>
+</header>

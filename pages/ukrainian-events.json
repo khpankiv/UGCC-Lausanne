@@ -1,0 +1,14 @@
+{
+  "uk": {
+    "title": "Українські події",
+    "content": "<h1>Події в українському середовищі</h1><p>Анонси культурних та громадських подій для нашої спільноти: концерти, фестивалі, зустрічі українських організацій у Швейцарії. Якщо маєте інформацію про майбутню подію — надішліть, будь ласка, через сторінку Контакти.</p>"
+  },
+  "en": {
+    "title": "Ukrainian Events",
+    "content": "<h1>Events in the Ukrainian Community</h1><p>Announcements of cultural and community events relevant to Ukrainians in Switzerland: concerts, festivals, and society meetings. Please send event tips via the Contacts page.</p>"
+  },
+  "fr": {
+    "title": "Événements ukrainiens",
+    "content": "<h1>Événements dans la communauté ukrainienne</h1><p>Annonces d'événements culturels et communautaires utiles pour les Ukrainiens en Suisse : concerts, festivals et réunions. Envoyez vos suggestions via la page Contacts.</p>"
+  }
+}

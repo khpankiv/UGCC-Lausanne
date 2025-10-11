@@ -1,0 +1,13 @@
+<!-- Favicon як SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="crossGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e"/>
+      <stop offset="50%" style="stop-color:#c9b037"/>
+      <stop offset="100%" style="stop-color:#8b0000"/>
+    </linearGradient>
+  </defs>
+  <circle cx="16" cy="16" r="15" fill="url(#crossGradient)" stroke="#fff" stroke-width="2"/>
+  <path d="M14 8h4v16h-4zm-6 6h16v4h-16z" fill="#fff"/>
+  <circle cx="16" cy="16" r="3" fill="none" stroke="#fff" stroke-width="1"/>
+</svg>

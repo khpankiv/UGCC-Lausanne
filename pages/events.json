@@ -1,0 +1,10 @@
+{
+  "uk": {
+    "title": "Події",
+    "content": "<h1>Події</h1><ul><li>Свята Літургія — щонеділі о 10:00</li><li>Молодіжні зустрічі — щоп'ятниці о 18:00</li></ul>"
+  },
+  "en": {
+    "title": "Events",
+    "content": "<h1>Events</h1><ul><li>Holy Liturgy — every Sunday at 10:00</li><li>Youth meetings — every Friday at 18:00</li></ul>"
+  }
+}

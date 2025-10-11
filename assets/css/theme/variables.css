@@ -1,0 +1,12 @@
+:root {
+    --primary-color: #800020;
+    --secondary-color: #d4af37;
+    --accent-color: #a52a2a;
+    --white: #ffffff;
+    --cream: #fffbea;
+    --gray: #d6d6d6;
+    --shadow: 0 2px 8px rgba(128, 0, 32, 0.10);
+    --shadow-lg: 0 8px 24px rgba(128, 0, 32, 0.15);
+    --gradient-gold: linear-gradient(135deg, #d4af37 0%, #fffbea 50%, #ffffff 100%);
+    --gradient-primary: linear-gradient(135deg, #ffffff 0%, #fffbea 50%, #d4af37 100%);
+}

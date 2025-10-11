@@ -1,0 +1,10 @@
+{
+  "uk": {
+    "title": "Контакти",
+    "content": "<h1>Контакти</h1><p>Адреса: вул. Прикладна, 1, м. Львів<br>Телефон: +38 (032) 123-45-67<br>Email: info@church.ua</p>"
+  },
+  "en": {
+    "title": "Contacts",
+    "content": "<h1>Contacts</h1><p>Address: 1 Prykladna St, Lviv<br>Phone: +38 (032) 123-45-67<br>Email: info@church.ua</p>"
+  }
+}
