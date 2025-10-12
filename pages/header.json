@@ -3,8 +3,12 @@
     "menu": [
       { "title": "Головна", "url": "/index/" },
       { "title": "Про нас", "url": "/about/" },
-      { "title": "Духовенство", "url": "/clergy/" },
-      { "title": "Контакти", "url": "/contacts/" }
+      { "title": "Розклад", "url": "/schedule/" },
+      { "title": "Новини", "url": "/news/" },
+      { "title": "Духовні матеріали", "url": "/spiritual/" },
+      { "title": "Життя громади", "url": "/community/" },
+      { "title": "Контакти", "url": "/contacts/" },
+      { "title": "Пожертви", "url": "/donate/" }
     ],
     "siteName": "Парафія УГКЦ Лозанна"
   },
@@ -12,8 +16,12 @@
     "menu": [
       { "title": "Home", "url": "/en/index/" },
       { "title": "About", "url": "/en/about/" },
-      { "title": "Clergy", "url": "/en/clergy/" },
-      { "title": "Contacts", "url": "/en/contacts/" }
+      { "title": "Schedule", "url": "/en/schedule/" },
+      { "title": "News", "url": "/en/news/" },
+      { "title": "Spiritual", "url": "/en/spiritual/" },
+      { "title": "Community", "url": "/en/community/" },
+      { "title": "Contacts", "url": "/en/contacts/" },
+      { "title": "Donate", "url": "/en/donate/" }
     ],
     "siteName": "UGCC Lausanne Parish"
   },
@@ -21,8 +29,12 @@
     "menu": [
       { "title": "Accueil", "url": "/fr/index/" },
       { "title": "À propos", "url": "/fr/about/" },
-      { "title": "Clergé", "url": "/fr/clergy/" },
-      { "title": "Contacts", "url": "/fr/contacts/" }
+      { "title": "Horaire", "url": "/fr/schedule/" },
+      { "title": "Nouvelles", "url": "/fr/news/" },
+      { "title": "Spirituel", "url": "/fr/spiritual/" },
+      { "title": "Communauté", "url": "/fr/community/" },
+      { "title": "Contacts", "url": "/fr/contacts/" },
+      { "title": "Faire un don", "url": "/fr/donate/" }
     ],
     "siteName": "Paroisse UGCC Lausanne"
   }

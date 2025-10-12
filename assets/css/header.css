@@ -41,8 +41,9 @@
   margin-bottom: var(--space-xs);
   white-space: normal;
 }
+
 .header-title {
-  font-size: var(--font-size-title);
+  font-size: clamp(1.3rem, 2vw + 1rem, 2.2rem);
   color: var(--burgundy);
   margin: 0 0 var(--space-md) 0;
   word-break: break-word;
@@ -52,6 +53,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  flex-wrap: nowrap;
 }
 .lang-circle {
   display: flex;

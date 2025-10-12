@@ -1,0 +1,42 @@
+/* CSS Variables for UGCC Lausanne site (стилістика ugcc.fr)
+   Можна доповнювати і змінювати під час розробки */
+:root {
+  /* Кольори */
+  --burgundy: #7c1839;
+  --gold: #e6b800;
+  --bgsoft: #f6f6f7;
+  --border: #e0e0e0;
+  --text-main: #222;
+  --text-soft: #555;
+  --white: #fff;
+  --black: #111;
+
+  /* Шрифти */
+  --font-main: 'Montserrat', 'Arial', sans-serif;
+  --font-accent: 'Merriweather', serif;
+
+  /* Розміри (clamp для адаптивності) */
+  --font-size-main: clamp(1rem, 1vw + 0.9rem, 1.15rem);
+  --font-size-title: clamp(2rem, 3vw + 1rem, 3rem);
+  --font-size-menu: clamp(1rem, 1vw + 0.8rem, 1.1rem);
+  --font-size-small: clamp(0.9rem, 0.7vw + 0.7rem, 1rem);
+
+  /* Відступи */
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+
+  /* Header gap */
+  --header-gap: 24px;
+
+  /* Border radius */
+  --radius: 10px;
+  --radius-lg: 18px;
+
+  /* Тіні */
+  --shadow: 0 4px 16px rgba(0,0,0,.08);
+
+  /* Перехід */
+  --transition-fast: .2s;
+}

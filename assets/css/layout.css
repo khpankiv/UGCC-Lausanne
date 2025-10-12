@@ -1,0 +1,121 @@
+/* Layout styles for UGCC Lausanne (адаптивна сітка, flex, grid, брейкпоінти) */
+
+/* Grid for sections */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+.grid.cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid.cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .grid.cols-2, .grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Flex row for horizontal sliders */
+.flex-row {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+/* Card styles for news, materials, community */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-md);
+  min-width: 280px;
+  flex: 0 0 auto;
+}
+
+/* Hero slider */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+}
+.hero .slides {
+  position: relative;
+}
+.slide {
+  position: relative;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.slide .cover {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.slide .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));
+}
+.slide .inner {
+  position: relative;
+  z-index: 1;
+  padding: 90px 0;
+}
+.controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+.controls button {
+  background: #00000050;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  cursor: pointer;
+}
+.dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: #ffffff70;
+  cursor: pointer;
+}
+.dots button.active {
+  background: #fff;
+}
+
+/* Responsive cards in sliders */
+@media (max-width: 600px) {
+  .card {
+    min-width: 180px;
+    padding: var(--space-sm);
+  }
+  .slide .inner {
+    padding: 40px 0;
+  }
+}

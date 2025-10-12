@@ -41,9 +41,22 @@ pageJsonFiles.forEach(pageFile => {
     const header = headerData[langKey] || {};
     const footer = footerData[langKey] || {};
 
+
     // Визначаємо шлях для збереження
-    const outDir = lang.dir === '.' ? path.join('..', pageName) : path.join('..', lang.dir, pageName);
-    const outPath = path.join(__dirname, outDir, 'index.html');
+    let outDir, outPath;
+    if (pageName === 'index' && lang.dir === '.') {
+      // Головна сторінка українською — у корені
+      outDir = '..';
+      outPath = path.join(__dirname, outDir, 'index.html');
+    } else if (pageName === 'index') {
+      // Головна сторінка іншою мовою — у відповідній папці
+      outDir = path.join('..', lang.dir);
+      outPath = path.join(__dirname, outDir, 'index.html');
+    } else {
+      // Інші сторінки — у своїх папках
+      outDir = lang.dir === '.' ? path.join('..', pageName) : path.join('..', lang.dir, pageName);
+      outPath = path.join(__dirname, outDir, 'index.html');
+    }
 
     // Створюємо папку, якщо її немає
     fs.mkdirSync(path.join(__dirname, outDir), { recursive: true });
