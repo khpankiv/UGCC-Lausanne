@@ -1,0 +1,27 @@
+/* Footer styles */
+.footer {
+  background: #f6f6f7;
+  color: var(--ink);
+  padding: 32px 0 16px 0;
+  border-top: 1px solid var(--border);
+}
+.footer .container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.footer .grid {
+  display: flex;
+  gap: 32px;
+}
+.footer h3 {
+  color: var(--burgundy);
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+.footer a {
+  color: var(--burgundy);
+}
+.footer .dim {
+  color: var(--muted);
+}

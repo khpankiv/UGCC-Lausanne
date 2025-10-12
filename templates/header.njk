@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="container">
+    <div class="header-top-row">
+      <div class="header-logo-titles">
+        <img src="https://ugcc.fr/wp-content/uploads/2022/02/logo-5.png" alt="UGCC Logo" class="header-logo-full">
+        <div class="header-titles">
+          <div class="header-title-small">Єпархія святого Володимира Великого у Парижі для українців греко–католиків у Франції, Бельгії, Нідерландах, Люксембурзі та Швейцарії</div>
+          <h1 class="header-title">Українська Греко-Католицька Церква в Лозанні</h1>
+        </div>
+      </div>
+      <div class="header-actions-right">
+        <div class="lang-circle">
+          <span class="lang-label"><i class="fa-solid fa-globe"></i> {{ lang | upper }}</span>
+          <ul class="lang-list" tabindex="-1" hidden>
+            <li><a href="/index/">UA</a></li>
+            <li><a href="/fr/index/">FR</a></li>
+            <li><a href="/en/index/">EN</a></li>
+          </ul>
+        </div>
+        <span class="socials socials-header">
+          {% for social in footer.social %}
+            <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
+          {% endfor %}
+        </span>
+        <form class="header-search" action="#" method="get">
+          <input type="text" placeholder="Пошук" name="q">
+        </form>
+      </div>
+    </div>
+    <nav class="header-menu-row">
+      <ul>
+        {% for item in header.menu %}
+          <li><a href="{{ item.url }}"{% if item.cta %} class="cta"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

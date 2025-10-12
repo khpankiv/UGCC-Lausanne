@@ -1,0 +1,23 @@
+{
+  "uk": {
+    "copyright": "© 2025 Парафія УГКЦ Лозанна",
+    "address": "Лозанна, Швейцарія",
+    "social": [
+      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" }
+    ]
+  },
+  "en": {
+    "copyright": "© 2025 UGCC Lausanne Parish",
+    "address": "Lausanne, Switzerland",
+    "social": [
+      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" }
+    ]
+  },
+  "fr": {
+    "copyright": "© 2025 Paroisse UGCC Lausanne",
+    "address": "Lausanne, Suisse",
+    "social": [
+      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" }
+    ]
+  }
+}

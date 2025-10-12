@@ -1,0 +1,29 @@
+{
+  "uk": {
+    "menu": [
+      { "title": "Головна", "url": "/index/" },
+      { "title": "Про нас", "url": "/about/" },
+      { "title": "Духовенство", "url": "/clergy/" },
+      { "title": "Контакти", "url": "/contacts/" }
+    ],
+    "siteName": "Парафія УГКЦ Лозанна"
+  },
+  "en": {
+    "menu": [
+      { "title": "Home", "url": "/en/index/" },
+      { "title": "About", "url": "/en/about/" },
+      { "title": "Clergy", "url": "/en/clergy/" },
+      { "title": "Contacts", "url": "/en/contacts/" }
+    ],
+    "siteName": "UGCC Lausanne Parish"
+  },
+  "fr": {
+    "menu": [
+      { "title": "Accueil", "url": "/fr/index/" },
+      { "title": "À propos", "url": "/fr/about/" },
+      { "title": "Clergé", "url": "/fr/clergy/" },
+      { "title": "Contacts", "url": "/fr/contacts/" }
+    ],
+    "siteName": "Paroisse UGCC Lausanne"
+  }
+}

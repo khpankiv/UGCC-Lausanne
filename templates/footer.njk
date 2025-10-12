@@ -1,0 +1,31 @@
+<footer class="footer">
+  <div class="container">
+    <div class="grid cols-3">
+      <div>
+        <h3>Контакти</h3>
+        <p>Chem. de Beau-Rivage 3, 1006 Lausanne</p>
+        <p><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener">Відкрити на Google мапі</a></p>
+        <p>Email: info@ugcc-lausanne.ch</p>
+      </div>
+      <div>
+        <h3>Наші друзі</h3>
+        <p><a href="https://ugcc.fr/" target="_blank" rel="noopener">ugcc.fr — Єпархія Святого Володимира Великого</a></p>
+        <p><a href="#" target="_blank">ПЛАСТ — Lausanne</a></p>
+        <p><a href="#" target="_blank">Українська громада Лозанни</a></p>
+      </div>
+      <div>
+        <h3>Навігація</h3>
+        <p><a href="schedule/">Розклад</a> · <a href="news/">Новини</a> · <a href="spiritual/">Духовні матеріали</a> · <a href="contacts/">Контакти</a></p>
+      </div>
+    </div>
+    <p style="margin-top:12px"><small class="dim">© Українська Греко-Католицька Церква — Душпастирство в Лозанні | Створено волонтерами громади</small></p>
+  </div>
+<footer>
+  <p>{{ footer.address }}</p>
+  <p>{{ footer.copyright }}</p>
+  <ul>
+    {% for social in footer.social %}
+      <li><a href="{{ social.url }}">{{ social.title }}</a></li>
+    {% endfor %}
+  </ul>
+</footer>

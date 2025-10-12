@@ -1,3 +1,27 @@
+// Кастомний перемикач мов
+document.addEventListener('DOMContentLoaded', function() {
+  var langBtn = document.querySelector('.lang-btn');
+  var langList = document.querySelector('.lang-list');
+  if (!langBtn || !langList) return;
+  langBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var expanded = langBtn.getAttribute('aria-expanded') === 'true';
+    langBtn.setAttribute('aria-expanded', !expanded);
+    langList.hidden = expanded;
+  });
+  langList.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+      langList.hidden = true;
+      langBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('click', function(e) {
+    if (!langList.hidden) {
+      langList.hidden = true;
+      langBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
 function qs(s,el=document){return el.querySelector(s)}
 function qsa(s,el=document){return [...el.querySelectorAll(s)]}
 
