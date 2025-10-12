@@ -1,10 +1,29 @@
 {
   "uk": {
     "title": "Події",
-    "content": "<h1>Події</h1><ul><li>Свята Літургія — щонеділі о 10:00</li><li>Молодіжні зустрічі — щоп'ятниці о 18:00</li></ul>"
+    "content": "<h1>Події</h1><ul><li>Свята Літургія — щонеділі о 10:00</li><li>Молодіжні зустрічі — щоп'ятниці о 18:00</li></ul>",
+    "items": [
+      {"id": "evt1", "title": "Божа Літургія", "date": "2025-10-19", "time": "10:00", "image": "/assets/images/lozanna-2.jpg", "excerpt": "Запрошуємо на недільну Божественну Літургію."},
+      {"id": "evt2", "title": "Молодіжна зустріч", "date": "2025-10-24", "time": "18:00", "image": "/assets/images/lozanna-3.jpg", "excerpt": "Теми віри та спільноти для молоді."},
+      {"id": "evt3", "title": "Благодійний концерт", "date": "2025-11-02", "time": "19:00", "image": "/assets/images/lozanna-4.jpg", "excerpt": "Збір коштів для підтримки парафіян в Україні."}
+    ]
   },
   "en": {
     "title": "Events",
-    "content": "<h1>Events</h1><ul><li>Holy Liturgy — every Sunday at 10:00</li><li>Youth meetings — every Friday at 18:00</li></ul>"
+    "content": "<h1>Events</h1><ul><li>Holy Liturgy — every Sunday at 10:00</li><li>Youth meetings — every Friday at 18:00</li></ul>",
+    "items": [
+      {"id": "evt1", "title": "Holy Liturgy", "date": "2025-10-19", "time": "10:00", "image": "/assets/images/lozanna-2.jpg", "excerpt": "Join us for the Sunday Divine Liturgy."},
+      {"id": "evt2", "title": "Youth Meeting", "date": "2025-10-24", "time": "18:00", "image": "/assets/images/lozanna-3.jpg", "excerpt": "Topics of faith and community for youth."},
+      {"id": "evt3", "title": "Charity Concert", "date": "2025-11-02", "time": "19:00", "image": "/assets/images/lozanna-4.jpg", "excerpt": "Fundraising concert to support parish initiatives."}
+    ]
+  }
+ ,"fr": {
+    "title": "Événements",
+    "content": "<h1>Événements</h1><p>Événements et activités de la paroisse.</p>",
+    "items": [
+      {"id": "evt1", "title": "Liturgie dominicale", "date": "2025-10-19", "time": "10:00", "image": "https://images.unsplash.com/photo-1528239174-1f62d9d2a1f3?q=80&w=1200&auto=format&fit=crop&crop=entropy&cs=tinysrgb", "excerpt": "Rejoignez-nous pour la liturgie dominicale."},
+      {"id": "evt2", "title": "Rencontre des jeunes", "date": "2025-10-24", "time": "18:00", "image": "https://images.unsplash.com/photo-1508873699372-7aeac13b8d1a?q=80&w=1200&auto=format&fit=crop&crop=entropy&cs=tinysrgb", "excerpt": "Discussions et activités pour les jeunes."},
+      {"id": "evt3", "title": "Concert caritatif", "date": "2025-11-02", "time": "19:00", "image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=1200&auto=format&fit=crop&crop=entropy&cs=tinysrgb", "excerpt": "Concert de collecte de fonds pour la paroisse."}
+    ]
   }
 }

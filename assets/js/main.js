@@ -18,7 +18,13 @@ const translations = {
         events: "Події та новини",
         resources: "Духовні ресурси",
         ukrainianEvents: "Події в українському середовищі",
-        contact: "Контакти"
+        contact: "Контакти",
+        contactSuccess: "Дякуємо за ваше повідомлення! Ми зв'яжемося з вами найближчим часом.",
+        contactErrors: {
+            name: "Будь ласка, введіть ваше ім'я",
+            email: "Будь ласка, введіть коректну електронну адресу",
+            message: "Повідомлення має містити принаймні 10 символів"
+        }
     },
     fr: {
         nav: ["Accueil", "À propos", "Horaire", "Événements", "Ressources", "Événements ukrainiens", "Contacts"],
@@ -36,7 +42,13 @@ const translations = {
         events: "Événements et actualités",
         resources: "Ressources spirituelles",
         ukrainianEvents: "Événements dans la communauté ukrainienne",
-        contact: "Contacts"
+        contact: "Contacts",
+        contactSuccess: "Merci pour votre message ! Nous vous contacterons bientôt.",
+        contactErrors: {
+            name: "Veuillez entrer votre nom",
+            email: "Veuillez entrer une adresse e-mail valide",
+            message: "Le message doit contenir au moins 10 caractères"
+        }
     },
     en: {
         nav: ["Home", "About", "Schedule", "Events", "Resources", "Ukrainian Events", "Contacts"],
@@ -54,7 +66,13 @@ const translations = {
         events: "Events and News",
         resources: "Spiritual Resources",
         ukrainianEvents: "Events in the Ukrainian Community",
-        contact: "Contacts"
+        contact: "Contacts",
+        contactSuccess: "Thank you for your message! We will contact you shortly.",
+        contactErrors: {
+            name: "Please enter your name",
+            email: "Please enter a valid email address",
+            message: "Message must be at least 10 characters"
+        }
     },
     de: {
         nav: ["Startseite", "Über uns", "Zeitplan", "Veranstaltungen", "Ressourcen", "Ukrainische Veranstaltungen", "Kontakt"],
@@ -94,7 +112,27 @@ const translations = {
     }
 };
 
+// Determine current language and current page from the URL so switching preserves context
+let currentLang = (function(){
+    try {
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        if (parts.length >= 1 && ['uk','en','fr'].includes(parts[0])) return parts[0];
+    } catch (e) {}
+    return 'uk';
+})();
+
+let currentPage = (function(){
+    try {
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        if (parts.length >= 2) return parts[1].replace('.html','');
+    } catch (e) {}
+    // fallback to body class or index
+    const cls = (document.body && document.body.className) ? document.body.className.split(' ')[0] : '';
+    return cls || 'index';
+})();
+
 function setLanguage(lang) {
+    currentLang = lang;
     const t = translations[lang] || translations.uk;
         // Оновити навігацію
         document.querySelectorAll('nav ul li a').forEach((a, i) => {
@@ -137,13 +175,26 @@ function setLanguage(lang) {
 }
 
 function initLangSwitcher() {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            setLanguage(this.dataset.lang);
+    const selector = document.querySelector('.lang-switcher select');
+    if (selector) {
+        // If the server rendered the select with a selected option, leave it.
+        // Otherwise set it to the current page path for the detected language.
+        if (!selector.value || selector.value.indexOf('.html') === -1) {
+            selector.value = `/${currentLang}/${currentPage}.html`;
+        }
+
+        selector.addEventListener('change', function() {
+            const dest = this.value;
+            // If option value is already a complete path (contains .html), navigate to it.
+            if (dest && dest.indexOf('.html') > -1) {
+                window.location.href = dest;
+                return;
+            }
+            // Otherwise, build a path using the selected language and current page
+            const sel = dest.replace(/^\/+/, ''); // strip leading slash
+            window.location.href = `/${sel}/${currentPage}.html`;
         });
-    });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -154,9 +205,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initGallery();
     initScrollAnimations();
         initLangSwitcher();
-        setLanguage('uk');
+        // initialize in-page translated content to match the URL-derived language
+        setLanguage(currentLang);
     
     console.log('Сайт УГКЦ Лозанна завантажено успішно');
+});
+
+// mark hero loaded for CSS animation
+document.addEventListener('DOMContentLoaded', function() {
+    const hero = document.querySelector('.hero');
+    if (hero) setTimeout(() => hero.classList.add('loaded'), 120);
 });
 
 // Мобільне меню
@@ -165,23 +223,49 @@ function initMobileMenu() {
     const nav = document.querySelector('nav');
     
     if (menuToggle && nav) {
+        // ensure initial state
+        nav.classList.add('hidden');
+        nav.setAttribute('aria-hidden', 'true');
+
+        const updateToggleIcon = (expanded) => {
+            menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            menuToggle.innerText = expanded ? '✕' : '☰';
+        };
+
         menuToggle.addEventListener('click', function() {
-            nav.classList.toggle('hidden');
-            
-            // Змінюємо іконку
-            const icon = this.querySelector('i') || this;
-            if (nav.classList.contains('hidden')) {
-                icon.innerHTML = '☰';
+            const isHidden = nav.classList.contains('hidden');
+            if (isHidden) {
+                nav.classList.remove('hidden');
+                nav.setAttribute('aria-hidden', 'false');
+                updateToggleIcon(true);
+                // move focus to first link in nav for keyboard users
+                const firstLink = nav.querySelector('a');
+                if (firstLink) firstLink.focus();
             } else {
-                icon.innerHTML = '✕';
+                nav.classList.add('hidden');
+                nav.setAttribute('aria-hidden', 'true');
+                updateToggleIcon(false);
+                menuToggle.focus();
             }
         });
-        
+
         // Закривати меню при кліку на посилання (на мобільних)
         nav.addEventListener('click', function(e) {
             if (e.target.tagName === 'A' && window.innerWidth <= 768) {
                 nav.classList.add('hidden');
-                menuToggle.innerHTML = '☰';
+                nav.setAttribute('aria-hidden', 'true');
+                updateToggleIcon(false);
+                menuToggle.focus();
+            }
+        });
+
+        // Закривати меню на Escape з клавіатури
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !nav.classList.contains('hidden')) {
+                nav.classList.add('hidden');
+                nav.setAttribute('aria-hidden', 'true');
+                updateToggleIcon(false);
+                menuToggle.focus();
             }
         });
     }
@@ -214,16 +298,35 @@ function initContactForm() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Збираємо дані форми
+
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
-            
-            // Валідація
+
             if (validateContactForm(data)) {
-                // Тут буде логіка відправки форми
-                showMessage('Дякуємо за ваше повідомлення! Ми зв\'яжемося з вами найближчим часом.', 'success');
-                this.reset();
+                const endpoint = this.getAttribute('data-endpoint');
+                const successMsg = (translations[currentLang] && translations[currentLang].contactSuccess) || translations['en'].contactSuccess;
+                if (endpoint) {
+                    // send to provided endpoint (Formspree or similar)
+                    fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: formData
+                    }).then(r => {
+                        if (r.ok) {
+                            showMessage(successMsg, 'success');
+                            contactForm.reset();
+                        } else {
+                            showMessage('Server error. Please try again later.', 'error');
+                        }
+                    }).catch(err => {
+                        console.error('Contact error', err);
+                        showMessage('Network error. Please try again later.', 'error');
+                    });
+                } else {
+                    // No endpoint configured — simulate success for static demo
+                    showMessage(successMsg, 'success');
+                    this.reset();
+                }
             }
         });
     }
@@ -232,24 +335,25 @@ function initContactForm() {
 // Валідація форми контактів
 function validateContactForm(data) {
     const errors = [];
-    
+    const localized = (translations[currentLang] && translations[currentLang].contactErrors) || translations['en'].contactErrors;
+
     if (!data.name || data.name.trim().length < 2) {
-        errors.push('Будь ласка, введіть ваше ім\'я');
+        errors.push(localized.name);
     }
-    
+
     if (!data.email || !isValidEmail(data.email)) {
-        errors.push('Будь ласка, введіть коректну електронну адресу');
+        errors.push(localized.email);
     }
-    
+
     if (!data.message || data.message.trim().length < 10) {
-        errors.push('Повідомлення має містити принаймні 10 символів');
+        errors.push(localized.message);
     }
-    
+
     if (errors.length > 0) {
-        showMessage(errors.join('\\n'), 'error');
+        showMessage(errors.join('\n'), 'error');
         return false;
     }
-    
+
     return true;
 }
 
@@ -333,6 +437,11 @@ function initGallery() {
     galleryImages.forEach(img => {
         img.addEventListener('click', function() {
             openLightbox(this.src, this.alt);
+        });
+        // fallback if image fails to load -> use church-themed Unsplash photo
+        img.addEventListener('error', function() {
+            const placeholder = 'https://images.unsplash.com/photo-1509223197845-458d87318791?q=80&w=1600&auto=format&fit=crop&crop=entropy&cs=tinysrgb&ixlib=rb-4.0.3&s=church';
+            if (this.src !== placeholder) this.src = placeholder;
         });
     });
 }
@@ -500,3 +609,40 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// --- Event card date formatting and reveal ---
+function formatEventDates() {
+    document.querySelectorAll('[data-date]').forEach(el => {
+        const iso = el.getAttribute('data-date');
+        if (!iso) return;
+        const d = new Date(iso);
+        if (isNaN(d)) return;
+        const day = d.getDate();
+        const month = d.toLocaleString(undefined, { month: 'short' });
+        // clear and fill vertical structure
+        el.classList.add('v-vertical');
+        el.innerHTML = `<div class="day">${day}</div><div class="month">${month}</div>`;
+    });
+}
+
+function revealEventCards() {
+    const cards = document.querySelectorAll('.event-card');
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    cards.forEach(c => obs.observe(c));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        formatEventDates();
+        revealEventCards();
+    } catch (e) {
+        console.warn('Event formatting failed', e);
+    }
+});

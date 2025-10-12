@@ -1,10 +1,14 @@
 {
   "uk": {
     "title": "Контакти",
-    "content": "<h1>Контакти</h1><p>Адреса: вул. Прикладна, 1, м. Львів<br>Телефон: +38 (032) 123-45-67<br>Email: info@church.ua</p>"
+    "content": "<h1>Контакти</h1>\n<div class=\"contact-grid\">\n  <div class=\"contact-info\">\n    <p><strong>Адреса:</strong> вул. Прикладна, 1, м. Львів</p>\n    <p><strong>Телефон:</strong> +38 (032) 123-45-67</p>\n    <p><strong>Email:</strong> <a href=\"mailto:info@church.ua\">info@church.ua</a></p>\n    <p>Ми раді відповісти на ваші запитання та прийняти повідомлення щодо пасторальних потреб.</p>\n  </div>\n  <div class=\"contact-form-wrap\">\n    <form id=\"contactForm\" class=\"contact-form\">\n      <label>Ім'я<input type=\"text\" name=\"name\" placeholder=\"Ваше ім'я\" required></label>\n      <label>Email<input type=\"email\" name=\"email\" placeholder=\"email@example.com\" required></label>\n      <label>Повідомлення<textarea name=\"message\" rows=\"6\" placeholder=\"Ваше повідомлення\" required></textarea></label>\n      <button type=\"submit\">Надіслати</button>\n    </form>\n  </div>\n</div>"
   },
   "en": {
     "title": "Contacts",
-    "content": "<h1>Contacts</h1><p>Address: 1 Prykladna St, Lviv<br>Phone: +38 (032) 123-45-67<br>Email: info@church.ua</p>"
+    "content": "<h1>Contacts</h1>\n<div class=\"contact-grid\">\n  <div class=\"contact-info\">\n    <p><strong>Address:</strong> 1 Prykladna St, Lviv</p>\n    <p><strong>Phone:</strong> +38 (032) 123-45-67</p>\n    <p><strong>Email:</strong> <a href=\"mailto:info@church.ua\">info@church.ua</a></p>\n    <p>We will gladly answer your questions and receive messages regarding pastoral needs.</p>\n  </div>\n  <div class=\"contact-form-wrap\">\n    <form id=\"contactForm\" class=\"contact-form\">\n      <label>Name<input type=\"text\" name=\"name\" placeholder=\"Your name\" required></label>\n      <label>Email<input type=\"email\" name=\"email\" placeholder=\"email@example.com\" required></label>\n      <label>Message<textarea name=\"message\" rows=\"6\" placeholder=\"Your message\" required></textarea></label>\n      <button type=\"submit\">Send message</button>\n    </form>\n  </div>\n</div>"
+  },
+  "fr": {
+    "title": "Contacts",
+    "content": "<h1>Contacts</h1>\n<div class=\"contact-grid\">\n  <div class=\"contact-info\">\n    <p><strong>Adresse :</strong> 1 Prykladna St, Lviv</p>\n    <p><strong>Téléphone :</strong> +38 (032) 123-45-67</p>\n    <p><strong>Email :</strong> <a href=\"mailto:info@church.ua\">info@church.ua</a></p>\n    <p>Nous serons heureux de répondre à vos questions et de recevoir des messages concernant les besoins pastoraux.</p>\n  </div>\n  <div class=\"contact-form-wrap\">\n    <form id=\"contactForm\" class=\"contact-form\">\n      <label>Nom<input type=\"text\" name=\"name\" placeholder=\"Votre nom\" required></label>\n      <label>Email<input type=\"email\" name=\"email\" placeholder=\"email@example.com\" required></label>\n      <label>Message<textarea name=\"message\" rows=\"6\" placeholder=\"Votre message\" required></textarea></label>\n      <button type=\"submit\">Envoyer</button>\n    </form>\n  </div>\n</div>"
   }
 }

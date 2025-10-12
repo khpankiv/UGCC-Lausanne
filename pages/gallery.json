@@ -1,10 +1,14 @@
 {
   "uk": {
     "title": "Галерея",
-    "content": "<h1>Галерея</h1><p>Фото з наших подій та життя парафії.</p><div class=\"gallery\">\n  <img src=\"/assets/images/unnamed-2.jpg\" alt=\"Фото 1\" />\n  <img src=\"/assets/images/unnamed-3.jpg\" alt=\"Фото 2\" />\n  <img src=\"/assets/images/unnamed-4.jpg\" alt=\"Фото 3\" />\n  <img src=\"/assets/images/unnamed-5.jpg\" alt=\"Фото 4\" />\n  <img src=\"/assets/images/WhatsApp Image 2025-04-25 at 13.36.40.jpeg\" alt=\"Фото 5\" />\n</div>"
+    "content": "<h1>Галерея</h1><p>Фото з наших подій та життя парафії.</p><div class=\"gallery\">\n  <img src=\"/assets/images/lozanna-1.jpg\" alt=\"Фото 1\" />\n  <img src=\"/assets/images/lozanna-2.jpg\" alt=\"Фото 2\" />\n  <img src=\"/assets/images/lozanna-3.jpg\" alt=\"Фото 3\" />\n  <img src=\"/assets/images/lozanna-4.jpg\" alt=\"Фото 4\" />\n  <img src=\"/assets/images/lozanna-5.jpg\" alt=\"Фото 5\" />\n</div>"
   },
   "en": {
     "title": "Gallery",
-    "content": "<h1>Gallery</h1><p>Photos from our events and parish life.</p><div class=\"gallery\">\n  <img src=\"/assets/images/unnamed-2.jpg\" alt=\"Photo 1\" />\n  <img src=\"/assets/images/unnamed-3.jpg\" alt=\"Photo 2\" />\n  <img src=\"/assets/images/unnamed-4.jpg\" alt=\"Photo 3\" />\n  <img src=\"/assets/images/unnamed-5.jpg\" alt=\"Photo 4\" />\n  <img src=\"/assets/images/WhatsApp Image 2025-04-25 at 13.36.40.jpeg\" alt=\"Photo 5\" />\n</div>"
+    "content": "<h1>Gallery</h1><p>Photos from our events and parish life.</p><div class=\"gallery\">\n  <img src=\"/assets/images/lozanna-1.jpg\" alt=\"Photo 1\" />\n  <img src=\"/assets/images/lozanna-2.jpg\" alt=\"Photo 2\" />\n  <img src=\"/assets/images/lozanna-3.jpg\" alt=\"Photo 3\" />\n  <img src=\"/assets/images/lozanna-4.jpg\" alt=\"Photo 4\" />\n  <img src=\"/assets/images/lozanna-5.jpg\" alt=\"Photo 5\" />\n</div>"
+  }
+ ,"fr": {
+    "title": "Galerie",
+    "content": "<h1>Galerie</h1><p>Photos des événements et de la vie paroissiale.</p><div class=\"gallery\">\n  <img src=\"/assets/images/lozanna-1.jpg\" alt=\"Photo 1\" />\n  <img src=\"/assets/images/lozanna-2.jpg\" alt=\"Photo 2\" />\n  <img src=\"/assets/images/lozanna-3.jpg\" alt=\"Photo 3\" />\n</div>"
   }
 }

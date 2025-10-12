@@ -1,29 +1,64 @@
 <header class="faith-header">
-    <div class="faith-navbar">
-        <div class="faith-logo">
-            <span class="faith-logo-icon">☩</span>
-            <span class="faith-logo-title">УГКЦ Лозанна</span>
+    {# top strip removed — contact info moved to footer #}
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-left">&nbsp;</div>
+            <div class="topbar-right">&nbsp;</div>
         </div>
-        <nav class="faith-nav">
-            {# Build links to pages in the current language folder (e.g., /uk/about.html) #}
-            <a href="/{{ lang }}/index.html">Головна</a>
-            <a href="/{{ lang }}/about.html">Про нас</a>
-            <a href="/{{ lang }}/gallery.html">Фотогалерея</a>
-            <a href="/{{ lang }}/schedule.html">Розклад</a>
-            <a href="/{{ lang }}/events.html">Події</a>
-            <a href="/{{ lang }}/resources.html">Ресурси</a>
-            <a href="/{{ lang }}/ukrainian-events.html">Українські події</a>
-            <a href="/{{ lang }}/contacts.html">Контакти</a>
-            <span class="faith-social">
-                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            </span>
-            <div class="lang-switcher">
-                <a class="lang-btn" href="/uk/{{ pageName }}.html" data-lang="uk">UK</a>
-                <a class="lang-btn" href="/en/{{ pageName }}.html" data-lang="en">EN</a>
-                <a class="lang-btn" href="/fr/{{ pageName }}.html" data-lang="fr">FR</a>
-            </div>
-        </nav>
     </div>
+    <div class="faith-navbar">
+      <div class="container">
+        <div class="faith-brand">
+            <div class="faith-logo">
+                <span class="faith-logo-icon">☩</span>
+                <span class="faith-logo-title">УГКЦ Лозанна</span>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
+        </div>
+
+    <nav id="main-navigation" class="faith-nav" role="navigation" aria-label="Primary">
+            {# navLabels should be provided in render context as an object with localized names #}
+            {# navLabels provided by renderer; fallback to English map if missing #}
+            {% if navLabels and navLabels[lang] %}
+                {% set nav = navLabels[lang] %}
+            {% else %}
+                {% set nav = {
+                    'index':'Home', 'about':'About', 'gallery':'Gallery', 'schedule':'Schedule', 'events':'Events', 'resources':'Resources', 'ukrainianEvents':'Ukrainian Events', 'contacts':'Contacts'
+                } %}
+            {% endif %}
+
+            {# Ordered list of keys for navigation - must match renderer pages order #}
+            {% set keys = ['index','about','gallery','schedule','events','resources','ukrainian-events','contacts'] %}
+            {% for key in keys %}
+                {% if key == 'ukrainian-events' %}
+                    {% set label = nav.ukrainianEvents or 'Ukrainian Events' %}
+                {% else %}
+                    {% set label = nav[key] or key %}
+                {% endif %}
+                {% if lang == 'uk' %}
+                    {% set href = '/' + key + '.html' %}
+                {% else %}
+                    {% set href = '/' + lang + '/' + key + '.html' %}
+                {% endif %}
+                <a href="{{ href }}" class="{% if pageName == key %}active{% endif %}">{{ label }}</a>
+            {% endfor %}
+    </nav>
+
+    <div class="faith-right">
+        <span class="faith-social">
+            <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </span>
+
+        <div class="lang-switcher">
+            <select aria-label="Language selector">
+                <option value="/{{ pageName }}.html" {% if lang == 'uk' %}selected{% endif %}>UK</option>
+                <option value="/en/{{ pageName }}.html" {% if lang == 'en' %}selected{% endif %}>EN</option>
+                <option value="/fr/{{ pageName }}.html" {% if lang == 'fr' %}selected{% endif %}>FR</option>
+            </select>
+        </div>
+    </div>
+            </div>
+        </div>
 </header>

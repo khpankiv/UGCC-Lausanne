@@ -1,0 +1,5 @@
+{
+  "uk": { "title": "Капелани та священики", "content": "<h1>Наші священики</h1><p>Короткі біографії, контактна інформація та графік прийому.</p>" },
+  "en": { "title": "Clergy", "content": "<h1>Our Clergy</h1><p>Short bios, contact info and office hours.</p>" },
+  "fr": { "title": "Clergé", "content": "<h1>Nos prêtres</h1><p>Court biographies, informations de contact et horaires de réception.</p>" }
+}

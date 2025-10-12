@@ -2,19 +2,82 @@
 <html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/assets/css/theme/variables.css">
     <link rel="stylesheet" href="/assets/css/theme/layout.css">
     <link rel="stylesheet" href="/assets/css/theme/header.css">
     <link rel="stylesheet" href="/assets/css/theme/hero.css">
+    <link rel="stylesheet" href="/assets/css/theme/events.css">
     <link rel="stylesheet" href="/assets/css/theme/table.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
+<body class="{{ pageName }}">
     {% include "header.njk" %}
     <main>
         {{ content | safe }}
+    {% if pageName == 'index' and events and events.items %}
+    <section class="events-section container overlap">
+            <h2>{{ events.title or 'Events' }}</h2>
+            {% set featured = null %}
+            {% if events.items and events.items|length > 0 %}
+                {% set featured = events.items[0] %}
+            {% endif %}
+            {% if featured %}
+            <div class="featured-event">
+                <div class="hero-card">
+                    <img src="{{ featured.image }}" alt="{{ featured.title }}">
+                    <div class="overlay">
+                        <div class="info">
+                            <div class="date-badge" data-date="{{ featured.date }}">{{ featured.date }}</div>
+                            <h3>{{ featured.title }}</h3>
+                            <p>{{ featured.excerpt }}</p>
+                            <a class="btn btn-primary" href="/{{ lang }}/events.html#{{ featured.id }}">Деталі</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="events-grid">
+                        {% for item in events.items %}
+                        {% if loop.index0 > 0 %}
+                        <article class="event-card">
+                            {% if item.image %}
+                            <img src="{{ item.image }}" alt="{{ item.title }}">
+                            <div class="date-mini" data-date="{{ item.date }}">{{ item.date }}</div>
+                            {% endif %}
+                            <div class="event-card-body">
+                                <div class="meta">{{ item.date }} • {{ item.time }}</div>
+                                <h3>{{ item.title }}</h3>
+                                <p>{{ item.excerpt }}</p>
+                                <a class="btn btn-primary" href="/{{ lang }}/events.html#{{ item.id }}">Деталі</a>
+                            </div>
+                        </article>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="events-grid">
+                {% for item in events.items %}
+                <article class="event-card">
+                    {% if item.image %}
+                    <img src="{{ item.image }}" alt="{{ item.title }}">
+                    {% endif %}
+                    <div class="event-card-body">
+                        <div class="meta">{{ item.date }} • {{ item.time }}</div>
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.excerpt }}</p>
+                        <a class="btn btn-primary" href="/{{ lang }}/events.html#{{ item.id }}">Деталі</a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </section>
+        {% endif %}
     </main>
     {% include "footer.njk" %}
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
