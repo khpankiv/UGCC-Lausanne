@@ -100,15 +100,15 @@
 }
 .header-menu-row ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-lg);
+  flex-wrap: nowrap;
+  gap: var(--space-md);
   list-style: none;
   padding: 0;
   margin: 0;
 }
 .header-menu-row a {
   font-size: var(--font-size-menu);
-  padding: var(--space-xs) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius);
   color: #fff;
   text-decoration: none;
