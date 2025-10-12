@@ -1,5 +1,0 @@
-{
-  "uk": { "title": "Новини", "content": "<h1>Останні новини</h1><p>Тут буде стрічка новин парафії з короткими анонсами.</p>" },
-  "en": { "title": "News", "content": "<h1>Latest News</h1><p>This will be the parish news feed with short announcements.</p>" },
-  "fr": { "title": "Actualités", "content": "<h1>Dernières nouvelles</h1><p>Flux d'actualités de la paroisse avec de courts annonces.</p>" }
-}
