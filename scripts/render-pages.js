@@ -1,15 +1,15 @@
-// Скрипт для генерації HTML-сторінок із шаблонів Nunjucks
+//  Nunjucks render script for static site generation
 const fs = require('fs');
 const path = require('path');
 
 const nunjucks = require('nunjucks');
 
-// Налаштування Nunjucks
+// Nunjucks
 nunjucks.configure('templates', {
   autoescape: true,
 });
 
-// Мови сайту
+// Languages of the site
 
 const languages = [
   { code: '', dir: '.' }, // default (uk)
@@ -17,17 +17,17 @@ const languages = [
   { code: 'fr', dir: 'fr' },
 ];
 
-// Читаємо дані для header/footer
+// Read header/footer data
 const headerData = JSON.parse(fs.readFileSync(path.join(__dirname, '../pages/header.json'), 'utf-8'));
 const footerData = JSON.parse(fs.readFileSync(path.join(__dirname, '../pages/footer.json'), 'utf-8'));
 
-// Список сторінок (беремо з папки pages)
+// Pages list from folder pages)
 const pagesDir = path.join(__dirname, '../pages');
 const pageFiles = fs.readdirSync(pagesDir).filter(f => f.endsWith('.json'));
 
 
 
-// Шукаємо всі page.json у підпапках pages
+// Looking for all json in pages
 const glob = require('glob');
 const pageJsonFiles = glob.sync(path.join(pagesDir, '*/page.json'));
 
@@ -42,26 +42,23 @@ pageJsonFiles.forEach(pageFile => {
     const footer = footerData[langKey] || {};
 
 
-    // Визначаємо шлях для збереження
+    // Creating the path for saving
     let outDir, outPath;
     if (pageName === 'index' && lang.dir === '.') {
-      // Головна сторінка українською — у корені
       outDir = '..';
       outPath = path.join(__dirname, outDir, 'index.html');
     } else if (pageName === 'index') {
-      // Головна сторінка іншою мовою — у відповідній папці
       outDir = path.join('..', lang.dir);
       outPath = path.join(__dirname, outDir, 'index.html');
     } else {
-      // Інші сторінки — у своїх папках
       outDir = lang.dir === '.' ? path.join('..', pageName) : path.join('..', lang.dir, pageName);
       outPath = path.join(__dirname, outDir, 'index.html');
     }
 
-    // Створюємо папку, якщо її немає
+    // Creating the directory if it doesn't exist
     fs.mkdirSync(path.join(__dirname, outDir), { recursive: true });
 
-    // Рендеримо сторінку
+    // Rendering the page
     const html = nunjucks.render('base.njk', {
       ...langData,
       page: pageName,
@@ -70,10 +67,10 @@ pageJsonFiles.forEach(pageFile => {
       footer
     });
 
-    // Записуємо файл
+    // Writing the file
     fs.writeFileSync(outPath, html, 'utf-8');
     console.log(`Generated: ${outPath}`);
   });
 });
 
-console.log('Генерація сторінок завершена.');
+console.log('Page rendering completed successfully.');

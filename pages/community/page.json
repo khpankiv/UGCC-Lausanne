@@ -1,0 +1,14 @@
+{
+  "uk": {
+    "title": "Життя громади",
+    "content": "Тут буде інформація про життя громади, події, зустрічі."
+  },
+  "en": {
+    "title": "Community",
+    "content": "Here will be information about community life, events, meetings."
+  },
+  "fr": {
+    "title": "Communauté",
+    "content": "Ici sera l'information sur la vie communautaire, les événements, les rencontres."
+  }
+}

@@ -1,7 +1,7 @@
 {
   "uk": {
     "menu": [
-      { "title": "Головна", "url": "/index/" },
+  { "title": "Головна", "url": "/" },
       { "title": "Про нас", "url": "/about/" },
       { "title": "Розклад", "url": "/schedule/" },
       { "title": "Новини", "url": "/news/" },
@@ -14,7 +14,7 @@
   },
   "en": {
     "menu": [
-      { "title": "Home", "url": "/en/index/" },
+  { "title": "Home", "url": "/en/" },
       { "title": "About", "url": "/en/about/" },
       { "title": "Schedule", "url": "/en/schedule/" },
       { "title": "News", "url": "/en/news/" },
@@ -27,7 +27,7 @@
   },
   "fr": {
     "menu": [
-      { "title": "Accueil", "url": "/fr/index/" },
+  { "title": "Accueil", "url": "/fr/" },
       { "title": "À propos", "url": "/fr/about/" },
       { "title": "Horaire", "url": "/fr/schedule/" },
       { "title": "Nouvelles", "url": "/fr/news/" },
