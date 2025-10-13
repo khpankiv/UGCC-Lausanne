@@ -1,5 +1,5 @@
-/* === Базові стилі для UGCC Lausanne === */
-@import url('variables.css');
+/* === Basic styles for UGCC Lausanne === */
+@import url('layout.css');
 
 /* Reset */
 *, *::before, *::after {
@@ -43,19 +43,20 @@ button, .btn {
 	cursor: pointer;
 	transition: background var(--transition-fast);
 }
+
 button:hover, .btn:hover {
 	background: var(--gold);
 	color: var(--burgundy);
 }
 
 section {
-	padding: var(--space-lg) 0;
+	padding-block: var(--section-block-padding);
 }
 
 .container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 var(--space-md);
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
 }
 
 img {
@@ -67,9 +68,9 @@ img {
 @media (max-width: 900px) {
 	.container {
 		max-width: 100%;
-		padding: 0 var(--space-sm);
+		padding-inline: var(--space-sm);
 	}
 	section {
-		padding: var(--space-md) 0;
+		padding-block: var(--space-md);
 	}
 }
