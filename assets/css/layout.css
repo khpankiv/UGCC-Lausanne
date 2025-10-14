@@ -5,6 +5,8 @@
 .grid {
   display: grid;
   gap: var(--layout-gap);
+  width: 100%;
+  box-sizing: border-box;
 }
 .grid.cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -26,6 +28,8 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   scroll-behavior: smooth;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Card styles for news, materials, community */
