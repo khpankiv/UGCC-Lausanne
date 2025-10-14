@@ -2,56 +2,66 @@
 @import url('layout.css');
 
 /* Reset */
-*, *::before, *::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	font-family: var(--font-main);
-	font-size: var(--font-size-main);
-	color: var(--text-main);
-	background: var(--bgsoft);
-	line-height: 1.6;
-	min-height: 100vh;
+  font-family: var(--font-main);
+  font-size: var(--font-size-main);
+  color: var(--text-main);
+  background: var(--bgsoft);
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: var(--font-accent);
-	color: var(--burgundy);
-	margin-bottom: var(--space-sm);
-	font-weight: 700;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-accent);
+  color: var(--burgundy);
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
 }
 
 a {
-	color: var(--burgundy);
-	text-decoration: none;
-	transition: color var(--transition-fast);
+  color: var(--burgundy);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
+
 a:hover {
-	color: var(--gold);
+  color: var(--gold);
 }
 
-button, .btn {
-	font-family: var(--font-main);
-	font-size: var(--font-size-main);
-	background: var(--burgundy);
-	color: var(--white);
-	border: none;
-	border-radius: var(--radius);
-	padding: var(--space-sm) var(--space-md);
-	cursor: pointer;
-	transition: background var(--transition-fast);
+button,
+.btn {
+  font-family: var(--font-main);
+  font-size: var(--font-size-main);
+  background: var(--burgundy);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
 }
 
-button:hover, .btn:hover {
-	background: var(--gold);
-	color: var(--burgundy);
+button:hover,
+.btn:hover {
+  background: var(--gold);
+  color: var(--burgundy);
 }
 
 section {
-	padding-block: var(--section-block-padding);
+  padding-block: var(--section-block-padding);
 }
 
 .container {
@@ -61,17 +71,18 @@ section {
 }
 
 img {
-	max-width: 100%;
-	height: auto;
-	display: block;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-@media (max-width: 900px) {
-	.container {
-		max-width: 100%;
-		padding-inline: var(--space-sm);
-	}
-	section {
-		padding-block: var(--space-md);
-	}
+@media (width <= 900px) {
+  .container {
+    max-width: 100%;
+    padding-inline: var(--space-sm);
+  }
+
+  section {
+    padding-block: var(--space-md);
+  }
 }

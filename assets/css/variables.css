@@ -5,7 +5,7 @@
   --gold: #e6b800;
   --burgundy: #7c1839;
   --bgsoft: #f6f6f7;
-  --bg: #ffffff;
+  --bg: #fff;
   --bg-section: #faf9f9;
   --border: #e0e0e0;
   --text-main: #222;
@@ -14,10 +14,10 @@
   --muted: #777;
   --white: #fff;
   --black: #111;
-  --burgundy-light: rgba(124, 24, 57, 0.1);
+  --burgundy-light: rgb(124 24 57 / 10%);
   --link: var(--burgundy);
   --link-hover: var(--gold);
-  --shadow-hover: 0 6px 20px rgba(0,0,0,0.12);
+  --shadow-hover: 0 6px 20px rgb(0 0 0 / 12%);
 
   /* Fonts */
   --font-main: 'Montserrat', 'Arial', sans-serif;
@@ -35,9 +35,9 @@
   --space-md: clamp(16px, 3vw, 32px);
   --space-lg: clamp(32px, 6vw, 64px);
 
-  /* Header*/
+  /* Header */
   --header-gap: var(--space-md);
-  --header-block-padding: var(--space-md) ;
+  --header-block-padding: var(--space-md);
   --header-logo-width: 120px;
   --header-logo-mobile-max-width: 80px;
   --header-search-width: 180px;
@@ -45,16 +45,15 @@
   --socials-font-size: 1.35rem;
   --menu-height: 56px;
   --menu-padding-y: 8px;
-
   --section-block-padding: var(--space-lg);
 
   /* Shadows */
-  --shadow: 0 4px 16px rgba(0,0,0,.08);
+  --shadow: 0 4px 16px rgb(0 0 0 / 8%);
 
   /* Transition */
-  --transition-fast: .2s;
+  --transition-fast: 0.2s;
 
-/* === Base styles for UGCC Lausanne === */
+  /* === Base styles for UGCC Lausanne === */
   --container-width: 1200px;
   --container-padding: var(--space-md);
 

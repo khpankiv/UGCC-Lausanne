@@ -8,15 +8,18 @@
   width: 100%;
   box-sizing: border-box;
 }
+
 .grid.cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
 .grid.cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-@media (max-width: 900px) {
-  .grid.cols-2, .grid.cols-3 {
+@media (width <= 900px) {
+  .grid.cols-2,
+  .grid.cols-3 {
     grid-template-columns: 1fr;
   }
 }
@@ -49,9 +52,11 @@
   overflow: hidden;
   color: var(--white);
 }
+
 .hero .slides {
   position: relative;
 }
+
 .slide {
   position: relative;
   min-height: 60vh;
@@ -59,22 +64,26 @@
   place-items: center;
   text-align: center;
 }
+
 .slide .cover {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
 }
+
 .slide .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));
+  background: linear-gradient(180deg, rgb(0 0 0 / 35%), rgb(0 0 0 / 55%));
 }
+
 .slide .inner {
   position: relative;
   z-index: 1;
   padding: var(--layout-slide-padding);
 }
+
 .controls {
   position: absolute;
   inset: 0;
@@ -83,6 +92,7 @@
   justify-content: space-between;
   padding: 0 var(--layout-controls-padding);
 }
+
 .controls button {
   background: #00000050;
   color: #fff;
@@ -93,6 +103,7 @@
   font-size: 22px;
   cursor: pointer;
 }
+
 .dots {
   position: absolute;
   bottom: 12px;
@@ -102,6 +113,7 @@
   gap: var(--layout-dots-gap);
   justify-content: center;
 }
+
 .dots button {
   width: var(--layout-dots-size);
   height: var(--layout-dots-size);
@@ -110,16 +122,18 @@
   background: #ffffff70;
   cursor: pointer;
 }
+
 .dots button.active {
   background: #fff;
 }
 
 /* Responsive cards in sliders */
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .card {
     min-width: var(--layout-card-min-width-mobile);
     padding: var(--space-sm);
   }
+
   .slide .inner {
     padding: var(--layout-slide-padding-mobile);
   }
