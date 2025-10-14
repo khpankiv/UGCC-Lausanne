@@ -25,6 +25,9 @@
   {% include "header.njk" %}
   <main>
     {% block content %}{% endblock %}
+    {# Include page-specific template if available #}
+    {% set page_template = "pages/" + page + ".njk" %}
+    {% include page_template ignore missing %}
   </main>
   {% include "footer.njk" %}
   <script src="/assets/js/main.js"></script>

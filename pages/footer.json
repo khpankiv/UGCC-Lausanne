@@ -1,23 +1,62 @@
 {
   "uk": {
-    "copyright": "© 2025 Парафія УГКЦ Лозанна",
-    "address": "Лозанна, Швейцарія",
+    "contacts_title": "Контакти",
+    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
+    "map_label": "Відкрити на Google Maps",
+    "email": "info@ugcc-lausanne.ch",
+    "eparchy_title": "Єпархія",
+    "eparchy_site_label": "ugcc.fr — Єпархія УГКЦ у Франції",
+    "sections_title": "Розділи",
+    "link_schedule": "Розклад",
+    "link_news": "Новини",
+    "link_spiritual": "Духовні матеріали",
+    "link_contacts": "Контакти",
     "social": [
-      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" }
-    ]
+      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" },
+      { "title": "Instagram", "url": "#" },
+      { "title": "Twitter", "url": "#" },
+      { "title": "WhatsApp", "url": "#" }
+    ],
+    "copyright": "© 2025 Парафія УГКЦ у Лозанні"
   },
   "en": {
-    "copyright": "© 2025 UGCC Lausanne Parish",
-    "address": "Lausanne, Switzerland",
+    "contacts_title": "Contacts",
+    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
+    "map_label": "Open in Google Maps",
+    "email": "info@ugcc-lausanne.ch",
+    "eparchy_title": "Eparchy",
+    "eparchy_site_label": "ugcc.fr — UGCC Eparchy in France",
+    "sections_title": "Sections",
+    "link_schedule": "Schedule",
+    "link_news": "News",
+    "link_spiritual": "Spiritual",
+    "link_contacts": "Contacts",
     "social": [
-      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" }
-    ]
+      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" },
+      { "title": "Instagram", "url": "#" },
+      { "title": "Twitter", "url": "#" },
+      { "title": "WhatsApp", "url": "#" }
+    ],
+    "copyright": "© 2025 UGCC Lausanne Parish"
   },
   "fr": {
-    "copyright": "© 2025 Paroisse UGCC Lausanne",
-    "address": "Lausanne, Suisse",
+    "contacts_title": "Contacts",
+    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
+    "map_label": "Ouvrir dans Google Maps",
+    "email": "info@ugcc-lausanne.ch",
+    "eparchy_title": "Éparchie",
+    "eparchy_site_label": "ugcc.fr — Éparchie UGCC en France",
+    "sections_title": "Rubriques",
+    "link_schedule": "Horaire",
+    "link_news": "Nouvelles",
+    "link_spiritual": "Spirituel",
+    "link_contacts": "Contacts",
     "social": [
-      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" }
-    ]
+      { "title": "Facebook", "url": "https://facebook.com/ugcc.lausanne" },
+      { "title": "Instagram", "url": "#" },
+      { "title": "Twitter", "url": "#" },
+      { "title": "WhatsApp", "url": "#" }
+    ],
+    "copyright": "© 2025 Paroisse UGCC Lausanne"
   }
 }

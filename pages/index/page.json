@@ -1,14 +1,104 @@
 {
   "uk": {
-    "title": "Головна сторінка",
-    "content": "Ласкаво просимо на сайт парафії УГКЦ у Лозанні!"
+    "page_title": "Головна — Парафія УГКЦ у Лозанні",
+    "hero": [
+      { "title": "Останні новини", "subtitle": "Події та оголошення", "url": "/news/", "image": "/assets/images/ph-hero.jpg" },
+      { "title": "Духовні матеріали", "subtitle": "Роздуми, проповіді, молитви", "url": "/spiritual/", "image": "/assets/images/ph-hero.jpg" },
+      { "title": "Життя громади", "subtitle": "Фото і історії парафії", "url": "/community/", "image": "/assets/images/ph-hero.jpg" }
+    ],
+    "sections": {
+      "news": {
+        "title": "Останні новини",
+        "items": [
+          { "title": "Святкова Літургія у неділю", "date": "2025-02-02", "url": "/news/" },
+          { "title": "Катехиза для дітей", "date": "2025-01-26", "url": "/news/" },
+          { "title": "Збір пожертв на потреби", "date": "2025-01-19", "url": "/news/" }
+        ]
+      },
+      "spiritual": {
+        "title": "Духовні матеріали",
+        "items": [
+          { "title": "Недільна проповідь", "url": "/spiritual/" },
+          { "title": "Розарій: як молитися", "url": "/spiritual/" },
+          { "title": "Псалми дня", "url": "/spiritual/" }
+        ]
+      },
+      "community": {
+        "title": "Життя громади",
+        "items": [
+          { "title": "Спільна трапеза", "url": "/community/", "image": "/assets/images/lozanna-3.jpg" },
+          { "title": "Волонтерство", "url": "/community/", "image": "/assets/images/lozanna-2.jpg" },
+          { "title": "Молодіжні зустрічі", "url": "/community/", "image": "/assets/images/lozanna-4.jpg" }
+        ]
+      }
+    }
   },
   "en": {
-    "title": "Home page",
-    "content": "Welcome to the UGCC Lausanne parish website!"
+    "page_title": "Home — UGCC Lausanne Parish",
+    "hero": [
+      { "title": "Latest News", "subtitle": "Events and announcements", "url": "/en/news/", "image": "/assets/images/ph-hero.jpg" },
+      { "title": "Spiritual Materials", "subtitle": "Reflections, homilies, prayers", "url": "/en/spiritual/", "image": "/assets/images/ph-hero.jpg" },
+      { "title": "Community Life", "subtitle": "Photos and parish stories", "url": "/en/community/", "image": "/assets/images/ph-hero.jpg" }
+    ],
+    "sections": {
+      "news": {
+        "title": "Latest News",
+        "items": [
+          { "title": "Festive Liturgy on Sunday", "date": "2025-02-02", "url": "/en/news/" },
+          { "title": "Children's catechesis", "date": "2025-01-26", "url": "/en/news/" },
+          { "title": "Charity collection", "date": "2025-01-19", "url": "/en/news/" }
+        ]
+      },
+      "spiritual": {
+        "title": "Spiritual Materials",
+        "items": [
+          { "title": "Sunday homily", "url": "/en/spiritual/" },
+          { "title": "How to pray the Rosary", "url": "/en/spiritual/" },
+          { "title": "Psalms of the day", "url": "/en/spiritual/" }
+        ]
+      },
+      "community": {
+        "title": "Community Life",
+        "items": [
+          { "title": "Shared meal", "url": "/en/community/", "image": "/assets/images/lozanna-3.jpg" },
+          { "title": "Volunteering", "url": "/en/community/", "image": "/assets/images/lozanna-2.jpg" },
+          { "title": "Youth meetings", "url": "/en/community/", "image": "/assets/images/lozanna-4.jpg" }
+        ]
+      }
+    }
   },
   "fr": {
-    "title": "Page d'accueil",
-    "content": "Bienvenue sur le site de la paroisse UGCC Lausanne!"
+    "page_title": "Accueil — Paroisse UGCC Lausanne",
+    "hero": [
+      { "title": "Dernières nouvelles", "subtitle": "Événements et annonces", "url": "/fr/news/", "image": "/assets/images/ph-hero.jpg" },
+      { "title": "Matériels spirituels", "subtitle": "Réflexions, homélies, prières", "url": "/fr/spiritual/", "image": "/assets/images/ph-hero.jpg" },
+      { "title": "Vie de la communauté", "subtitle": "Photos et histoires de la paroisse", "url": "/fr/community/", "image": "/assets/images/ph-hero.jpg" }
+    ],
+    "sections": {
+      "news": {
+        "title": "Dernières nouvelles",
+        "items": [
+          { "title": "Liturgie festive dimanche", "date": "2025-02-02", "url": "/fr/news/" },
+          { "title": "Catéchèse pour enfants", "date": "2025-01-26", "url": "/fr/news/" },
+          { "title": "Collecte de charité", "date": "2025-01-19", "url": "/fr/news/" }
+        ]
+      },
+      "spiritual": {
+        "title": "Matériels spirituels",
+        "items": [
+          { "title": "Homélie dominicale", "url": "/fr/spiritual/" },
+          { "title": "Chapelet: comment prier", "url": "/fr/spiritual/" },
+          { "title": "Psaumes du jour", "url": "/fr/spiritual/" }
+        ]
+      },
+      "community": {
+        "title": "Vie de la communauté",
+        "items": [
+          { "title": "Repas partagé", "url": "/fr/community/", "image": "/assets/images/lozanna-3.jpg" },
+          { "title": "Bénévolat", "url": "/fr/community/", "image": "/assets/images/lozanna-2.jpg" },
+          { "title": "Rencontres de jeunes", "url": "/fr/community/", "image": "/assets/images/lozanna-4.jpg" }
+        ]
+      }
+    }
   }
 }

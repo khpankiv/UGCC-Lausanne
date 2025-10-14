@@ -24,38 +24,53 @@
 <body>
   <header class="header">
   <div class="container">
-    <div class="header-top-row grid cols-2">
+    <div class="header-top-row grid">
       <div class="header-logo-titles">
         <img src="https://ugcc.fr/wp-content/uploads/2022/02/logo-5.png" alt="UGCC Logo" class="header-logo-full">
         <div class="header-titles">
-          <div class="header-title-small">Єпархія святого Володимира Великого у Парижі для українців греко–католиків у Франції, Бельгії, Нідерландах, Люксембурзі та Швейцарії</div>
-          <h1 class="header-title">Українська Греко-Католицька Церква в Лозанні</h1>
+          <div class="header-title-small">Église grecque-catholique ukrainienne</div>
+          <h1 class="header-title">Paroisse UGCC Lausanne</h1>
         </div>
       </div>
       <div class="header-actions-right">
-        <div class="header-actions-top">
+        <div class="header-actions-grid">
           <div class="lang-circle">
-            <span class="lang-label"><i class="fa-solid fa-globe"></i> FR</span>
-            <ul class="lang-list" tabindex="-1" hidden>
-              <li><a href="/">UA</a></li>
-              <li><a href="/fr/">FR</a></li>
-              <li><a href="/en/">EN</a></li>
+            <!-- Accessible language toggle button: JS expects .lang-btn and toggles .lang-list -->
+            
+            
+            
+            <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu" title="Langue">
+              
+              
+              
+              <span class="lang-label"><i class="fa-solid fa-globe"></i> Français</span>
+            </button>
+            <ul id="lang-menu" class="lang-list" role="menu" hidden>
+              <li role="menuitem"><a href="/">Українська</a></li>
+              <li role="menuitem"><a href="/fr/">Français</a></li>
+              <li role="menuitem"><a href="/en/">English</a></li>
             </ul>
           </div>
           <span class="socials socials-header">
             
               <a href="https://facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
             
+              <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            
+              <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            
+              <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            
           </span>
-        </div>
-        <div class="header-actions-bottom">
           <form class="header-search" action="#" method="get">
-            <input type="text" placeholder="Пошук" name="q">
+            <input type="text" placeholder="Recherche" name="q">
           </form>
         </div>
       </div>
     </div>
-    <nav class="header-menu-row">
+  </div>
+  <nav class="header-menu-row">
+    <div class="container">
       <ul>
         
           <li><a href="/fr/">Accueil</a></li>
@@ -75,37 +90,46 @@
           <li><a href="/fr/donate/">Faire un don</a></li>
         
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
 
   <main>
     
+    
+    
+    
   </main>
-  
-<footer class="footer">
+  <footer class="footer">
   <div class="container">
     <div class="grid cols-3">
       <div>
-        <h3>Контакти</h3>
+        <h3>Contacts</h3>
         <p>Chem. de Beau-Rivage 3, 1006 Lausanne</p>
-        <p><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener">Відкрити на Google мапі</a></p>
-        <p>Email: info@ugcc-lausanne.ch</p>
+        <p><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener">Ouvrir dans Google Maps</a></p>
+        
+          <p>Email: <a href="mailto:info@ugcc-lausanne.ch">info@ugcc-lausanne.ch</a></p>
+        
       </div>
       <div>
-        <h3>Наші друзі</h3>
-        <p><a href="https://ugcc.fr/" target="_blank" rel="noopener">ugcc.fr — Єпархія Святого Володимира Великого</a></p>
-        <p><a href="#" target="_blank">ПЛАСТ — Lausanne</a></p>
-        <p><a href="#" target="_blank">Українська громада Лозанни</a></p>
+        <h3>Éparchie</h3>
+        <p><a href="https://ugcc.fr/" target="_blank" rel="noopener">ugcc.fr — Éparchie UGCC en France</a></p>
+        
       </div>
       <div>
-        <h3>Навігація</h3>
-        <p><a href="schedule/">Розклад</a> · <a href="news/">Новини</a> · <a href="spiritual/">Духовні матеріали</a> · <a href="contacts/">Контакти</a></p>
+        <h3>Rubriques</h3>
+        <p>
+          <a href="/schedule/">Horaire</a>
+          · <a href="/news/">Nouvelles</a>
+          · <a href="/spiritual/">Spirituel</a>
+          · <a href="/contacts/">Contacts</a>
+        </p>
       </div>
     </div>
-  <p class="footer-copyright"><small class="dim">© Українська Греко-Католицька Церква — Душпастирство в Лозанні | Створено волонтерами громади</small></p>
+    <p class="footer-copyright"><small class="dim">© 2025 Paroisse UGCC Lausanne</small></p>
   </div>
 </footer>
+
 
   <script src="/assets/js/main.js"></script>
 </body>

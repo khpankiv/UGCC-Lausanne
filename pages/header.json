@@ -1,20 +1,22 @@
 {
   "uk": {
     "menu": [
-  { "title": "Головна", "url": "/" },
+      { "title": "Головна", "url": "/" },
       { "title": "Про нас", "url": "/about/" },
       { "title": "Розклад", "url": "/schedule/" },
       { "title": "Новини", "url": "/news/" },
       { "title": "Духовні матеріали", "url": "/spiritual/" },
       { "title": "Життя громади", "url": "/community/" },
       { "title": "Контакти", "url": "/contacts/" },
-      { "title": "Пожертви", "url": "/donate/" }
+      { "title": "Пожертва", "url": "/donate/" }
     ],
-    "siteName": "Парафія УГКЦ Лозанна"
+    "siteName": "Парафія УГКЦ у Лозанні",
+    "siteSubtitle": "Єпархія святого Володимира Великого у Парижі для українців греко-католиків у Франції, Бельгії, Нідерландах, Люксембурзі та Швейцарії",
+    "searchPlaceholder": "Пошук"
   },
   "en": {
     "menu": [
-  { "title": "Home", "url": "/en/" },
+      { "title": "Home", "url": "/en/" },
       { "title": "About", "url": "/en/about/" },
       { "title": "Schedule", "url": "/en/schedule/" },
       { "title": "News", "url": "/en/news/" },
@@ -23,11 +25,13 @@
       { "title": "Contacts", "url": "/en/contacts/" },
       { "title": "Donate", "url": "/en/donate/" }
     ],
-    "siteName": "UGCC Lausanne Parish"
+    "siteName": "UGCC Lausanne Parish",
+    "siteSubtitle": "Ukrainian Greek-Catholic Church",
+    "searchPlaceholder": "Search"
   },
   "fr": {
     "menu": [
-  { "title": "Accueil", "url": "/fr/" },
+      { "title": "Accueil", "url": "/fr/" },
       { "title": "À propos", "url": "/fr/about/" },
       { "title": "Horaire", "url": "/fr/schedule/" },
       { "title": "Nouvelles", "url": "/fr/news/" },
@@ -36,6 +40,8 @@
       { "title": "Contacts", "url": "/fr/contacts/" },
       { "title": "Faire un don", "url": "/fr/donate/" }
     ],
-    "siteName": "Paroisse UGCC Lausanne"
+    "siteName": "Paroisse UGCC Lausanne",
+    "siteSubtitle": "Église grecque-catholique ukrainienne",
+    "searchPlaceholder": "Recherche"
   }
 }

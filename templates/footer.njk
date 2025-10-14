@@ -1,24 +1,34 @@
-
 <footer class="footer">
   <div class="container">
     <div class="grid cols-3">
       <div>
-        <h3>Контакти</h3>
-        <p>Chem. de Beau-Rivage 3, 1006 Lausanne</p>
-        <p><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener">Відкрити на Google мапі</a></p>
-        <p>Email: info@ugcc-lausanne.ch</p>
+        <h3>{{ footer.contacts_title }}</h3>
+        <p>{{ footer.address }}</p>
+        <p><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener">{{ footer.map_label }}</a></p>
+        {% if footer.email %}
+          <p>Email: <a href="mailto:{{ footer.email }}">{{ footer.email }}</a></p>
+        {% endif %}
       </div>
       <div>
-        <h3>Наші друзі</h3>
-        <p><a href="https://ugcc.fr/" target="_blank" rel="noopener">ugcc.fr — Єпархія Святого Володимира Великого</a></p>
-        <p><a href="#" target="_blank">ПЛАСТ — Lausanne</a></p>
-        <p><a href="#" target="_blank">Українська громада Лозанни</a></p>
+        <h3>{{ footer.eparchy_title }}</h3>
+        <p><a href="https://ugcc.fr/" target="_blank" rel="noopener">{{ footer.eparchy_site_label }}</a></p>
+        {% if footer.friends and footer.friends.length %}
+          {% for friend in footer.friends %}
+            <p><a href="{{ friend.url }}" target="_blank" rel="noopener">{{ friend.title }}</a></p>
+          {% endfor %}
+        {% endif %}
       </div>
       <div>
-        <h3>Навігація</h3>
-        <p><a href="schedule/">Розклад</a> · <a href="news/">Новини</a> · <a href="spiritual/">Духовні матеріали</a> · <a href="contacts/">Контакти</a></p>
+        <h3>{{ footer.sections_title }}</h3>
+        <p>
+          <a href="/schedule/">{{ footer.link_schedule }}</a>
+          · <a href="/news/">{{ footer.link_news }}</a>
+          · <a href="/spiritual/">{{ footer.link_spiritual }}</a>
+          · <a href="/contacts/">{{ footer.link_contacts }}</a>
+        </p>
       </div>
     </div>
-  <p class="footer-copyright"><small class="dim">© Українська Греко-Католицька Церква — Душпастирство в Лозанні | Створено волонтерами громади</small></p>
+    <p class="footer-copyright"><small class="dim">{{ footer.copyright }}</small></p>
   </div>
 </footer>
+

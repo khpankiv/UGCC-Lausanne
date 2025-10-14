@@ -3,11 +3,15 @@
 :root {
   /* Colors */
   --gold: #e6b800;
+  --burgundy: #7c1839;
   --bgsoft: #f6f6f7;
+  --bg: #ffffff;
   --bg-section: #faf9f9;
   --border: #e0e0e0;
   --text-main: #222;
   --text-soft: #555;
+  --ink: #333;
+  --muted: #777;
   --white: #fff;
   --black: #111;
   --burgundy-light: rgba(124, 24, 57, 0.1);
@@ -34,12 +38,15 @@
   /* Header*/
   --header-gap: var(--space-md);
   --header-block-padding: var(--space-md) ;
+  --header-logo-width: 120px;
+  --header-logo-mobile-max-width: 80px;
+  --header-search-width: 180px;
+  --lang-circle-size: 44px;
+  --socials-font-size: 1.35rem;
+  --menu-height: 56px;
+  --menu-padding-y: 8px;
 
   --section-block-padding: var(--space-lg);
-  
-  /* Border radius */
-  /* --radius: 10px;
-  --radius-lg: 18px; */
 
   /* Shadows */
   --shadow: 0 4px 16px rgba(0,0,0,.08);
@@ -62,14 +69,4 @@
   --layout-dots-gap: 8px;
   --layout-slide-padding: 90px 0;
   --layout-slide-padding-mobile: 40px 0;
-
-  /* Header logo sizes */
-  /* --header-logo-width: 120px; */
-  /* --header-logo-max-width: 120px; */
-  /* --header-logo-mobile-max-width: 80px; */
-  /* --header-logo-max-height: 5rem; */
-  /* --header-search-width: 180px; */
-  /* --lang-circle-size: 44px; */
-  /* --socials-font-size: 1.35rem; */
-
 }

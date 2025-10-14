@@ -4,21 +4,29 @@
       <div class="header-logo-titles">
         <img src="https://ugcc.fr/wp-content/uploads/2022/02/logo-5.png" alt="UGCC Logo" class="header-logo-full">
         <div class="header-titles">
-          <div class="header-title-small">Єпархія святого Володимира Великого у Парижі для українців греко–католиків у Франції, Бельгії, Нідерландах, Люксембурзі та Швейцарії</div>
-          <h1 class="header-title">Українська Греко-Католицька Церква в Лозанні</h1>
+          <div class="header-title-small">{{ header.siteSubtitle }}</div>
+          <h1 class="header-title">{{ header.siteName }}</h1>
         </div>
       </div>
       <div class="header-actions-right">
-        <div class="header-actions-top">
+        <div class="header-actions-grid">
           <div class="lang-circle">
             <!-- Accessible language toggle button: JS expects .lang-btn and toggles .lang-list -->
-            <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu" title="Оберіть мову">
-              <span class="lang-label"><i class="fa-solid fa-globe"></i> {{ lang | upper }}</span>
+            {% set titleLabel = 'Мова' %}
+            {% if lang == 'fr' %}{% set titleLabel = 'Langue' %}{% endif %}
+            {% if lang == 'en' %}{% set titleLabel = 'Language' %}{% endif %}
+            <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu" title="{{ titleLabel }}">
+              {% set currentLangLabel = 'Українська' %}
+              {% if lang == 'fr' %}{% set currentLangLabel = 'Français' %}{% endif %}
+              {% if lang == 'en' %}{% set currentLangLabel = 'English' %}{% endif %}
+              <span class="lang-label">
+							<i class="fa-solid fa-globe"></i>
+							 {{ currentLangLabel }}</span>
             </button>
             <ul id="lang-menu" class="lang-list" role="menu" hidden>
-              <li role="menuitem"><a href="/">UA</a></li>
-              <li role="menuitem"><a href="/fr/">FR</a></li>
-              <li role="menuitem"><a href="/en/">EN</a></li>
+              <li role="menuitem"><a href="/">Українська</a></li>
+              <li role="menuitem"><a href="/fr/">Français</a></li>
+              <li role="menuitem"><a href="/en/">English</a></li>
             </ul>
           </div>
           <span class="socials socials-header">
@@ -26,20 +34,20 @@
               <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
             {% endfor %}
           </span>
-        </div>
-        <div class="header-actions-bottom">
           <form class="header-search" action="#" method="get">
-            <input type="text" placeholder="Пошук" name="q">
+            <input type="text" placeholder="{{ header.searchPlaceholder }}" name="q">
           </form>
         </div>
       </div>
     </div>
-    <nav class="header-menu-row">
+  </div>
+  <nav class="header-menu-row">
+    <div class="container">
       <ul>
         {% for item in header.menu %}
           <li><a href="{{ item.url }}"{% if item.cta %} class="cta"{% endif %}>{{ item.title }}</a></li>
         {% endfor %}
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>

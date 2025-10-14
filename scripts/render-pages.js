@@ -1,4 +1,4 @@
-//  Nunjucks render script for static site generation
+﻿//  Nunjucks render script for static site generation
 const fs = require('fs');
 const path = require('path');
 
@@ -29,7 +29,10 @@ const pageFiles = fs.readdirSync(pagesDir).filter(f => f.endsWith('.json'));
 
 // Looking for all json in pages
 const glob = require('glob');
-const pageJsonFiles = glob.sync(path.join(pagesDir, '*/page.json'));
+// Use forward slashes for glob to work on Windows
+const pageJsonFiles = glob.sync(pagesDir.replace(/\\/g, '/') + '/*/page.json');
+console.log('Found pages:', pageJsonFiles.map(p => path.relative(path.join(__dirname, '..'), p)));
+console.log('Found pages:', pageJsonFiles.map(p => path.relative(path.join(__dirname, '..'), p)));
 
 pageJsonFiles.forEach(pageFile => {
   const pageName = path.basename(path.dirname(pageFile));
