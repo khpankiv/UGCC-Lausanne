@@ -25,3 +25,8 @@
 .footer .dim {
   color: var(--muted);
 }
+
+/* Footer copyright spacing */
+.footer-copyright {
+  margin-top: 12px;
+}

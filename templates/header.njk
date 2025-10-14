@@ -1,6 +1,6 @@
 <header class="header">
   <div class="container">
-    <div class="header-top-row grid cols-2">
+    <div class="header-top-row grid">
       <div class="header-logo-titles">
         <img src="https://ugcc.fr/wp-content/uploads/2022/02/logo-5.png" alt="UGCC Logo" class="header-logo-full">
         <div class="header-titles">
@@ -11,11 +11,14 @@
       <div class="header-actions-right">
         <div class="header-actions-top">
           <div class="lang-circle">
-            <span class="lang-label"><i class="fa-solid fa-globe"></i> {{ lang | upper }}</span>
-            <ul class="lang-list" tabindex="-1" hidden>
-              <li><a href="/">UA</a></li>
-              <li><a href="/fr/">FR</a></li>
-              <li><a href="/en/">EN</a></li>
+            <!-- Accessible language toggle button: JS expects .lang-btn and toggles .lang-list -->
+            <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu" title="Оберіть мову">
+              <span class="lang-label"><i class="fa-solid fa-globe"></i> {{ lang | upper }}</span>
+            </button>
+            <ul id="lang-menu" class="lang-list" role="menu" hidden>
+              <li role="menuitem"><a href="/">UA</a></li>
+              <li role="menuitem"><a href="/fr/">FR</a></li>
+              <li role="menuitem"><a href="/en/">EN</a></li>
             </ul>
           </div>
           <span class="socials socials-header">

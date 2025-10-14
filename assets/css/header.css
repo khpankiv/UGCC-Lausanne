@@ -1,101 +1,104 @@
-/* Footer copyright spacing */
-.footer-copyright {
-  margin-top: 12px;
-}
-/* Header styles */
-@import url('styles.css');
-
 .header {
-  width: 100%;
+  /* width: 100%; */
   background: var(--bg);
   padding-block: var(--header-block-padding);
   /* border-bottom: 1px solid var(--border); */
 }
+.header-top-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--header-gap);
+	flex-wrap: wrap;
+}
+
 .header-logo-titles {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: var(--header-gap);
+  gap: var(--space-md);
 }
 .header-logo-full {
   object-fit: contain;
-  flex-basis: 120px;
-  flex-shrink: 0;
-  max-width: 120px;
-  max-height: 5rem;
+  width: var(--header-logo-width);
+  /* max-width: var(--header-logo-max-width); */
+  /* max-height: var(--header-logo-max-height); */
 }
 .header-titles {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: start;
   min-width: 0;
-  flex-grow: 1;
 }
 .header-title-small {
-  font-size: clamp(0.5rem, 0.5vw + 0.35rem, 0.55rem);
+  font-size: var(--font-size-menu);
   font-weight: 500;
   color: var(--muted);
   margin-bottom: var(--space-xs);
-  white-space: normal;
+  /* white-space: normal; */
 }
 .header-title {
-  font-size: clamp(0.8rem, 1vw + 0.55rem, 1.2rem);
-  color: var(--burgundy);
-  /* margin: 0 0 var(--space-md) 0; */
-  word-break: break-word;
-  white-space: normal;
+  font-size: var(--font-size-title);
+  /* color: var(--burgundy); */
+  /* word-break: break-word; */
+  /* white-space: normal; */
 }
 .header-actions-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: end;
   gap: var(--space-xs);
 }
 
 .header-actions-top {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto auto auto;
   align-items: center;
   gap: var(--space-md);
 }
 
 .header-actions-bottom {
-  /* width: 100%; */
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  justify-items: end;
 }
 .lang-circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   background: var(--bgsoft);
-  width: 44px;
-  height: 44px;
+  width: var(--lang-circle-size);
+  height: var(--lang-circle-size);
   position: relative;
   margin-right: var(--space-md);
 }
+.lang-btn { background: transparent; border: 0; cursor: pointer; padding: 6px; display:grid; place-items:center }
+.lang-list { position: absolute; right: 0; top: calc(100% + 6px); background: var(--white); box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-radius:6px; list-style:none; padding:8px 0; display:none; min-width:120px }
+.lang-list[hidden] { display:none }
+.lang-list li { padding:6px 12px }
+.lang-list li a { color:var(--burgundy); text-decoration:none; display:block }
+.lang-btn[aria-expanded="true"] + .lang-list { display:block }
 .lang-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   font-size: 1.1em;
   color: var(--burgundy);
   font-weight: 600;
   gap: 6px;
 }
 .socials-header a {
-  font-size: 1.6rem;
+  font-size: var(--socials-font-size);
   color: var(--burgundy);
-  margin-left: var(--space-xs);
+  margin-left: 8px;
 }
 .header-search {
   margin-left: var(--space-md);
 }
 .header-search input {
-  padding: var(--space-xs) var(--space-sm);
-  border: 2px solid var(--burgundy);
-  font-size: 1em;
+  padding: 6px 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.95em;
   outline: none;
+  border-radius: 6px;
+  width: var(--header-search-width);
 }
 .header-menu-row {
   /* width: 100%; */
@@ -126,20 +129,22 @@
   color: var(--burgundy);
 }
 @media (max-width: 900px) {
-  .header-top-row {
+  /* .header-top-row {
     flex-direction: column;
     gap: var(--space-md);
     align-items: stretch;
-  }
+  } */
+  .header-actions-right { justify-items: stretch }
   .header-logo-titles {
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: start;
     gap: var(--space-sm);
     height: auto;
   }
   .header-logo-full {
-    align-self: flex-start;
-    max-width: 80px;
+    justify-self: start;
+    max-width: var(--header-logo-mobile-max-width);
     object-fit: contain;
   }
   .header-titles {
@@ -161,7 +166,6 @@
   .header-menu-row a {
     font-size: 1em;
     padding-block: var(--space-sm);
-    /* width: 100%; */
     text-align: left;
   }
 }

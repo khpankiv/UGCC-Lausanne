@@ -1,1 +1,0 @@
-{ "name": "Web Project Codespace", "image": "mcr.microsoft.com/devcontainers/node:20", "features": {}, "forwardPorts": [3000, 5173], "postCreateCommand": "npm install || yarn install", "customizations": { "vscode": { "extensions": [ "dbaeumer.vscode-eslint", "esbenp.prettier-vscode" ] } } }

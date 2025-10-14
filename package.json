@@ -10,11 +10,13 @@
     "nunjucks": "^3.2.4"
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "http-server": "^14.1.1",
     "nodemon": "^3.1.10"
   },
   "scripts": {
-    "start": "node scripts/render-pages.js && http-server . -p 8080",
-    "dev": "nodemon --watch pages --watch templates --watch assets/css --exec \"node scripts/render-pages.js\" & http-server . -p 8080"
+    "render": "node scripts/render-pages.js",
+    "serve": "http-server . -p 8080 -c -1",
+    "dev": "npx concurrently \"nodemon --watch pages --watch templates --watch assets/css --exec node scripts/render-pages.js\" \"http-server . -p 8080 -c-1\""
   }
 }
