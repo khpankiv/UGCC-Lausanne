@@ -1,7 +1,8 @@
 name: placeholder
 on: push
-jobs: a:
-  runs-on: ubuntu-latest
-  steps:
-  - uses: actions/checkout@v4
-  - run: echo ok
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo ok
