@@ -156,22 +156,23 @@
   color: var(--gold);
 }
 
-.socials-header a {
+.socials-header a,
+.socials-header .icon-btn {
   font-size: var(--socials-font-size);
   color: var(--burgundy);
   margin-left: var(--space-sm);
   transition: color var(--transition-fast);
 }
 
-.socials-header a:hover {
+.socials-header a:hover,
+.socials-header .icon-btn:hover {
   color: var(--gold);
 }
 
-.header-search {
-  margin-left: 0;
-  width: var(--header-search-width);
-  max-width: 100%;
-}
+.socials-header .icon-btn { background: transparent; border: 0; padding: 0; cursor: pointer; }
+
+.header-search { margin-left: 0; width: var(--header-search-width); max-width: 100%; display: none; }
+.header-actions-right.search-open .header-search { display: block; }
 
 .header-search input {
   padding: 6px 10px;

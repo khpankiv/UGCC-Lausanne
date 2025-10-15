@@ -28,6 +28,34 @@ const qsa = (s, el = document) => [...el.querySelectorAll(s)];
 document.addEventListener('DOMContentLoaded', () => {
   heroSlider();
   carousels();
+  // Header search toggle (click icon to open hidden search field)
+  const toggle = qs('.search-toggle');
+  const actions = qs('.header-actions-right');
+  const form = qs('.header-search');
+  const input = form ? form.querySelector('input') : null;
+  if (toggle && actions && form && input) {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = actions.classList.toggle('search-open');
+      toggle.setAttribute('aria-expanded', open);
+      if (open) {
+        setTimeout(() => input.focus(), 0);
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (!actions.classList.contains('search-open')) return;
+      if (!actions.contains(e.target)) {
+        actions.classList.remove('search-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && actions.classList.contains('search-open')) {
+        actions.classList.remove('search-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 });
 
 function heroSlider() {
