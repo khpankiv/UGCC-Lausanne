@@ -20,7 +20,7 @@
         {% if email %}<p class="contact-line"><i class="fa-solid fa-envelope"></i> <a class="email" href="mailto:{{ email }}">{{ email }}</a></p>{% endif %}
         {% if footer.phone %}<p>{{ footer.phone }}</p>{% endif %}
         {% if footer.social %}
-          <p class="socials">
+          <p class="socials socials-contacts">
             {% for social in footer.social %}
               <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
             {% endfor %}

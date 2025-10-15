@@ -59,14 +59,6 @@
   gap: var(--space-sm);
 }
 
-.header-donate-btn {
-  background: var(--gold);
-  color: var(--burgundy);
-  padding: 8px 14px;
-  font-weight: 700;
-}
-.header-donate-btn:hover { background: var(--burgundy); color: #fff; }
-
 .header-actions-top {
   display: grid;
   grid-auto-flow: row;
@@ -244,6 +236,9 @@
   transition: color var(--transition-fast);
   font-weight: 700;
 }
+/* Override legacy margins for header socials; use gap instead */
+.socials-header { display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--burgundy); }
+.socials-header a, .socials-header .icon-btn { margin-left: 0; color: currentColor; }
 
 /* Hover handled on li for full-block background */
 @media (width <= 900px) {

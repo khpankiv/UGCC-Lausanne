@@ -48,7 +48,6 @@ button,
   background: var(--burgundy);
   color: var(--white);
   border: none;
-  border-radius: var(--radius);
   padding: var(--space-sm) var(--space-md);
   cursor: pointer;
   transition: background var(--transition-fast);
@@ -99,3 +98,7 @@ img {
   .schedule-list .schedule-item { grid-template-columns: 1fr; }
 }
 
+/* Socials: unified spacing/colors; modifiers per area */
+.socials { display: inline-flex; align-items: center; gap: var(--space-sm); }
+.socials a { color: inherit; transition: color var(--transition-fast); }
+.socials-contacts { color: var(--white); font-size: var(--socials-font-size); }
