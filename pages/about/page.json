@@ -1,0 +1,14 @@
+{
+  "uk": {
+    "title": "Про нас",
+    "content": "Тут текст українською про парафію."
+  },
+  "en": {
+    "title": "About us",
+    "content": "Here is the English text about the parish."
+  },
+  "fr": {
+    "title": "À propos",
+    "content": "Ici le texte en français sur la paroisse."
+  }
+}

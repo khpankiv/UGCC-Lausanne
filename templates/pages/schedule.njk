@@ -1,0 +1,32 @@
+{# Schedule page layout with sample data #}
+{% if page == 'schedule' %}
+<section class="schedule">
+  <div class="container">
+    {% set pageTitle = title or 'Service Schedule' %}
+    {% if lang == 'uk' %}{% set pageTitle = 'Розклад богослужінь' %}{% endif %}
+    {% if lang == 'fr' %}{% set pageTitle = 'Horaire des offices' %}{% endif %}
+    <h2>{{ pageTitle }}</h2>
+    {% set events = [
+      { date: '2025-02-02', time: '10:00', city: 'Лозанна', place: 'Église Saint-Joseph', type: 'Літургія' },
+      { date: '2025-02-09', time: '11:30', city: 'Женева', place: 'Basilique Notre-Dame', type: 'Літургія' },
+      { date: '2025-02-16', time: '10:00', city: 'Берн', place: 'Heiliggeistkirche', type: 'Літургія' },
+      { date: '2025-02-23', time: '09:30', city: 'Цюрих', place: 'Liebfrauenkirche', type: 'Літургія' }
+    ] %}
+    <div class="grid cols-2 schedule-list">
+      {% for ev in events %}
+        <article class="card schedule-item">
+          <div class="when">
+            <div class="date">{{ ev.date }}</div>
+            <div class="time dim">{{ ev.time }}</div>
+          </div>
+          <div class="where">
+            <h3>{{ ev.city }}</h3>
+            <div class="place dim">{{ ev.place }}</div>
+          </div>
+          <div class="type">{{ ev.type }}</div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

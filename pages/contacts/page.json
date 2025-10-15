@@ -1,0 +1,23 @@
+{
+  "uk": {
+    "page_title": "Контакти — Парафія УГКЦ у Лозанні",
+    "title": "Контакти",
+    "how_to_get": "Як добратись: трамвай/автобус до зупинки Ouchy, далі 5 хв пішки до Chem. de Beau-Rivage 3.",
+    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
+    "email": "info@ugcc-lausanne.ch"
+  },
+  "en": {
+    "page_title": "Contacts — UGCC Lausanne Parish",
+    "title": "Contacts",
+    "how_to_get": "How to get there: tram/bus to Ouchy stop, then 5 min walk to Chem. de Beau-Rivage 3.",
+    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
+    "email": "info@ugcc-lausanne.ch"
+  },
+  "fr": {
+    "page_title": "Contacts — Paroisse UGCC Lausanne",
+    "title": "Contacts",
+    "how_to_get": "Comment y aller: tram/bus jusqu'à Ouchy, puis 5 min à pied jusqu'à Chem. de Beau-Rivage 3.",
+    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
+    "email": "info@ugcc-lausanne.ch"
+  }
+}

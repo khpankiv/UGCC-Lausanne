@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <!-- Header -->
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <!-- Footer -->
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  {% include "header.njk" %}
+  <main>
+    {% block content %}{% endblock %}
+    {# Include page-specific template if available #}
+    {% set page_template = "pages/" + page + ".njk" %}
+    {% include page_template ignore missing %}
+  </main>
+  {% include "footer.njk" %}
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

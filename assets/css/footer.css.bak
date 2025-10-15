@@ -1,0 +1,30 @@
+/* Footer styles */
+.footer {
+  background: var(--burgundy);
+  color: var(--white);
+  padding-block: var(--footer-block-padding);
+}
+
+.footer .container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--layout-gap);
+}
+
+.footer h3 {
+  color: var(--white);
+  font-size: 1.2em;
+  margin: 0 0 var(--space-sm) 0;
+} param($m) $m.Value + "`n" .footer-heading-link:hover { color: var(--gold); }
+
+/* Footer copyright spacing */
+.footer-copyright {
+  padding-top: var(--space-sm);
+}
+

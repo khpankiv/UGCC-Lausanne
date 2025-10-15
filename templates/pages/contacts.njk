@@ -1,0 +1,33 @@
+{# Contacts page content #}
+{% if page == 'contacts' %}
+<section class="contacts">
+  <div class="container">
+    <div class="grid cols-2">
+      <div>
+        <iframe
+          src="https://www.google.com/maps?q=Chem.+de+Beau-Rivage+3+1006+Lausanne&output=embed"
+          width="100%"
+          height="360"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          aria-label="Map"></iframe>
+      </div>
+      <div>
+        <h2>{{ title }}</h2>
+        <p><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener">{{ address }}</a></p>
+        {% if footer.phone %}<p class="contact-line"><i class="fa-solid fa-phone"></i> <a class="phone" href="tel:{{ footer.phone }}">{{ footer.phone }}</a></p>{% endif %}
+        {% if email %}<p class="contact-line"><i class="fa-solid fa-envelope"></i> <a class="email" href="mailto:{{ email }}">{{ email }}</a></p>{% endif %}
+        {% if footer.phone %}<p>{{ footer.phone }}</p>{% endif %}
+        {% if footer.social %}
+          <p class="socials">
+            {% for social in footer.social %}
+              <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
+            {% endfor %}
+          </p>
+        {% endif %}
+        {% if how_to_get %}<p>{{ how_to_get }}</p>{% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
