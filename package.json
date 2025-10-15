@@ -2,7 +2,7 @@
   "name": "ugcc-lausanne",
   "version": "1.0.0",
   "description": "Multilingual static site for UGCC Lausanne, generated with Nunjucks and Node.js.",
-  "main": "scripts/render-pages.js",
+  "main": "scripts/render-pages2.js",
   "author": "khpankiv",
   "license": "MIT",
   "dependencies": {
@@ -20,9 +20,9 @@
     "stylelint-config-standard": "^39.0.1"
   },
   "scripts": {
-    "render": "node scripts/render-pages.js",
+    "render": "node scripts/render-pages2.js",
     "serve": "http-server . -p 8080 -c -1",
-    "dev": "npx concurrently \"nodemon --watch pages --watch templates --watch assets/css --exec node scripts/render-pages.js\" \"http-server . -p 8080 -c-1\"",
+    "dev": "npx concurrently \"nodemon --watch pages --watch templates --watch assets/css --exec node scripts/render-pages2.js\" \"http-server . -p 8080 -c-1\"",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "eslint assets/js --ext .js",
     "lint:css": "stylelint \"assets/css/**/*.css\"",
@@ -35,3 +35,4 @@
     "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run format"
   }
 }
+

@@ -1,0 +1,30 @@
+{# Reusable slider component
+  Params: type, title, items (array of {title, subtitle, date, url, image}) #}
+<section class="section slider slider-{{ type }}">
+  <div class="container">
+    {% if title %}<h2>{{ title }}</h2>{% endif %}
+    <div class="slider-track" data-autoplay="true" data-interval="6000">
+      {% for it in items %}
+        <a class="slide" href="{{ it.url }}">
+          {% if it.image %}
+            <div class="cover" style="background-image:url('{{ it.image }}')"></div>
+            <div class="overlay"></div>
+          {% endif %}
+          <div class="inner">
+            {% if it.date %}<time class="dim">{{ it.date }}</time>{% endif %}
+            <h3>{{ it.title }}</h3>
+            {% if it.subtitle %}<p>{{ it.subtitle }}</p>{% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    <div class="nav">
+      <button class="prev" aria-label="Previous">‹</button>
+      <button class="next" aria-label="Next">›</button>
+    </div>
+    <div class="dots">
+      {% for it in items %}<button aria-label="Go to {{ loop.index }}"></button>{% endfor %}
+    </div>
+  </div>
+</section>
+
