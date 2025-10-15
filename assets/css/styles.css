@@ -89,6 +89,14 @@ img {
 
 /* Rich text helpers */
 .rich p { margin-bottom: var(--space-sm); }
+/* About page: justify paragraph text for balanced edges */
+.about .rich p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+.rich figure { margin: var(--space-md) 0; }
+.rich figcaption { font-size: var(--font-size-small); color: var(--muted); font-style: italic; }
+.about .gallery { display: grid; gap: var(--space-md); }
+.about .gallery.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.about .gallery.cols-1 { grid-template-columns: 1fr; }
+@media (width <= 800px){ .about .gallery.cols-2 { grid-template-columns: 1fr; } }
 
 /* Schedule */
 .schedule-list .schedule-item { display: grid; grid-template-columns: 160px 1fr auto; align-items: center; gap: var(--space-sm); }
@@ -101,4 +109,17 @@ img {
 /* Socials: unified spacing/colors; modifiers per area */
 .socials { display: inline-flex; align-items: center; gap: var(--space-sm); }
 .socials a { color: inherit; transition: color var(--transition-fast); }
-.socials-contacts { color: var(--white); font-size: var(--socials-font-size); }
+.socials-contacts { color: var(--black); font-size: var(--socials-font-size); }
+
+/* Contacts page coloring: black text, gold on hover for links */
+.contacts .contact-details { color: var(--black); }
+.contacts .contact-details a { color: var(--black); }
+.contacts .contact-details a:hover { color: var(--gold); }
+.contacts .contact-details a:hover i { color: var(--gold); }
+.contacts .contact-details i { color: var(--black); }
+/* Increase vertical spacing between rows on contacts page */
+.contacts .contact-details > * + * { margin-top: var(--space-md); }
+
+/* Larger gap between icon and text on contacts page */
+.contacts .contact-details .contact-line a{ gap: var(--space-md); }
+
