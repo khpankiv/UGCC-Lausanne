@@ -1,116 +1,112 @@
-// Static site render (Nunjucks) with optional Google Sheet CSV for sections
+// scripts/render-pages.js
+// Статичний рендер Nunjucks із JSON-даних (articles, schedule)
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
-const glob = require('glob');
 const nunjucks = require('nunjucks');
+const glob = require('glob');
 
+// Ініціалізація шаблонів
 const env = nunjucks.configure('templates', { autoescape: true });
 env.addFilter('truncate', (str, len = 150) => {
   if (!str || typeof str !== 'string') return '';
-  if (str.length <= len) return str;
-  return str.slice(0, len).replace(/\s+\S*$/, '') + '…';
+  return str.length > len ? str.slice(0, len).replace(/\s+\S*$/, '') + '…' : str;
 });
 
+// Мови
 const languages = [
   { code: '', dir: '.' },
   { code: 'en', dir: 'en' },
   { code: 'fr', dir: 'fr' },
 ];
 
+// Дані хедера і футера
 const headerData = JSON.parse(fs.readFileSync(path.join(__dirname, '../pages/header.json'), 'utf-8'));
 const footerData = JSON.parse(fs.readFileSync(path.join(__dirname, '../pages/footer.json'), 'utf-8'));
 
-// ===== CSV helpers =====
-const SHEET_CSV_URL = process.env.SHEET_CSV_URL;
-function fetchCSV(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
-      let data = '';
-      res.on('data', (c) => (data += c));
-      res.on('end', () => resolve(data));
-    }).on('error', reject);
-  });
-}
-function parseCSV(text) {
-  const rows = [];
-  let i = 0, field = '', row = [], inQuotes = false;
-  const pushField = () => { row.push(field); field = ''; };
-  const pushRow = () => { if (row.length) rows.push(row); row = []; };
-  while (i < text.length) {
-    const ch = text[i];
-    if (inQuotes) {
-      if (ch === '"' && text[i+1] === '"') { field += '"'; i += 2; continue; }
-      if (ch === '"') { inQuotes = false; i++; continue; }
-      field += ch; i++; continue;
-    } else {
-      if (ch === '"') { inQuotes = true; i++; continue; }
-      if (ch === ',') { pushField(); i++; continue; }
-      if (ch === '\n' || ch === '\r') { if (ch === '\r' && text[i+1] === '\n') i++; pushField(); pushRow(); i++; continue; }
-      field += ch; i++;
-    }
-  }
-  pushField(); pushRow();
-  if (!rows.length) return [];
-  const header = rows.shift().map(h => h.trim());
-  return rows.filter(r => r.length && r.some(v => v && v.trim() !== '')).map(cols => {
-    const obj = {}; header.forEach((h, idx) => obj[h] = (cols[idx] || '').trim()); return obj;
-  });
-}
-async function loadSections() {
-  const empty = { hero: [], news: [], spiritual: [], community: [] };
-  const out = { uk: { ...empty }, en: { ...empty }, fr: { ...empty } };
-  if (!SHEET_CSV_URL) return out;
+// ===== Завантаження даних статей і розкладу =====
+function loadSections() {
+  let articles = [];
+  let schedule = [];
+
   try {
-    const csv = await fetchCSV(SHEET_CSV_URL);
-    const rows = parseCSV(csv);
-    rows.forEach(r => {
-      const type = (r.type || '').trim();
-      const lang = (r.lang || 'uk').trim();
-      if (!out[lang] || !out[lang][type]) return;
-      out[lang][type].push({ title: r.title || '', subtitle: r.subtitle || '', url: r.url || '#', image: r.image || '', date: r.date || '', text: r.text || '' });
-    });
-    return out;
-  } catch (e) {
-    console.warn('CSV load failed:', e.message);
-    return out;
+    articles = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/articles.json'), 'utf-8'));
+    console.log(`📚 Завантажено статей: ${articles.length}`);
+  } catch {
+    console.warn('⚠️  Не знайдено data/articles.json');
   }
+
+  try {
+    schedule = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/schedule.json'), 'utf-8'));
+    console.log(`📅 Завантажено подій розкладу: ${schedule.length}`);
+  } catch {
+    console.warn('⚠️  Не знайдено data/schedule.json');
+  }
+
+  // Групуємо статті за категоріями
+  const sections = { uk: { hero: [], news: [], spiritual: [], community: [], schedule } };
+
+  for (const a of articles) {
+    const lang = (a.language || 'uk').trim();
+    const type = (a.category || '').trim();
+
+    if (!sections[lang]) sections[lang] = { hero: [], news: [], spiritual: [], community: [], schedule };
+    if (type && sections[lang][type]) sections[lang][type].push(a);
+  }
+
+  return sections;
 }
 
-(async function renderAll(){
+// ===== Основний рендер =====
+(async function renderAll() {
   const pagesDir = path.join(__dirname, '../pages');
   const pageJsonFiles = glob.sync(pagesDir.replace(/\\/g, '/') + '/*/page.json');
-  console.log('Found pages:', pageJsonFiles.map(p => path.relative(path.join(__dirname, '..'), p)));
-  const sheetSections = await loadSections();
+  console.log('📄 Знайдені сторінки:', pageJsonFiles.map(p => path.relative(path.join(__dirname, '..'), p)));
 
-  pageJsonFiles.forEach(pageFile => {
+  const sheetSections = loadSections();
+
+  for (const pageFile of pageJsonFiles) {
     const pageName = path.basename(path.dirname(pageFile));
     const pageData = JSON.parse(fs.readFileSync(pageFile, 'utf-8'));
-    languages.forEach(lang => {
+
+    for (const lang of languages) {
       const langKey = lang.code || 'uk';
       const langData = pageData[langKey] || {};
       const header = headerData[langKey] || {};
       const footer = footerData[langKey] || {};
-      const sections = sheetSections[langKey] && Object.values(sheetSections[langKey]).some(a=>a && a.length)
-        ? sheetSections[langKey]
-        : (langData.sections || { hero: (langData.hero||[]), news: [], spiritual: [], community: [] });
+      const sections = sheetSections[langKey] || sheetSections.uk;
 
       let outDir, outPath;
-      if (pageName === 'index' && lang.dir === '.') { outDir = '..'; outPath = path.join(__dirname, outDir, 'index.html'); }
-      else if (pageName === 'index') { outDir = path.join('..', lang.dir); outPath = path.join(__dirname, outDir, 'index.html'); }
-      else { outDir = lang.dir === '.' ? path.join('..', pageName) : path.join('..', lang.dir, pageName); outPath = path.join(__dirname, outDir, 'index.html'); }
+      if (pageName === 'index' && lang.dir === '.') {
+        outDir = '..';
+        outPath = path.join(__dirname, outDir, 'index.html');
+      } else if (pageName === 'index') {
+        outDir = path.join('..', lang.dir);
+        outPath = path.join(__dirname, outDir, 'index.html');
+      } else {
+        outDir = lang.dir === '.' ? path.join('..', pageName) : path.join('..', lang.dir, pageName);
+        outPath = path.join(__dirname, outDir, 'index.html');
+      }
 
       fs.mkdirSync(path.join(__dirname, outDir), { recursive: true });
+
       let html;
       try {
-        html = nunjucks.render('base.njk', { ...langData, page: pageName, lang: langKey, header, footer, sections });
+        html = nunjucks.render('base.njk', {
+          ...langData,
+          page: pageName,
+          lang: langKey,
+          header,
+          footer,
+          sections
+        });
       } catch (e) {
-        html = `<!doctype html><meta charset=\"utf-8\"><pre>Render error: ${e.message}</pre>`;
+        html = `<!doctype html><meta charset="utf-8"><pre>Render error: ${e.message}</pre>`;
       }
-      fs.writeFileSync(outPath, String(html || ''), 'utf-8');
-      console.log(`Generated: ${outPath}`);
-    });
-  });
-  console.log('Page rendering completed successfully.');
-})();
 
+      fs.writeFileSync(outPath, String(html || ''), 'utf-8');
+      console.log(`✅ Згенеровано: ${outPath}`);
+    }
+  }
+
+  console.log('🏁 Рендеринг сторінок завершено успішно.');
+})();
