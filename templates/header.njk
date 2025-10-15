@@ -35,6 +35,9 @@
             {% for social in footer.social %}
               <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
             {% endfor %}
+            <button class="icon-btn search-toggle" aria-expanded="false" title="{{ header.searchTitle or 'Пошук' }}">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
           </span>
           <a class="btn header-donate-btn" href="{{ donateUrl }}">{{ header.donateCta or 'Пожертвувати' }}</a>
           <form class="header-search" action="#" method="get">
