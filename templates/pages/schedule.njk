@@ -1,32 +1,103 @@
-{# Schedule page layout with sample data #}
 {% if page == 'schedule' %}
-<section class="schedule">
+<section class="section-schedule">
   <div class="container">
-    {% set pageTitle = title or 'Service Schedule' %}
-    {% if lang == 'uk' %}{% set pageTitle = 'Розклад богослужінь' %}{% endif %}
-    {% if lang == 'fr' %}{% set pageTitle = 'Horaire des offices' %}{% endif %}
-    <h2>{{ pageTitle }}</h2>
-    {% set events = [
-      { date: '2025-02-02', time: '10:00', city: 'Лозанна', place: 'Église Saint-Joseph', type: 'Літургія' },
-      { date: '2025-02-09', time: '11:30', city: 'Женева', place: 'Basilique Notre-Dame', type: 'Літургія' },
-      { date: '2025-02-16', time: '10:00', city: 'Берн', place: 'Heiliggeistkirche', type: 'Літургія' },
-      { date: '2025-02-23', time: '09:30', city: 'Цюрих', place: 'Liebfrauenkirche', type: 'Літургія' }
-    ] %}
-    <div class="grid cols-2 schedule-list">
-      {% for ev in events %}
-        <article class="card schedule-item">
-          <div class="when">
-            <div class="date">{{ ev.date }}</div>
-            <div class="time dim">{{ ev.time }}</div>
+    <h2>
+      {% if lang == 'uk' %}Розклад богослужінь{% endif %}
+      {% if lang == 'fr' %}Calendrier des liturgies{% endif %}
+      {% if lang == 'en' %}Schedule of Liturgies{% endif %}
+    </h2>
+
+    {# === ЛІТУРГІЇ === #}
+    {% set liturgies = sections.schedule | selectattr("category", "equalto", "liturgy") | list %}
+    {% if liturgies and liturgies.length %}
+    <div class="schedule-block">
+      <h3>
+        {% if lang == 'uk' %}Божественна Літургія{% elif lang == 'fr' %}Liturgie divine{% else %}Divine Liturgy{% endif %}
+      </h3>
+      <ul class="schedule-list">
+        {% for item in liturgies %}
+        <li class="schedule-item">
+          <div class="schedule-date">
+            <i class="fa-regular fa-calendar"></i> {{ item.date }}
+            {% if item.time %}<span> — {{ item.time }}</span>{% endif %}
           </div>
-          <div class="where">
-            <h3>{{ ev.city }}</h3>
-            <div class="place dim">{{ ev.place }}</div>
+          <div class="schedule-details">
+            <strong>{{ item.title }}</strong><br>
+            {% if item.details %}<span>{{ item.details }}</span><br>{% endif %}
+            {% if item.location %}
+              <i class="fa-solid fa-location-dot"></i> {{ item.location }}
+            {% endif %}
           </div>
-          <div class="type">{{ ev.type }}</div>
-        </article>
-      {% endfor %}
+        </li>
+        {% endfor %}
+      </ul>
     </div>
+    {% endif %}
+
+    {# === СПОВІДЬ === #}
+    {% set confessions = sections.schedule | selectattr("category", "equalto", "confession") | list %}
+    {% if confessions and confessions.length %}
+    <div class="schedule-block">
+      <h3>
+        {% if lang == 'uk' %}Сповідь{% elif lang == 'fr' %}Confession{% else %}Confession{% endif %}
+      </h3>
+      <ul class="schedule-list">
+        {% for item in confessions %}
+        <li class="schedule-item">
+          <div class="schedule-date">
+            <i class="fa-regular fa-clock"></i> {{ item.date }} {% if item.time %}о {{ item.time }}{% endif %}
+          </div>
+          <div class="schedule-details">
+            {{ item.details or item.title }}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {# === ОГОЛОШЕННЯ === #}
+    {% set announcements = sections.schedule | selectattr("category", "equalto", "announcement") | list %}
+    {% if announcements and announcements.length %}
+    <div class="schedule-block">
+      <h3>
+        {% if lang == 'uk' %}Оголошення{% elif lang == 'fr' %}Annonces{% else %}Announcements{% endif %}
+      </h3>
+      <ul class="announcement-list">
+        {% for item in announcements %}
+        <li>
+          <strong>{{ item.title }}</strong> — {{ item.details or item.excerpt }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {# === ПОДІЇ ГРОМАДИ === #}
+    {% set events = sections.schedule | selectattr("category", "equalto", "event") | list %}
+    {% if events and events.length %}
+    <div class="schedule-block">
+      <h3>
+        {% if lang == 'uk' %}Події громади{% elif lang == 'fr' %}Événements communautaires{% else %}Community Events{% endif %}
+      </h3>
+      <div class="grid cols-2">
+        {% for e in events %}
+        <article class="card event-card">
+          {% if e.image %}
+          <img src="{{ e.image }}" alt="{{ e.title }}">
+          {% endif %}
+          <h4>{{ e.title }}</h4>
+          {% if e.date %}
+            <p class="dim"><i class="fa-regular fa-calendar"></i> {{ e.date }}</p>
+          {% endif %}
+          {% if e.details %}
+            <p>{{ e.details }}</p>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
   </div>
 </section>
 {% endif %}

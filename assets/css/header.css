@@ -51,7 +51,7 @@
 
 /* Unified grid for language, socials, and search */
 .header-actions-grid {
-  display: grid;
+  display: inline-grid;
   grid-auto-flow: row;
   grid-auto-rows: max-content;
   place-items: center end;

@@ -123,3 +123,110 @@ img {
 /* Larger gap between icon and text on contacts page */
 .contacts .contact-details .contact-line a{ gap: var(--space-md); }
 
+.section-liturgy {
+  background: var(--light-gold);
+  padding: 2rem 0;
+  text-align: center;
+}
+.section-liturgy .card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  max-width: 600px;
+  margin: 1rem auto;
+  box-shadow: var(--shadow-md);
+}
+.section-announcements {
+  background: var(--light-gray);
+  padding: 1.5rem 0;
+}
+.announcement-list {
+  list-style: none;
+  padding: 0;
+}
+.announcement-list li {
+  margin-bottom: .5rem;
+}
+
+.section-schedule {
+  padding-block: 2.5rem;
+  background: var(--white);
+}
+
+.section-schedule h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--burgundy);
+}
+
+.schedule-block {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--light-gray);
+  border-radius: var(--radius-md);
+}
+
+.schedule-block h3 {
+  color: var(--burgundy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: .3rem;
+  margin-bottom: 1rem;
+}
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.schedule-item {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.schedule-date {
+  font-weight: 600;
+  color: var(--burgundy);
+}
+
+.schedule-details {
+  font-size: .95rem;
+  line-height: 1.4;
+}
+
+.announcement-list {
+  list-style: none;
+  padding: 0;
+}
+
+.announcement-list li {
+  margin-bottom: .5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.announcement-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.event-card {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+  text-align: center;
+}
+
+.event-card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  margin-bottom: .5rem;
+}
+

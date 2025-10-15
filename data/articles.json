@@ -1,0 +1,35 @@
+[
+  {
+    "timestamp": "2025-10-15 09:00:00",
+    "email": "info@ugcc-lausanne.ch",
+    "title": "Свято Покрову Пресвятої Богородиці",
+    "excerpt": "Урочиста Літургія та панахида за захисників України.",
+    "category": "news",
+    "language": "uk",
+    "image": "/assets/images/article.png",
+    "content": "Після Літургії відбудеться панахида за захисників та благословення дітей.",
+    "author": "о. Іван"
+  },
+  {
+    "timestamp": "2025-10-10 08:30:00",
+    "email": "info@ugcc-lausanne.ch",
+    "title": "Молитва Вервиці до Божого Милосердя",
+    "excerpt": "Щонеділі перед Літургією — спільна молитва Вервиці.",
+    "category": "spiritual",
+    "language": "uk",
+    "image": "/assets/images/article.png",
+    "content": "Запрошуємо всіх долучатися до спільної молитви за мир в Україні.",
+    "author": "сестра Марія"
+  },
+  {
+    "timestamp": "2025-09-30 12:00:00",
+    "email": "info@ugcc-lausanne.ch",
+    "title": "Осінній ярмарок громади",
+    "excerpt": "Тепла зустріч після служби з чаєм, солодощами та піснями.",
+    "category": "community",
+    "language": "uk",
+    "image": "/assets/images/article.png",
+    "content": "Кошти з ярмарку передано на підтримку українських родин у Швейцарії.",
+    "author": "парафіяльна рада"
+  }
+]

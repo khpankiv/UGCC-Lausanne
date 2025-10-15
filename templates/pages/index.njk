@@ -1,32 +1,74 @@
-{# Home page content #}
+{# templates/pages/index.njk #}
 {% if page == 'index' %}
-  {# HERO #}
-  {% set type = 'hero' %}
-  {% set title = null %}
-  {% set items = sections.hero %}
-  {% include 'partials/slider.njk' %}
 
-  {# NEWS #}
+  {# === ЛІТУРГІЯ (головний блок) === #}
+  {% set liturgy = sections.schedule | selectattr("category", "equalto", "liturgy") | first %}
+  {% if liturgy %}
+  <section class="section-liturgy highlight">
+    <div class="container">
+      <h2>
+        {% if lang == 'uk' %}Найближча Літургія{% endif %}
+        {% if lang == 'fr' %}Prochaine Liturgie{% endif %}
+        {% if lang == 'en' %}Next Liturgy{% endif %}
+      </h2>
+      <div class="card">
+        <h3>{{ liturgy.title }}</h3>
+        {% if liturgy.date %}
+          <p><i class="fa-regular fa-calendar"></i> {{ liturgy.date }} {% if liturgy.time %}о {{ liturgy.time }}{% endif %}</p>
+        {% endif %}
+        {% if liturgy.location %}
+          <p><i class="fa-solid fa-location-dot"></i> {{ liturgy.location }}</p>
+        {% endif %}
+        {% if liturgy.details %}
+          <p>{{ liturgy.details }}</p>
+        {% endif %}
+        {% if liturgy.link_to_liturgy %}
+          <a href="{{ liturgy.link_to_liturgy }}" class="btn-primary">
+            {% if lang == 'uk' %}Детальніше{% elif lang == 'fr' %}Détails{% else %}More{% endif %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {# === ОГОЛОШЕННЯ === #}
+  {% set announcements = sections.schedule | selectattr("category", "equalto", "announcement") | list %}
+  {% if announcements and announcements.length %}
+  <section class="section-announcements">
+    <div class="container">
+      <h2>
+        {% if lang == 'uk' %}Оголошення{% endif %}
+        {% if lang == 'fr' %}Annonces{% endif %}
+        {% if lang == 'en' %}Announcements{% endif %}
+      </h2>
+      <ul class="announcement-list">
+        {% for item in announcements %}
+          <li>
+            <strong>{{ item.title }}</strong> — {{ item.details or item.excerpt }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
+  {# === НОВИНИ === #}
   {% set type = 'news' %}
-  {% set title = 'Latest News' %}
-  {% if lang == 'uk' %}{% set title = '������� ������' %}{% endif %}
-  {% if lang == 'fr' %}{% set title = 'Dernieres nouvelles' %}{% endif %}
+  {% if lang == 'uk' %}{% set title = 'Останні новини' %}{% elif lang == 'fr' %}{% set title = 'Dernières nouvelles' %}{% else %}{% set title = 'Latest News' %}{% endif %}
   {% set items = sections.news %}
   {% include 'partials/slider.njk' %}
 
-  {# SPIRITUAL #}
+  {# === ДУХОВНЕ === #}
   {% set type = 'spiritual' %}
-  {% set title = 'Spiritual' %}
-  {% if lang == 'uk' %}{% set title = '������� ��������' %}{% endif %}
-  {% if lang == 'fr' %}{% set title = 'Spirituel' %}{% endif %}
+  {% if lang == 'uk' %}{% set title = 'Духовні матеріали' %}{% elif lang == 'fr' %}{% set title = 'Spirituel' %}{% else %}{% set title = 'Spiritual' %}{% endif %}
   {% set items = sections.spiritual %}
   {% include 'partials/slider.njk' %}
 
-  {# COMMUNITY #}
+  {# === ГРОМАДА === #}
   {% set type = 'community' %}
-  {% set title = 'Community Life' %}
-  {% if lang == 'uk' %}{% set title = '����� �������' %}{% endif %}
-  {% if lang == 'fr' %}{% set title = 'Vie de la communaute' %}{% endif %}
+  {% if lang == 'uk' %}{% set title = 'Життя громади' %}{% elif lang == 'fr' %}{% set title = 'Vie de la communauté' %}{% else %}{% set title = 'Community Life' %}{% endif %}
   {% set items = sections.community %}
   {% include 'partials/slider.njk' %}
+
 {% endif %}
