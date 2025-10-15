@@ -55,6 +55,18 @@
 
 .hero .slides {
   position: relative;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Alternative hero using generic flex-row/card */
+.hero .flex-row {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 
 .slide {
@@ -63,6 +75,16 @@
   display: grid;
   place-items: center;
   text-align: center;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+.hero .card {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
 }
 
 .slide .cover {
@@ -125,6 +147,11 @@
 
 .dots button.active {
   background: #fff;
+}
+
+/* Hide hero dots on desktop; show on mobile */
+@media (min-width: 901px) {
+  .dots { display: none; }
 }
 
 /* Responsive cards in sliders */

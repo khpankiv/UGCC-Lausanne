@@ -59,6 +59,14 @@
   gap: var(--space-sm);
 }
 
+.header-donate-btn {
+  background: var(--gold);
+  color: var(--burgundy);
+  padding: 8px 14px;
+  font-weight: 700;
+}
+.header-donate-btn:hover { background: var(--burgundy); color: #fff; }
+
 .header-actions-top {
   display: grid;
   grid-auto-flow: row;

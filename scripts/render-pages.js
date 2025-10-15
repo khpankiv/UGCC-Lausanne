@@ -1,6 +1,7 @@
 ﻿//  Nunjucks render script for static site generation
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 
 const nunjucks = require('nunjucks');
 
@@ -20,6 +21,32 @@ const languages = [
 // Read header/footer data
 const headerData = JSON.parse(fs.readFileSync(path.join(__dirname, '../pages/header.json'), 'utf-8'));
 const footerData = JSON.parse(fs.readFileSync(path.join(__dirname, '../pages/footer.json'), 'utf-8'));
+
+// Optionally read data/articles.json and expose as `articles` for templates
+let articles = [];
+try {
+  const articlesPath = path.join(__dirname, '../data/articles.json');
+  if (fs.existsSync(articlesPath)) {
+    articles = JSON.parse(fs.readFileSync(articlesPath, 'utf-8'));
+  }
+} catch (e) {
+  console.warn('Failed to load data/articles.json:', e.message);
+}
+
+// ==================== LOAD GOOGLE SHEETS DATA ====================
+// Secret CSV link from GitHub Actions Secrets (SHEET_CSV_URL)
+const SHEET_CSV_URL = process.env.SHEET_CSV_URL;
+function fetchCSV(url) {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, (res) => {
+        let data = '';
+        res.on('data', (chunk) => (data += chunk));
+        res.on('end', () => resolve(data));
+      })
+      .on('error', reject);
+  });
+}
 
 // Pages list from folder pages)
 const pagesDir = path.join(__dirname, '../pages');
@@ -67,7 +94,8 @@ pageJsonFiles.forEach(pageFile => {
       page: pageName,
       lang: langKey,
       header,
-      footer
+      footer,
+      articles
     });
 
     // Writing the file

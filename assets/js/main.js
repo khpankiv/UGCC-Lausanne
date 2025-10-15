@@ -33,26 +33,44 @@ document.addEventListener('DOMContentLoaded', () => {
 function heroSlider() {
   const root = qs('.hero');
   if (!root) return;
-  const slides = qsa('.slide', root);
-  let i = 0,
-    timer = null;
-  const show = (idx) => {
-    slides.forEach((s, j) => (s.style.display = j === idx ? 'grid' : 'none'));
-    qsa('.dots button', root).forEach((b, k) => b.classList.toggle('active', k === idx));
-    i = idx;
+  // Support both the existing .slides/.slide and generic .flex-row/.card
+  const track = qs('.slides', root) || qs('.flex-row', root);
+  const slides = qsa('.slide', track).length ? qsa('.slide', track) : qsa('.card', track);
+  const dots = qsa('.dots button', root);
+
+  const updateActive = () => {
+    const idx = Math.round(track.scrollLeft / track.clientWidth);
+    dots.forEach((b, k) => b.classList.toggle('active', k === idx));
   };
-  const prev = () => show((i - 1 + slides.length) % slides.length);
-  const next = () => show((i + 1) % slides.length);
-  qs('.controls .prev', root).addEventListener('click', prev);
-  qs('.controls .next', root).addEventListener('click', next);
-  qsa('.dots button', root).forEach((b, k) => b.addEventListener('click', () => show(k)));
-  const auto = () => {
-    timer = setInterval(next, 5000);
-  };
-  root.addEventListener('mouseenter', () => clearInterval(timer));
-  root.addEventListener('mouseleave', auto);
-  show(0);
-  auto();
+
+  // Dots jump to slide (mobile primarily)
+  dots.forEach((b, k) =>
+    b.addEventListener('click', () => track.scrollTo({ left: k * track.clientWidth, behavior: 'smooth' }))
+  );
+
+  // Desktop drag-to-scroll
+  const isDesktop = window.matchMedia('(min-width: 901px)').matches;
+  if (isDesktop) {
+    let isDown = false,
+      startX = 0,
+      startLeft = 0;
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX;
+      startLeft = track.scrollLeft;
+    });
+    window.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const dx = e.pageX - startX;
+      track.scrollLeft = startLeft - dx;
+    });
+  }
+
+  track.addEventListener('scroll', updateActive);
+  updateActive();
 }
 
 function carousels() {

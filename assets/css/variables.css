@@ -46,6 +46,7 @@
   --menu-height: 56px;
   --menu-padding-y: 8px;
   --section-block-padding: var(--space-lg);
+  --footer-block-padding: var(--header-block-padding);
 
   /* Shadows */
   --shadow: 0 4px 16px rgb(0 0 0 / 8%);

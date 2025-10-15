@@ -86,3 +86,16 @@ img {
     padding-block: var(--space-md);
   }
 }
+
+
+/* Rich text helpers */
+.rich p { margin-bottom: var(--space-sm); }
+
+/* Schedule */
+.schedule-list .schedule-item { display: grid; grid-template-columns: 160px 1fr auto; align-items: center; gap: var(--space-sm); }
+.schedule-list .schedule-item .date { font-weight: 700; }
+.schedule-list .schedule-item .type { font-weight: 700; color: var(--burgundy); }
+@media (width <= 700px) {
+  .schedule-list .schedule-item { grid-template-columns: 1fr; }
+}
+

@@ -3,7 +3,8 @@
   "rules": {
     "block-no-empty": true,
     "color-hex-length": "short",
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "no-descending-specificity": null
   },
   "ignoreFiles": [
     "**/node_modules/**",

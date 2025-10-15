@@ -13,10 +13,7 @@
       </a>
     {% endfor %}
   </div>
-  <div class="controls">
-    <button class="prev" aria-label="Previous">‹</button>
-    <button class="next" aria-label="Next">›</button>
-  </div>
+  
   <div class="dots">
     {% for s in hero %}
       <button aria-label="Go to slide {{ loop.index }}"></button>
@@ -70,7 +67,7 @@
       <div class="carousel-track flex-row">
         {% for item in sections.community.items %}
           <article class="card">
-            {% if item.image %}<img src="{{ item.image }}" alt="" style="object-fit:cover;width:100%;height:160px;border-radius:8px;">{% endif %}
+            {% if item.image %}<img src="{{ item.image }}" alt="" style="object-fit:cover;width:100%;height:160px;">{% endif %}
             <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
           </article>
         {% endfor %}
@@ -83,4 +80,5 @@
   </div>
 </section>
 {% endif %}
+
 
