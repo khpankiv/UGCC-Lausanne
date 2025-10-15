@@ -1,4 +1,4 @@
-// Кастомний перемикач мов
+// Language switcher
 document.addEventListener('DOMContentLoaded', function () {
   var langBtn = document.querySelector('.lang-btn');
   var langList = document.querySelector('.lang-list');

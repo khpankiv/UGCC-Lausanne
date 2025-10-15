@@ -31,14 +31,14 @@
               <li role="menuitem"><a href="/en/">English</a></li>
             </ul>
           </div>
-          <span class="socials socials-header">
+          <div class="socials-row"><span class="socials socials-header">
             {% for social in footer.social %}
               <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
             {% endfor %}
             <button class="icon-btn search-toggle" aria-expanded="false" title="{{ header.searchTitle or 'Пошук' }}">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-          </span>
+          </span><button class="icon-btn search-toggle" aria-expanded="false" title="{{ header.searchTitle or "�����" }}"><i class="fa-solid fa-magnifying-glass"></i></button></div>
           <a class="btn" href="{{ donateUrl }}">{{ header.donateCta or 'Пожертвувати' }}</a>
           <form class="header-search" action="#" method="get">
             <input type="text" placeholder="{{ header.searchPlaceholder }}" name="q">
@@ -59,3 +59,4 @@
     </div>
   </nav>
 </header>
+
