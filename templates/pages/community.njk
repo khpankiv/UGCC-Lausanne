@@ -1,7 +1,6 @@
 ﻿{% if page == 'community' %}
 <section class="section-list">
   <div class="container">
-    <h2>{{ title }}</h2>
     <div class="cards-grid cols-3">
       {% for item in sections.community %}
         {% include "partials/card-article.njk" %}

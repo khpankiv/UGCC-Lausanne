@@ -30,13 +30,11 @@
 }
 
 .page-hero h1 {
-  font-family: var(--font-headline);
-  font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-family: var(--font-accent);
+  font-size: var(--font-size-title);
+  font-weight: 900;
   color: var(--hero-title-color, var(--white));
-  margin: 0;
-  text-shadow: 0 2px 0 rgb(0 0 0 / 20%), 0 6px 14px rgb(0 0 0 / 35%);
+  /* margin: 0; */
 }
 
 /* Icon above title */
@@ -44,17 +42,7 @@
 .page-hero .hero-icon svg { width: 80px; height: 80px; color: currentColor; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
 
 /* Title styling only (no inline icon layout) */
-.page-hero-title { display: inline-block; position: relative; padding-bottom: 8px; }
-.page-hero-title::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  width: 160px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(230,184,0,.9), transparent);
-}
+.page-hero-title { display: block; }
 
 .page-hero p {
   font-family: var(--font-main);
@@ -62,3 +50,4 @@
   margin-top: 0.5rem;
   font-size: 1.1rem;
 }
+

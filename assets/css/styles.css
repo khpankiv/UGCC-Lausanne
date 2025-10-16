@@ -121,6 +121,9 @@ img {
 .list-card .meta-date { color: var(--burgundy); font-weight: 600; }
 .list-card .meta-author { color: var(--muted); font-style: italic; }
 
+/* Detail text font (dates, authors, badges, small meta) */
+.meta, .card-meta, .list-card .meta, .badge, small, time { font-family: var(--font-detail); }
+
 /* Schedule
 .schedule-list .schedule-item { display: grid; grid-template-columns: 160px 1fr auto; align-items: center; gap: var(--space-sm); }
 .schedule-list .schedule-item .date { font-weight: 700; }

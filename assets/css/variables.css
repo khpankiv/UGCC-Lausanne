@@ -2,11 +2,13 @@
 
 :root {
   /* Colors */
-  --gold: #e6b800;
+  /* --gold: #e6b800; */
+	--gold: #96692a;
   --burgundy: #7c1839;
   --bgsoft: #f6f6f7;
   --bg: #fff;
-  --bg-section: #faf9f9;
+  /* Use single unified background across pages */
+  --bg-section: var(--bgsoft);
   --border: #e0e0e0;
   --text-main: #222;
   --text-soft: #555;
@@ -20,8 +22,13 @@
   --shadow-hover: 0 6px 20px rgb(0 0 0 / 12%);
 
   /* Fonts */
-  --font-main:  "Lora", serif;
-  --font-accent: "Cinzel Decorative", serif;
+  /* Headline (gothic), body, and detail fonts */
+  --font-headline: "Forum", serif;
+  --font-body: "Lora", serif;
+  --font-detail: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  /* Backward-compat aliases used across styles */
+  --font-main: var(--font-body);
+  --font-accent: var(--font-headline);
 
   /* Sizes */
   --font-size-main: clamp(1rem, 1vw + 0.9rem, 1.15rem);
@@ -52,7 +59,7 @@
   --shadow: 0 4px 16px rgb(0 0 0 / 8%);
 
   /* Transition */
-  --transition-fast: 0.2s;
+  --transition: 0.5s;
 
   /* === Base styles for UGCC Lausanne === */
   --container-width: 1200px;

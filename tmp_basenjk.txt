@@ -25,11 +25,6 @@
   <!-- Favicon -->
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 
-  <!-- Fonts: headline/body/detail -->
-  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900 rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -72,3 +67,4 @@
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
+

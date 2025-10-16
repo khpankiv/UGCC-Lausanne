@@ -35,16 +35,16 @@
   <li role="menuitem"><a href="{{ urlEn }}">English</a></li>
 </ul>
           </div>
-                    <div class="socials-row">
+          <div class="socials-row">
             <span class="socials socials-header">
               {% for social in footer.social %}
                 <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
               {% endfor %}
             </span>
-            <button class="icon-btn search-toggle" aria-expanded="false" title="{{ header.searchTitle or '�����' }}">
+            <button class="icon-btn search-toggle" aria-expanded="false" title="{{ header.searchPlaceholder }}">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-          </div><a class="btn" href="{{ donateUrl }}">{{ header.donateCta or 'Пожертвувати' }}</a>
+          </div><a class="btn" href="{{ donateUrl }}">{{ header.donateCta }}</a>
           <form class="header-search" action="#" method="get">
             <input type="text" placeholder="{{ header.searchPlaceholder }}" name="q">
           </form>
