@@ -2,7 +2,7 @@
   <meta itemprop="eventAttendanceMode" content="https://schema.org/OfflineEventAttendanceMode">
   <div class="liturgy-date">
     <span class="day">{{ item.date | substr(8, 2) }}</span>
-    <span class="month">{{ item.date | substr(5, 2) | int | monthname(lang) }}</span>
+    <span class="month">{{ item.date | substr(5, 2) }}</span>
   </div>
   <div class="liturgy-details">
     {% set categoryIcon = 'fa-regular fa-calendar' %}

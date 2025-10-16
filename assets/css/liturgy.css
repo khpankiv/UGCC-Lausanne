@@ -1,77 +1,25 @@
-.liturgy-hero {
-  position: relative;
-  background: center/cover no-repeat;
-  color: #fff;
-  text-align: center;
-  padding: 6rem 1rem;
-}
+.liturgy-hero { position: relative; background: center/cover no-repeat; color: var(--white); text-align: center; padding: var(--space-lg) var(--space-sm); }
 
-.liturgy-hero .overlay {
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
-  padding: 4rem 1rem;
-  border-radius: 0.8rem;
-  max-width: 750px;
-  margin: 0 auto;
-}
+.liturgy-hero .overlay { background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)); padding: var(--space-lg) var(--space-sm); border-radius: var(--radius); max-width: 750px; margin: 0 auto; }
 
-.liturgy-hero h2 {
-  font-family: "Merriweather", serif;
-  font-size: 2rem;
-  color: #ffd24d;
-  margin-bottom: 1rem;
-}
+.liturgy-hero h2 { font-family: var(--font-headline); font-size: var(--font-size-title); color: var(--gold); margin-bottom: var(--space-sm); }
 
-.liturgy-card {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  padding: 1.5rem;
-  backdrop-filter: blur(8px);
-}
+.liturgy-card { background: rgba(255,255,255,0.12); border-radius: var(--radius); padding: var(--space-md); backdrop-filter: blur(8px); }
 
-.liturgy-card h3 {
-  font-size: 1.5rem;
-  color: #f5c1cf;
-  margin-bottom: 1rem;
-}
+.liturgy-card h3 { font-size: 1.5rem; color: var(--burgundy); margin-bottom: var(--space-sm); }
 
-.liturgy-info {
-  display: grid;
-  gap: 0.5rem;
-  font-size: 1.1rem;
-}
+.liturgy-info { display: grid; gap: var(--space-sm); font-size: 1.1rem; }
 
-.liturgy-info i {
-  color: #ffd24d;
-  margin-right: 0.4rem;
-}
+.liturgy-info i { color: var(--gold); margin-right: var(--space-xs); }
 
 /* ОГОЛОШЕННЯ */
-.announcements {
-  padding: 4rem 1rem;
-}
+.announcements { padding: var(--space-lg) var(--space-sm); }
 
-.announcements h2 {
-  color: #7a1e34;
-  font-family: "Merriweather", serif;
-  margin-bottom: 2rem;
-  text-align: left;
-}
+.announcements h2 { color: var(--burgundy); font-family: var(--font-headline); margin-bottom: var(--space-lg); text-align: left; }
 
-.announcements-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
+.announcements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md); }
 
-.announcement-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-left: 6px solid #7a1e34;
-  border-radius: 8px;
-  padding: 1.2rem 1.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
-}
+.announcement-card { background: var(--white); border: var(--border-width) solid #eee; border-left: 6px solid var(--burgundy); border-radius: var(--radius); padding: var(--space-sm) var(--space-md); box-shadow: var(--shadow); transition: transform var(--transition-fast); }
 .announcement-card:hover {
   transform: translateY(-3px);
 }
@@ -83,30 +31,12 @@
   margin-bottom: 0.5rem;
 }
 
-.announcement-card h4 {
-  font-size: 1.1rem;
-  color: #7a1e34;
-  margin: 0;
-}
+.announcement-card h4 { font-size: 1.1rem; color: var(--burgundy); margin: 0; }
 
-.announcement-card time {
-  font-size: 0.9rem;
-  color: #777;
-}
+.announcement-card time { font-size: var(--font-size-small); color: var(--muted); }
 
-.announcement-meta {
-  font-size: 0.95rem;
-  color: #444;
-  margin-bottom: 0.5rem;
-}
+.announcement-meta { font-size: var(--font-size-small); color: var(--text-soft); margin-bottom: var(--space-sm); }
 
-.announcement-meta span {
-  display: inline-block;
-  margin-right: 1rem;
-}
+.announcement-meta span { display: inline-block; margin-right: var(--space-md); }
 
-.announcement-card p {
-  color: #333;
-  margin: 0;
-  line-height: 1.4;
-}
+.announcement-card p { color: var(--ink); margin: 0; line-height: 1.4; }

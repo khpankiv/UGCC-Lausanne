@@ -33,6 +33,16 @@ env.addFilter('format_date', (value, lang = 'uk') => {
   return d.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
 });
 
+// Numeric date as DD.MM.YYYY for cards/meta
+env.addFilter('format_date_num', (value) => {
+  const d = parseToDate(value);
+  if (!d) return '';
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const yyyy = d.getFullYear();
+  return `${dd}.${mm}.${yyyy}`;
+});
+
 env.addFilter('sort_by_time', (arr) => {
   if (!Array.isArray(arr)) return [];
   const getTime = (item) => {
@@ -103,16 +113,20 @@ const footerData = fs.existsSync(footerPath)
 
 // Load and group data
 function loadSections() {
+  const readJson = (p) => {
+    const raw = fs.readFileSync(p, 'utf-8').replace(/^\uFEFF/, '');
+    return JSON.parse(raw);
+  };
   let articles = [];
   let schedule = [];
   try {
-    articles = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/articles.json'), 'utf-8'));
+    articles = readJson(path.join(__dirname, '../data/articles.json'));
     console.log(`Loaded articles: ${articles.length}`);
   } catch {
     console.warn('Could not read data/articles.json');
   }
   try {
-    schedule = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/schedule.json'), 'utf-8'));
+    schedule = readJson(path.join(__dirname, '../data/schedule.json'));
     console.log(`Loaded schedule items: ${schedule.length}`);
   } catch {
     console.warn('Could not read data/schedule.json');
@@ -171,7 +185,7 @@ function loadSections() {
 
   for (const pageFile of pageJsonFiles) {
     const pageName = path.basename(path.dirname(pageFile));
-    const rawPageData = JSON.parse(fs.readFileSync(pageFile, 'utf-8'));
+    const rawPageData = JSON.parse(fs.readFileSync(pageFile, 'utf-8').replace(/^\uFEFF/, ''));
     const pageCommon = rawPageData.common || {};
 
     for (const lang of languages) {

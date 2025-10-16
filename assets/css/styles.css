@@ -61,7 +61,7 @@ button:hover,
 }
 
 section {
-  padding-block: var(--section-block-padding);
+  margin-block: var(--section-block-padding);
 }
 
 .container {
@@ -115,7 +115,7 @@ img {
 }
 .list-card { background: var(--white); border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
 .list-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-.list-card .thumb { width: 100%; height: 220px; object-fit: cover; display: block; }
+.list-card .thumb { width: 100%; height: var(--card-thumb-height); object-fit: cover; display: block; }
 .list-card .body { padding: var(--space-md); }
 .list-card .meta { display: flex; gap: var(--space-sm); align-items: baseline; margin-bottom: var(--space-sm); }
 .list-card .meta-date { color: var(--burgundy); font-weight: 600; }
@@ -151,7 +151,6 @@ img {
 .contacts .map-wrap iframe { height: 100% !important; min-height: 360px; display: block; }
 
 /* Contact form */
-.contact-form-section { padding-block: var(--section-block-padding); background: var(--bg-section); }
 .contact-form { background: var(--white); border: 1px solid var(--border); box-shadow: var(--shadow); padding: var(--space-md); display: grid; gap: var(--space-md); }
 .contact-form .form-row { display: grid; gap: var(--space-md); }
 .contact-form .form-row.two { grid-template-columns: 1fr 1fr; }
@@ -203,8 +202,8 @@ img {
 .slider .slide { min-width: 100%; }
 .slider .slide img { width: 100%; height: auto; display: block; }
 .slider .nav { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; pointer-events: none; padding: 0 var(--space-sm); }
-.slider .nav button { pointer-events: auto; background: rgb(0 0 0 / 35%); color: #fff; border: 0; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; }
+.slider .nav button { pointer-events: auto; background: rgb(0 0 0 / 35%); color: #fff; border: 0; width: var(--layout-controls-size); height: var(--layout-controls-size); border-radius: 50%; display: grid; place-items: center; cursor: pointer; }
 .slider .nav button:hover { background: rgb(0 0 0 / 55%); }
-.slider .dots { position: absolute; bottom: 8px; left: 0; right: 0; display: flex; gap: 6px; justify-content: center; }
-.slider .dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; background: rgb(255 255 255 / 60%); cursor: pointer; }
+.slider .dots { position: absolute; bottom: var(--space-xs); left: 0; right: 0; display: flex; gap: var(--layout-dots-gap); justify-content: center; }
+.slider .dots button { width: var(--layout-dots-size); height: var(--layout-dots-size); border-radius: 50%; border: 0; background: rgb(255 255 255 / 60%); cursor: pointer; }
 .slider .dots button.active { background: var(--gold); }

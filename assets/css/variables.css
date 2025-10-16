@@ -36,6 +36,19 @@
   --font-size-menu: clamp(1rem, 1vw + 0.8rem, 1.1rem);
   --font-size-small: clamp(0.9rem, 0.7vw + 0.7rem, 1rem);
 
+  /* Radii, borders, UI sizes */
+  --radius: 6px;
+  --border-width: 1px;
+
+  /* Card/layout helpers */
+  --card-thumb-height: 220px;
+  --raise-xs: 4px;
+  --raise-sm: 6px;
+
+  /* Liturgy ribbon measurements */
+  --liturgy-ribbon-width: 76px;
+  --liturgy-ribbon-offset: -10px;
+
   /* Spacing: small — fixed, medium/large — adaptive */
   --space-xs: 6px;
   --space-sm: 12px;

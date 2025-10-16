@@ -6,14 +6,23 @@
 						},	
     "uk":  {
                "title":  "Пожертви",
-               "content":  "Як підтримаи парафію"
+    					 "donateIntro": "Підтримайте нашу парафію. Ви можете зробити внесок онлайн або банківським переказом.",
+    					 "donateCta": "Пожертвувати онлайн",
+    					 "bankTitle": "Банківський переказ",
+							 "questionsTitle": "Питання"							 
            },
     "en":  {
-               "title":  "Donate",
-               "content":  "How to support the parish."
+               "title":  "Donations",
+    					 "donateIntro": "Support our parish. Donate online or via bank transfer.",
+    					 "donateCta": "Donate Online",
+    					 "bankTitle": "Bank transfer",
+							 "questionsTitle": "Questions"
            },
     "fr":  {
                "title":  "Faire un don",
-               "content":  "Comment soutenir la paroisse."
+    					 "donateIntro": "Soutenez notre paroisse. Faites un don en ligne ou par virement.",
+    					 "donateCta": "Faire un don en ligne",
+    					 "bankTitle": "Virement bancaire",
+							 "questionsTitle": "Questions"
            }
 }

@@ -11,9 +11,9 @@
       {% if item.author %}
         <span class="meta-author">{{ item.author }}</span>
       {% endif %}
-      {% if item.timestamp or item.date %}
-        <time class="meta-date">{{ (item.timestamp or item.date) | format_date(lang) }}</time>
-      {% endif %}
+       {% if item.timestamp or item.date %}
+         <time class="meta-date">{{ (item.timestamp or item.date) | format_date_num }}</time>
+       {% endif %}
     </div>
   </div>
 </a>

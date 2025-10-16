@@ -1,26 +1,6 @@
 {% if page == 'donate' %}
 <section class="donate rich">
   <div class="container">
-    {% set donateTitle = title or 'Donations' %}
-    {% set donateIntro = intro or 'Support our parish. Donate online or via bank transfer.' %}
-    {% set donateCta = 'Donate Online' %}
-    {% set bankTitle = 'Bank transfer' %}
-    {% set questionsTitle = 'Questions' %}
-    {% if lang == 'uk' %}
-      {% set donateTitle = 'Пожертви' %}
-      {% set donateIntro = 'Підтримайте нашу парафію. Ви можете зробити внесок онлайн або банківським переказом.' %}
-      {% set donateCta = 'Пожертвувати онлайн' %}
-      {% set bankTitle = 'Банківський переказ' %}
-      {% set questionsTitle = 'Питання' %}
-    {% endif %}
-    {% if lang == 'fr' %}
-      {% set donateTitle = 'Dons' %}
-      {% set donateIntro = 'Soutenez notre paroisse. Faites un don en ligne ou par virement.' %}
-      {% set donateCta = 'Faire un don en ligne' %}
-      {% set bankTitle = 'Virement bancaire' %}
-      {% set questionsTitle = 'Questions' %}
-    {% endif %}
-    <h2>{{ donateTitle }}</h2>
     <p>{{ donateIntro }}</p>
 
     <p>

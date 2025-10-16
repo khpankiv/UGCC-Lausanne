@@ -5,7 +5,7 @@
 .card-article,
 .card-liturgy {
   background: var(--white);
-  border: var(--border-width) solid var(--border);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -13,7 +13,7 @@
 .list-card:hover,
 .card-article:hover,
 .card-liturgy:hover {
-  transform: translateY(calc(-1 * var(--raise-xs)));
+  transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
 }
 
@@ -29,7 +29,7 @@
 
 .card-article {
   background: var(--white);
-  border: var(--border-width) solid var(--border);
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -37,25 +37,27 @@
 
 .card-img img {
   width: 100%;
-  height: var(--card-thumb-height);
+  height: 180px;
   object-fit: cover;
 }
-.card-body { padding: var(--space-md); }
+.card-body {
+  padding: 1rem;
+}
 .card-title {
-  color: var(--burgundy);
+  color: #7a1e34;
   font-size: 1.2rem;
   font-weight: 700;
-  margin: 0 0 var(--space-xs);
+  margin: 0 0 0.4rem;
 }
-.card-date { font-size: var(--font-size-small); color: var(--burgundy); display: block; margin-bottom: 0.25rem; }
+.card-date { font-size: 0.95rem; color: var(--burgundy); display: block; margin-bottom: 0.25rem; }
 .card-text {
-  color: var(--ink);
-  font-size: var(--font-size-small);
+  color: #333;
+  font-size: 0.95rem;
   margin-top: 0.4rem;
 }
-.card-meta { display: flex; align-items: baseline; justify-content: space-between; margin-top: var(--space-sm); font-size: var(--font-size-small); }
-.card-meta .meta-author { font-style: italic; color: var(--muted); white-space: nowrap; }
-.card-meta .meta-date { color: var(--muted); font-size: var(--font-size-small); white-space: nowrap; }
+.card-meta { display: flex; align-items: baseline; justify-content: space-between; margin-top: 0.6rem; font-size: 0.85rem; }
+.card-meta .meta-author { font-style: italic; color: #666; white-space: nowrap; }
+.card-meta .meta-date { color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
 
 .card-liturgy {
   position: relative;
@@ -65,14 +67,14 @@
 
 .liturgy-date {
   position: absolute;
-  top: var(--liturgy-ribbon-offset);
-  left: var(--liturgy-ribbon-offset); /* protrude to the left */
-  width: var(--liturgy-ribbon-width);
+  top: -10px;
+  left: -10px; /* protrude to the left */
+  width: 76px;
   background: var(--burgundy);
   color: #fff;
   text-align: center;
   border-radius: 0; /* sharp corners */
-  padding: var(--space-xs) 0;
+  padding: 6px 0;
   box-shadow: var(--shadow);
   z-index: 2;
 }
@@ -82,26 +84,29 @@
   font-size: 1.4rem;
   font-weight: 700;
 }
-.liturgy-date .month { font-size: var(--font-size-small); text-transform: uppercase; }
+.liturgy-date .month {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
 
-.liturgy-details { margin-left: calc(var(--liturgy-ribbon-width) + var(--space-md)); }
+.liturgy-details { margin-left: 92px; }
 
 .liturgy-details .title {
-  color: var(--burgundy);
+  color: #7a1e34;
   font-weight: 700;
-  margin-bottom: var(--space-xs);
+  margin-bottom: 0.3rem;
 }
-.liturgy-details .category-line { display: inline-flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-xs); }
+.liturgy-details .category-line { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 6px; }
 .card-icon { color: var(--burgundy); }
 .liturgy-details .time,
 .liturgy-details .place {
-  color: var(--text-soft);
-  font-size: var(--font-size-small);
+  color: #444;
+  font-size: 0.95rem;
   margin: 0.2rem 0;
 }
 .liturgy-details .details {
-  color: var(--ink);
-  margin-top: var(--space-xs);
+  color: #333;
+  margin-top: 0.3rem;
 }
 
 /* Layout for the list of liturgies */
@@ -113,11 +118,12 @@
 /* Month heading and top nav */
 .month-heading { margin: var(--space-md) 0 var(--space-sm); color: var(--burgundy); }
 .schedule-top-nav { display: flex; gap: var(--space-sm); margin-bottom: var(--space-md); }
-.schedule-top-nav a { color: var(--burgundy); border: var(--border-width) solid var(--border); padding: var(--space-xs) var(--space-sm); background: var(--white); box-shadow: var(--shadow); }
+.schedule-top-nav a { color: var(--burgundy); border: 1px solid var(--border); padding: 6px 10px; background: var(--white); box-shadow: var(--shadow); }
 .schedule-top-nav a:hover { background: var(--bgsoft); color: var(--burgundy); }
 
 /* Category badges */
-.badge { display: inline-block; font-size: 0.75rem; letter-spacing: .02em; padding: 2px 6px; border: var(--border-width) solid var(--burgundy); color: var(--burgundy); margin-bottom: var(--space-xs); }
+.badge { display: inline-block; font-size: 0.75rem; letter-spacing: .02em; padding: 2px 6px; border: 1px solid var(--burgundy); color: var(--burgundy); margin-bottom: 6px; }
 .badge-announcement { border-color: #8a8a8a; color: #555; }
 .badge-event { border-color: #b07a00; color: #8a5c00; }
 .badge-confession { border-color: #135d2b; color: #135d2b; }
+
