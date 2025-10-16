@@ -1,0 +1,19 @@
+<a class="card-article" href="{{ item.url }}">
+  {% if item.image %}
+    <div class="card-img">
+      <img src="{{ item.image }}" alt="{{ item.title }}">
+    </div>
+  {% endif %}
+  <div class="card-body">
+    <h3 class="card-title">{{ item.title }}</h3>
+    <p class="card-text">{{ item.excerpt or item.text | truncate(140) }}</p>
+    <div class="card-meta">
+      {% if item.author %}
+        <span class="meta-author">{{ item.author }}</span>
+      {% endif %}
+      {% if item.timestamp or item.date %}
+        <time class="meta-date">{{ (item.timestamp or item.date) | format_date(lang) }}</time>
+      {% endif %}
+    </div>
+  </div>
+</a>

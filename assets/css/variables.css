@@ -20,8 +20,8 @@
   --shadow-hover: 0 6px 20px rgb(0 0 0 / 12%);
 
   /* Fonts */
-  --font-main: 'Montserrat', 'Arial', sans-serif;
-  --font-accent: 'Merriweather', serif;
+  --font-main:  "Lora", serif;
+  --font-accent: "Cinzel Decorative", serif;
 
   /* Sizes */
   --font-size-main: clamp(1rem, 1vw + 0.9rem, 1.15rem);

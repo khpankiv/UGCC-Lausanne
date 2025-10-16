@@ -25,21 +25,26 @@
 							<i class="fa-solid fa-globe"></i>
 							 {{ currentLangLabel }}</span>
             </button>
-            <ul id="lang-menu" class="lang-list" role="menu" hidden>
-              <li role="menuitem"><a href="/">Українська</a></li>
-              <li role="menuitem"><a href="/fr/">Français</a></li>
-              <li role="menuitem"><a href="/en/">English</a></li>
-            </ul>
+            {% set currentPage = page %}
+{% set urlUk = '/' if currentPage == 'index' else '/' + currentPage + '/' %}
+{% set urlFr = '/fr/' if currentPage == 'index' else '/fr/' + currentPage + '/' %}
+{% set urlEn = '/en/' if currentPage == 'index' else '/en/' + currentPage + '/' %}
+<ul id="lang-menu" class="lang-list" role="menu" hidden>
+  <li role="menuitem"><a href="{{ urlUk }}">Українська</a></li>
+  <li role="menuitem"><a href="{{ urlFr }}">Francais</a></li>
+  <li role="menuitem"><a href="{{ urlEn }}">English</a></li>
+</ul>
           </div>
-          <div class="socials-row"><span class="socials socials-header">
-            {% for social in footer.social %}
-              <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
-            {% endfor %}
-            <button class="icon-btn search-toggle" aria-expanded="false" title="{{ header.searchTitle or 'Пошук' }}">
+                    <div class="socials-row">
+            <span class="socials socials-header">
+              {% for social in footer.social %}
+                <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
+              {% endfor %}
+            </span>
+            <button class="icon-btn search-toggle" aria-expanded="false" title="{{ header.searchTitle or '�����' }}">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-          </span><button class="icon-btn search-toggle" aria-expanded="false" title="{{ header.searchTitle or "�����" }}"><i class="fa-solid fa-magnifying-glass"></i></button></div>
-          <a class="btn" href="{{ donateUrl }}">{{ header.donateCta or 'Пожертвувати' }}</a>
+          </div><a class="btn" href="{{ donateUrl }}">{{ header.donateCta or 'Пожертвувати' }}</a>
           <form class="header-search" action="#" method="get">
             <input type="text" placeholder="{{ header.searchPlaceholder }}" name="q">
           </form>

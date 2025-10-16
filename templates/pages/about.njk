@@ -41,4 +41,35 @@
     {% endif %}
   </div>
 </section>
+{% if page == 'about' %}
+<section class="about-priests">
+  <div class="container">
+    {% if lang == 'uk' %}
+      <h2>Наші священники</h2>
+    {% elif lang == 'fr' %}
+      <h2>Nos prêtres</h2>
+    {% else %}
+      <h2>Our Priests</h2>
+    {% endif %}
+
+    <div class="cards-grid cols-2">
+      <article class="list-card priest-card">
+        <img class="thumb" src="/assets/images/priste1.jpg" alt="{% if lang == 'uk' %}Єрей Святослав ГОРЕЦЬКИЙ{% else %}Priest 1{% endif %}">
+        <div class="body">
+          <h3 class="title">{% if lang == 'uk' %}Єрей Святослав ГОРЕЦЬКИЙ{% elif lang == 'fr' %}Prêtre{% else %}Priest{% endif %}</h3>
+          <p class="text">{% if lang == 'fr' %}Service pastoral, liturgies et accompagnement spirituel.{% elif lang == 'en' %}Pastoral service, liturgies and spiritual guidance.{% else %}Душпастирське служіння, літургії та духовний супровід.{% endif %}</p>
+        </div>
+      </article>
+
+      <article class="list-card priest-card">
+        <img class="thumb" src="/assets/images/priste2.jpg" alt="{% if lang == 'uk' %}Єрей Тарас Овсяник{% else %}Priest 2{% endif %}">
+        <div class="body">
+          <h3 class="title">{% if lang == 'uk' %}Єрей Тарас Овсяник{% elif lang == 'fr' %}Prêtre{% else %}Priest{% endif %}</h3>
+          <p class="text">{% if lang == 'fr' %}Service pastoral, liturgies et accompagnement spirituel.{% elif lang == 'en' %}Pastoral service, liturgies and spiritual guidance.{% else %}Душпастирське служіння, літургії та духовний супровід.{% endif %}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+{% endif %}
 {% endif %}

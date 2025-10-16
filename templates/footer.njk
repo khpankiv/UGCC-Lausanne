@@ -4,7 +4,7 @@
       <!-- Contacts column -->
       <div class="footer-col contact-line ">
         <h3>{{ footer.contacts_title }}</h3>
-        <p><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener">{{ footer.address }}</a></p>
+        <p class="contact-line"><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>{{ footer.address }}</span></a></p>
         {% if footer.phone %}
           <p class="contact-line"><a class="phone" href="tel:{{ footer.phone }}"><i class="fa-solid fa-phone"></i><span>{{ footer.phone }}</span></a></p>
         {% endif %}

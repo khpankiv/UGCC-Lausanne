@@ -3,32 +3,46 @@ name: Build and Deploy (UGCC Lausanne)
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 5 * * *'  # щодня о 05:00 UTC
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: 🧱 Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: Install deps
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Fetch Google Sheet CSV
+      - name: 🔑 Set environment variables
         env:
-          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
-        run: node scripts/fetch-sheets.js
+          ARTICLES_CSV_URL: ${{ secrets.ARTICLES_CSV_URL }}
+          SCHEDULE_CSV_URL: ${{ secrets.SCHEDULE_CSV_URL }}
+        run: |
+          echo "ARTICLES_CSV_URL=${ARTICLES_CSV_URL}" >> $GITHUB_ENV
+          echo "SCHEDULE_CSV_URL=${SCHEDULE_CSV_URL}" >> $GITHUB_ENV
 
-      - name: Render pages
+      - name: 🔍 Check Google Sheet accessibility
+        run: |
+          echo "=== ARTICLES CSV HEAD ==="
+          curl -L -s "$ARTICLES_CSV_URL" | head -n 3
+          echo "=== SCHEDULE CSV HEAD ==="
+          curl -L -s "$SCHEDULE_CSV_URL" | head -n 3
+
+      - name: 📥 Fetch Google Sheets data
+        run: npm run load
+
+      - name: 🧩 Render static pages
         run: npm run render
 
-      - name: Deploy to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

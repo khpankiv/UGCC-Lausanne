@@ -1,51 +1,38 @@
 {# templates/pages/index.njk #}
 {% if page == 'index' %}
 
-  {# === ЛІТУРГІЯ (головний блок) === #}
-  {% set liturgy = sections.schedule | selectattr("category", "equalto", "liturgy") | first %}
-  {% if liturgy %}
-  <section class="section-liturgy highlight">
+  {# 1) Next liturgy highlight #}
+  {% set arr = sections.schedule | sort_by_time %}
+  {% set next = arr and arr[0] %}
+  {% if next %}
+  <section class="next-liturgy">
     <div class="container">
-      <h2>
-        {% if lang == 'uk' %}Найближча Літургія{% endif %}
-        {% if lang == 'fr' %}Prochaine Liturgie{% endif %}
-        {% if lang == 'en' %}Next Liturgy{% endif %}
-      </h2>
-      <div class="card">
-        <h3>{{ liturgy.title }}</h3>
-        {% if liturgy.date %}
-          <p><i class="fa-regular fa-calendar"></i> {{ liturgy.date }} {% if liturgy.time %}о {{ liturgy.time }}{% endif %}</p>
-        {% endif %}
-        {% if liturgy.location %}
-          <p><i class="fa-solid fa-location-dot"></i> {{ liturgy.location }}</p>
-        {% endif %}
-        {% if liturgy.details %}
-          <p>{{ liturgy.details }}</p>
-        {% endif %}
-        {% if liturgy.link_to_liturgy %}
-          <a href="{{ liturgy.link_to_liturgy }}" class="btn-primary">
-            {% if lang == 'uk' %}Детальніше{% elif lang == 'fr' %}Détails{% else %}More{% endif %}
-          </a>
-        {% endif %}
+      <div class="next-grid  list-card">
+        <div class="next-media">
+          <img src="/assets/images/prayer.png" alt="Prayer">
+        </div>
+        <div class="next-info">
+          <h2>{% if lang == 'fr' %}Prochaine liturgie{% elif lang == 'en' %}Upcoming Liturgy{% else %}Найближча Літургія{% endif %}</h2>
+          <h3>{{ next.title }}</h3>
+          <p class="meta"><i class="fa-regular fa-calendar-days"></i> <time>{{ (next.timestamp or next.date) | format_date(lang) }}</time>{% if next.time %} • <i class="fa-regular fa-clock"></i> {{ next.time }}{% endif %}</p>
+          {% if next.location %}<p class="meta"><i class="fa-solid fa-location-dot"></i> {{ next.location }}</p>{% endif %}
+          {% if next.details %}<p class="lead">{{ next.details }}</p>{% endif %}
+        </div>
       </div>
     </div>
   </section>
   {% endif %}
 
-  {# === ОГОЛОШЕННЯ === #}
-  {% set announcements = sections.schedule | selectattr("category", "equalto", "announcement") | list %}
-  {% if announcements and announcements.length %}
-  <section class="section-announcements">
+  {# 2) Short announcements #}
+  {% if sections.announcements and sections.announcements.length %}
+  <section class="home-announcements">
     <div class="container">
-      <h2>
-        {% if lang == 'uk' %}Оголошення{% endif %}
-        {% if lang == 'fr' %}Annonces{% endif %}
-        {% if lang == 'en' %}Announcements{% endif %}
-      </h2>
-      <ul class="announcement-list">
-        {% for item in announcements %}
+      <h2>{% if lang == 'fr' %}Annonces{% elif lang == 'en' %}Announcements{% else %}Оголошення{% endif %}</h2>
+      <ul class="brief-list">
+        {% for item in sections.announcements | take(0,3) %}
           <li>
-            <strong>{{ item.title }}</strong> — {{ item.details or item.excerpt }}
+            <span class="title">{{ item.title }}</span>
+            {% if item.timestamp or item.date %}<time class="date">{{ (item.timestamp or item.date) | format_date(lang) }}</time>{% endif %}
           </li>
         {% endfor %}
       </ul>
@@ -53,22 +40,44 @@
   </section>
   {% endif %}
 
-  {# === НОВИНИ === #}
-  {% set type = 'news' %}
-  {% if lang == 'uk' %}{% set title = 'Останні новини' %}{% elif lang == 'fr' %}{% set title = 'Dernières nouvelles' %}{% else %}{% set title = 'Latest News' %}{% endif %}
-  {% set items = sections.news %}
-  {% include 'partials/slider.njk' %}
-
-  {# === ДУХОВНЕ === #}
-  {% set type = 'spiritual' %}
-  {% if lang == 'uk' %}{% set title = 'Духовні матеріали' %}{% elif lang == 'fr' %}{% set title = 'Spirituel' %}{% else %}{% set title = 'Spiritual' %}{% endif %}
-  {% set items = sections.spiritual %}
-  {% include 'partials/slider.njk' %}
-
-  {# === ГРОМАДА === #}
-  {% set type = 'community' %}
-  {% if lang == 'uk' %}{% set title = 'Життя громади' %}{% elif lang == 'fr' %}{% set title = 'Vie de la communauté' %}{% else %}{% set title = 'Community Life' %}{% endif %}
-  {% set items = sections.community %}
-  {% include 'partials/slider.njk' %}
-
 {% endif %}
+
+  <!-- News (3 cards) -->
+  {% if lang == 'uk' %}{% set title = 'Останні новини' %}{% elif lang == 'fr' %}{% set title = 'Dernières nouvelles' %}{% else %}{% set title = 'Latest News' %}{% endif %}
+  <section class="home-section">
+    <div class="container">
+      <h2>{{ title }}</h2>
+      <div class="cards-grid cols-3">
+        {% for item in sections.news | take(0,3) %}
+          {% include "partials/card-article.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Spiritual (3 cards) -->
+  {% if lang == 'uk' %}{% set title = 'Духовне' %}{% elif lang == 'fr' %}{% set title = 'Spirituel' %}{% else %}{% set title = 'Spiritual' %}{% endif %}
+  <section class="home-section">
+    <div class="container">
+      <h2>{{ title }}</h2>
+      <div class="cards-grid cols-3">
+        {% for item in sections.spiritual | take(0,3) %}
+          {% include "partials/card-article.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Community (3 cards) -->
+  {% if lang == 'uk' %}{% set title = 'Життя громади' %}{% elif lang == 'fr' %}{% set title = 'Vie de la communauté' %}{% else %}{% set title = 'Community Life' %}{% endif %}
+  <section class="home-section">
+    <div class="container">
+      <h2>{{ title }}</h2>
+      <div class="cards-grid cols-3">
+        {% for item in sections.community | take(0,3) %}
+          {% include "partials/card-article.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+

@@ -1,14 +1,19 @@
 {
-  "uk": {
-    "title": "Про нас",
-    "content": "Тут текст українською про парафію."
-  },
-  "en": {
-    "title": "About us",
-    "content": "Here is the English text about the parish."
-  },
-  "fr": {
-    "title": "À propos",
-    "content": "Ici le texte en français sur la paroisse."
-  }
+		"common": {
+							"page_hero": true,
+							"hero_image": "/assets/images/church-bg.jpg",
+               "icon":  "<svg viewBox='0 0 24 24' focusable='false' role='img'><circle cx='12' cy='12' r='9'/><path d='M12 10v7M12 7h.01'/></svg>"
+						},	
+    "uk":  {
+               "title":  "Про нас",
+               "content":  "Тут буде інформація про нашу парафію."
+           },
+    "en":  {
+               "title":  "About us",
+               "content":  "Here is the English text about the parish."
+           },
+    "fr":  {
+               "title":  "ГЂ propos",
+               "content":  "Ici le texte en franсais sur la paroisse."
+           }
 }

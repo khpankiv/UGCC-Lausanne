@@ -1,0 +1,112 @@
+.liturgy-hero {
+  position: relative;
+  background: center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.liturgy-hero .overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+  padding: 4rem 1rem;
+  border-radius: 0.8rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.liturgy-hero h2 {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  color: #ffd24d;
+  margin-bottom: 1rem;
+}
+
+.liturgy-card {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.liturgy-card h3 {
+  font-size: 1.5rem;
+  color: #f5c1cf;
+  margin-bottom: 1rem;
+}
+
+.liturgy-info {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.liturgy-info i {
+  color: #ffd24d;
+  margin-right: 0.4rem;
+}
+
+/* ОГОЛОШЕННЯ */
+.announcements {
+  padding: 4rem 1rem;
+}
+
+.announcements h2 {
+  color: #7a1e34;
+  font-family: "Merriweather", serif;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.announcements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.announcement-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-left: 6px solid #7a1e34;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+.announcement-card:hover {
+  transform: translateY(-3px);
+}
+
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.announcement-card h4 {
+  font-size: 1.1rem;
+  color: #7a1e34;
+  margin: 0;
+}
+
+.announcement-card time {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.announcement-meta {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.announcement-meta span {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.announcement-card p {
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
