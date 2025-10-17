@@ -1,5 +1,4 @@
 // Centralized Nunjucks filter registration.
-// Keeps render-pages.js focused on orchestration.
 
 const { parseToDate } = require('./date');
 
@@ -42,6 +41,29 @@ function registerFilters(env) {
     return arr.slice().sort((a, b) => getTime(a) - getTime(b));
   });
 
+  // Upcoming items: filter by now and sort ascending
+  env.addFilter('upcoming', (arr) => {
+    if (!Array.isArray(arr)) return [];
+    const now = Date.now();
+    const getTime = (item) => {
+      const d = parseToDate(item?.timestamp || item?.date, item?.time);
+      return d ? d.getTime() : 0;
+    };
+    return arr
+      .filter((it) => getTime(it) >= now)
+      .sort((a, b) => getTime(a) - getTime(b));
+  });
+
+  // Simple where filter: property equals value
+  env.addFilter('where', (arr, key, value) => {
+    if (!Array.isArray(arr)) return [];
+    if (!key) return arr;
+    return arr.filter((it) => {
+      const v = it && it[key];
+      return v === value;
+    });
+  });
+
   // Slice helper for arrays
   env.addFilter('take', (arr, start = 0, count) => {
     if (!Array.isArray(arr)) return [];
@@ -82,4 +104,3 @@ function registerFilters(env) {
 }
 
 module.exports = { registerFilters };
-

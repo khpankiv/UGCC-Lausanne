@@ -27,7 +27,12 @@
       "title": "Українська Греко‑Католицька Церква в Лозанні",
       "description": "Офіційний сайт громади УГКЦ в Лозанні. Літургії, духовне життя, новини та події.",
       "keywords": "УГКЦ, Лозанна, церква, греко‑католицька, українці у Швейцарії"
-    }
+    },
+    "announcements_title": "Оголошення",
+    "liturgy_section_title": "Літургії",
+    "announcements_section_title": "Оголошення",
+    "before_label": "Перед службою",
+    "after_label": "Після служби"
   },
 
   "fr": {
@@ -36,7 +41,12 @@
       "title": "Église gréco‑catholique ukrainienne à Lausanne",
       "description": "Site officiel de la communauté UGCC à Lausanne. Liturgies, vie spirituelle et actualités.",
       "keywords": "UGCC, Lausanne, église, catholique grecque, ukrainiens en Suisse"
-    }
+    },
+    "announcements_title": "Annonces",
+    "liturgy_section_title": "Liturgies",
+    "announcements_section_title": "Annonces",
+    "before_label": "Avant la liturgie",
+    "after_label": "Après la liturgie"
   },
 
   "en": {
@@ -45,7 +55,11 @@
       "title": "Ukrainian Greek Catholic Church in Lausanne",
       "description": "Official website of the UGCC community in Lausanne. Liturgies, spiritual life, news and events.",
       "keywords": "UGCC, Lausanne, Greek Catholic, church, Ukrainians in Switzerland"
-    }
+    },
+    "announcements_title": "Announcements",
+    "liturgy_section_title": "Liturgies",
+    "announcements_section_title": "Announcements",
+    "before_label": "Before the service",
+    "after_label": "After the service"
   }
 }
-

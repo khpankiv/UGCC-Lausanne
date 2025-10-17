@@ -23,20 +23,15 @@
 
       <!-- Friends + Eparchy column (two headings in one column) -->
       <div class="footer-col">
-        <h3>{{ footer.friends_title or footer.partners_title or friendsHeading }}</h3>
+        <h3>{{ footer.partners_title }}</h3>
         <ul class="footer-links">
           {% if footer.partners and footer.partners.length %}
             {% for partner in footer.partners %}
               <li><a href="{{ partner.url }}" target="_blank" rel="noopener">{{ partner.title }}</a></li>
             {% endfor %}
           {% endif %}
-          {% if footer.friends and footer.friends.length %}
-            {% for friend in footer.friends %}
-              <li><a href="{{ friend.url }}" target="_blank" rel="noopener">{{ friend.title }}</a></li>
-            {% endfor %}
-          {% endif %}
         </ul>
-        <h3 style="margin-top: var(--space-md)">{{ eparchyHeading }}</h3>
+        <h3 class="mt-md">{{ footer.eparchy_title }}</h3>
         <ul class="footer-links">
           <li><a href="https://ugcc.fr/" target="_blank" rel="noopener">{{ footer.eparchy_site_label }}</a></li>
         </ul>
@@ -58,6 +53,5 @@
   </div>
   
 </footer>
-
 
 

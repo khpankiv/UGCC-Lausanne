@@ -5,9 +5,9 @@ const nunjucks = require('nunjucks');
 const glob = require('glob');
 
 // Utilities: safe JSON reader, centralized filters, and data loader
-const { readJsonSafe } = require('./utils/read-json-safe');
+// const { readJsonSafe } = require('./utils/read-json-safe');
 const { registerFilters } = require('./utils/register-filters');
-const { loadSections } = require('./utils/data');
+const { loadSections, readJson } = require('./utils/data');
 
 // Nunjucks environment
 const env = nunjucks.configure('templates', { autoescape: true });
@@ -28,9 +28,9 @@ const headerPath = path.join(pagesDir, 'header.json');
 const footerPath = path.join(pagesDir, 'footer.json');
 
 // Load global UI fragments and config (per-language parts are merged later)
-const globalConfig = fs.existsSync(configPath) ? readJsonSafe(configPath) : {};
-const headerData = fs.existsSync(headerPath) ? readJsonSafe(headerPath) : {};
-const footerData = fs.existsSync(footerPath) ? readJsonSafe(footerPath) : {};
+const globalConfig = fs.existsSync(configPath) ? readJson(configPath) : {};
+const headerData = fs.existsSync(headerPath) ? readJson(headerPath) : {};
+const footerData = fs.existsSync(footerPath) ? readJson(footerPath) : {};
 
 // Render all pages
 (async function renderAll() {
@@ -42,7 +42,7 @@ const footerData = fs.existsSync(footerPath) ? readJsonSafe(footerPath) : {};
 
   for (const pageFile of pageJsonFiles) {
     const pageName = path.basename(path.dirname(pageFile));
-    const rawPageData = readJsonSafe(pageFile);
+    const rawPageData = readJson(pageFile);
     const pageCommon = rawPageData.common || {};
 
     for (const lang of languages) {

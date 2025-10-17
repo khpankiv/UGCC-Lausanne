@@ -1,5 +1,5 @@
 // scripts/fetch-sheets.js
-const { fetchSheet } = require('./data/fetchSheet');
+const { fetchSheet } = require('./fetchSheet');
 
 // Two tabs: articles and anounces
 const { ARTICLES_CSV_URL, SCHEDULE_CSV_URL } = require('./config');

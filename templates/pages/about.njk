@@ -1,5 +1,6 @@
 {% if page == 'about' %}
-<section class="about rich card-border container">
+<section class="about rich ">
+<div class="container card-static">
   <h2>{{ heading }}</h2>
 
   <p>{{ p1 }}</p>
@@ -34,17 +35,18 @@
   </div>
 
   <p>{{ p4 }}</p>
+</div>
 </section>
 
 <section class="about-priests container">
   <h2>{{ priests_title }}</h2>
-  <div class="cards-grid cols-2">
+  <div class="grid cols-2">
     {% for pr in priests %}
-    <article class="list-card priest-card">
-      <img class="thumb" src="{{ images[pr.img] }}" alt="{{ pr.name }}">
+    <article class="list-card priest-card" itemscope itemtype="https://schema.org/Person">
+      <img class="thumb" src="{{ images[pr.img] }}" alt="{{ pr.name }}" itemprop="image">
       <div class="body">
-        <h3 class="title">{{ pr.name }}</h3>
-        <p class="text">{{ pr.desc }}</p>
+        <h3 class="title" itemprop="name">{{ pr.name }}</h3>
+        <p class="text" itemprop="description">{{ pr.desc }}</p>
       </div>
     </article>
     {% endfor %}

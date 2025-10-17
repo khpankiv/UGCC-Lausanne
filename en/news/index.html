@@ -27,7 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900 rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -51,9 +51,7 @@
   <header class="header">
   <div class="container">
     <div class="header-top-row grid">
-      
-      
-      <a class="header-logo-titles header-home-link" href="/en/">
+      <a class="header-logo-titles header-home-link" href="">
         <img src="https://ugcc.fr/wp-content/uploads/2022/02/logo-5.png" alt="UGCC Logo" class="header-logo-full">
         <div class="header-titles">
           <div class="header-title-small">Ukrainian Greek‑Catholic Church</div>
@@ -95,7 +93,7 @@
             <button class="icon-btn search-toggle" aria-expanded="false" title="Search">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-          </div><a class="btn" href="/en/donate/">Donate</a>
+          </div><a class="btn" href="">Donate</a>
           <form class="header-search" action="#" method="get">
             <input type="text" placeholder="Search" name="q">
           </form>
@@ -144,7 +142,11 @@
 
   
 		
-  		<section class="page-hero" style="background-image: url('/assets/images/church-bg.jpg');">
+  		
+
+
+
+<section class="page-hero" style="--hero-bg: url('/assets/images/church-bg.jpg')">
   <div class="overlay"></div>
   <div class="hero-content">
     <h1 class="page-hero-title">News</h1>
@@ -162,23 +164,86 @@
     
 <section class="section-list">
   <div class="container">
-    <div class="cards-grid cols-3">
+    <div class="grid cols-3">
       
-        <a class="card-article" href="/en/news/20251015-feastoftheprotectionoftheblessedvirginmary/">
+        <a class="card-article" href="/en/news/20251015-feastoftheprotectionoftheblessedvirginmary/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Feast of the Protection of the Blessed Virgin Mary">
+      <img src="/assets/images/article.png" alt="Feast of the Protection of the Blessed Virgin Mary" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Feast of the Protection of the Blessed Virgin Mary</h3>
-    <p class="card-text">Solemn Liturgy and memorial service for the defenders of Ukraine.</p>
+    <h3 class="card-title" itemprop="headline">Feast of the Protection of the Blessed Virgin Mary</h3>
+    <p class="card-text" itemprop="description">Solemn Liturgy and memorial service for the defenders of Ukraine.</p>
     <div class="card-meta">
       
-        <span class="meta-author">о. Іван</span>
+        <span class="meta-author" itemprop="author">о. Іван</span>
       
        
-         <time class="meta-date">15.10.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-10-15 09:00:00">15.10.2025</time>
+       
+    </div>
+  </div>
+</a>
+
+      
+        <a class="card-article" href="/en/news/20251010-feastoftheprotectionofthemotherofgod/" itemscope itemtype="https://schema.org/Article">
+  
+    <div class="card-img">
+      <img src="/assets/images/article.png" alt="Feast of the Protection of the Mother of God" itemprop="image">
+    </div>
+  
+  <div class="card-body">
+    <h3 class="card-title" itemprop="headline">Feast of the Protection of the Mother of God</h3>
+    <p class="card-text" itemprop="description">Solemn Liturgy and memorial service for the defenders of Ukraine.</p>
+    <div class="card-meta">
+      
+        <span class="meta-author" itemprop="author">Fr. Ivan</span>
+      
+       
+         <time class="meta-date" itemprop="datePublished" datetime="2025-10-10 09:00:00">10.10.2025</time>
+       
+    </div>
+  </div>
+</a>
+
+      
+        <a class="card-article" href="/en/news/20251005-sundayofmercy/" itemscope itemtype="https://schema.org/Article">
+  
+    <div class="card-img">
+      <img src="/assets/images/article.png" alt="Sunday of Mercy" itemprop="image">
+    </div>
+  
+  <div class="card-body">
+    <h3 class="card-title" itemprop="headline">Sunday of Mercy</h3>
+    <p class="card-text" itemprop="description">After the service, a collection for the needs of Ukraine.</p>
+    <div class="card-meta">
+      
+        <span class="meta-author" itemprop="author">Mrs. Oksana</span>
+      
+       
+         <time class="meta-date" itemprop="datePublished" datetime="2025-10-05 09:00:00">05.10.2025</time>
+       
+    </div>
+  </div>
+</a>
+
+      
+        <a class="card-article" href="/en/news/20250810-parishnews/" itemscope itemtype="https://schema.org/Article">
+  
+    <div class="card-img">
+      <img src="/assets/images/article.png" alt="Parish News" itemprop="image">
+    </div>
+  
+  <div class="card-body">
+    <h3 class="card-title" itemprop="headline">Parish News</h3>
+    <p class="card-text" itemprop="description">The renovation of the parish hall is complete.</p>
+    <div class="card-meta">
+      
+        <span class="meta-author" itemprop="author">Mrs. Iryna</span>
+      
+       
+         <time class="meta-date" itemprop="datePublished" datetime="2025-08-10 11:00:00">10.08.2025</time>
        
     </div>
   </div>
@@ -232,9 +297,8 @@
               <li><a href="#" target="_blank" rel="noopener">Ukrainian Community of Lausanne</a></li>
             
           
-          
         </ul>
-        <h3 style="margin-top: var(--space-md)"></h3>
+        <h3 class="mt-md">Eparchy</h3>
         <ul class="footer-links">
           <li><a href="https://ugcc.fr/" target="_blank" rel="noopener">UGCC Eparchy in France</a></li>
         </ul>
@@ -280,7 +344,6 @@
   </div>
   
 </footer>
-
 
 
 
