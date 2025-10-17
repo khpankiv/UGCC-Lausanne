@@ -1,21 +1,9 @@
 {% if page == 'spiritual' %}
 <section class="section-list">
   <div class="container">
-    {% set pageTitle = title %}
-    {% if not pageTitle %}
-      {% if lang == 'uk' %}{% set pageTitle = 'Духовні матеріали' %}{% endif %}
-      {% if lang == 'fr' %}{% set pageTitle = 'Spirituel' %}{% endif %}
-      {% if lang == 'en' %}{% set pageTitle = 'Spiritual' %}{% endif %}
-    {% endif %}
-    <h2>{{ pageTitle }}</h2>
-    <div class="grid cols-3">
+    <div class="cards-grid cols-3">
       {% for item in sections.spiritual %}
-        <article class="card">
-          {% if item.image %}<img src="{{ item.image }}" alt="{{ item.title }}">{% endif %}
-          <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
-          {% if item.date %}<time class="dim">{{ item.date }}</time>{% endif %}
-          {% if item.text %}<p>{{ item.text | truncate(150) }}</p>{% endif %}
-        </article>
+        {% include "partials/card-article.njk" %}
       {% endfor %}
     </div>
   </div>

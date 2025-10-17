@@ -1,0 +1,36 @@
+<div class="card-liturgy" itemscope itemtype="https://schema.org/Event">
+  <meta itemprop="eventAttendanceMode" content="https://schema.org/OfflineEventAttendanceMode">
+  <div class="liturgy-date">
+    <span class="day">{{ item.date | substr(8, 2) }}</span>
+    <span class="month">{{ item.date | substr(5, 2) }}</span>
+  </div>
+  <div class="liturgy-details">
+    {% set categoryIcon = 'fa-regular fa-calendar' %}
+    {% if item.category == 'liturgy' %}{% set categoryIcon = 'fa-solid fa-church' %}{% endif %}
+    {% if item.category == 'announcement' %}{% set categoryIcon = 'fa-regular fa-bell' %}{% endif %}
+    {% if item.category == 'confession' %}{% set categoryIcon = 'fa-solid fa-hands-praying' %}{% endif %}
+    {% if item.category == 'event' %}{% set categoryIcon = 'fa-regular fa-calendar-days' %}{% endif %}
+    <span class="category-line">
+      <i class="card-icon {{ categoryIcon }}" aria-hidden="true"></i>
+    </span>
+
+    <h3 class="title" itemprop="name">{{ item.title }}</h3>
+    {% set timeWord = 'о' %}
+    {% if lang == 'fr' %}{% set timeWord = 'à' %}{% endif %}
+    {% if lang == 'en' %}{% set timeWord = 'at' %}{% endif %}
+    <p class="time"><i class="fa-regular fa-clock"></i> {{ timeWord }} <time itemprop="startDate" datetime="{{ item.date }}T{{ item.time }}">{{ item.time }}</time></p>
+    {% if item.location %}
+      <p class="place"><i class="fa-solid fa-location-dot"></i>
+        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+          <a href="https://maps.google.com/?q={{ item.location | enc }}" target="_blank" rel="noopener">
+            <span itemprop="name">{{ item.location }}</span>
+          </a>
+          <meta itemprop="address" content="{{ item.location }}">
+        </span>
+      </p>
+    {% endif %}
+    {% if item.details %}
+      <p class="details" itemprop="description">{{ item.details }}</p>
+    {% endif %}
+  </div>
+</div>

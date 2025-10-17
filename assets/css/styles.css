@@ -1,5 +1,6 @@
 /* === Basic styles for UGCC Lausanne === */
 @import url('layout.css');
+/* @import url('articles.css'); */
 
 /* Reset */
 *,
@@ -60,7 +61,7 @@ button:hover,
 }
 
 section {
-  padding-block: var(--section-block-padding);
+  margin-block: var(--section-block-padding);
 }
 
 .container {
@@ -74,6 +75,12 @@ img {
   height: auto;
   display: block;
 }
+
+/* Page title bar under hero (with icon, no underline) */
+.page-title-bar { padding-block: var(--space-md); }
+.page-title { display: flex; align-items: center; gap: var(--space-sm); color: var(--burgundy); margin: 0; }
+.page-title .icon { display: inline-flex; align-items: center; justify-content: center; }
+.page-title svg { width: 28px; height: 28px; color: var(--gold); stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
 
 @media (width <= 900px) {
   .container {
@@ -98,13 +105,32 @@ img {
 .about .gallery.cols-1 { grid-template-columns: 1fr; }
 @media (width <= 800px){ .about .gallery.cols-2 { grid-template-columns: 1fr; } }
 
-/* Schedule */
+/* Cards grid for home/sections */
+.cards-grid { display: grid; gap: var(--space-md); }
+.cards-grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.cards-grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (width <= 900px) {
+  .cards-grid.cols-2,
+  .cards-grid.cols-3 { grid-template-columns: 1fr; }
+}
+.list-card { background: var(--white); border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+.list-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.list-card .thumb { width: 100%; height: var(--card-thumb-height); object-fit: cover; display: block; }
+.list-card .body { padding: var(--space-md); }
+.list-card .meta { display: flex; gap: var(--space-sm); align-items: baseline; margin-bottom: var(--space-sm); }
+.list-card .meta-date { color: var(--burgundy); font-weight: 600; }
+.list-card .meta-author { color: var(--muted); font-style: italic; }
+
+/* Detail text font (dates, authors, badges, small meta) */
+.meta, .card-meta, .list-card .meta, .badge, small, time { font-family: var(--font-detail); }
+
+/* Schedule
 .schedule-list .schedule-item { display: grid; grid-template-columns: 160px 1fr auto; align-items: center; gap: var(--space-sm); }
 .schedule-list .schedule-item .date { font-weight: 700; }
 .schedule-list .schedule-item .type { font-weight: 700; color: var(--burgundy); }
 @media (width <= 700px) {
   .schedule-list .schedule-item { grid-template-columns: 1fr; }
-}
+} */
 
 /* Socials: unified spacing/colors; modifiers per area */
 .socials { display: inline-flex; align-items: center; gap: var(--space-sm); }
@@ -120,113 +146,64 @@ img {
 /* Increase vertical spacing between rows on contacts page */
 .contacts .contact-details > * + * { margin-top: var(--space-md); }
 
+/* Equal height columns: map matches contact text height */
+.contacts .contacts-grid { align-items: stretch; }
+.contacts .map-wrap iframe { height: 100% !important; min-height: 360px; display: block; }
+
+/* Contact form */
+.contact-form { background: var(--white); border: 1px solid var(--border); box-shadow: var(--shadow); padding: var(--space-md); display: grid; gap: var(--space-md); }
+.contact-form .form-row { display: grid; gap: var(--space-md); }
+.contact-form .form-row.two { grid-template-columns: 1fr 1fr; }
+@media (width <= 800px) { .contact-form .form-row.two { grid-template-columns: 1fr; } }
+.contact-form label { display: grid; gap: var(--space-xs); color: var(--text-soft); }
+.contact-form input, .contact-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--burgundy); outline: none; border-radius: 0; font-family: var(--font-main); font-size: 1rem; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 2px var(--burgundy-light); }
+.contact-form .form-actions { display: flex; justify-content: flex-end; }
+
+/* Form success notice */
+.form-success { background: #eafaf1; border-left: 4px solid #2ecc71; color: #1a7f4b; padding: 12px 14px; margin-bottom: var(--space-md); }
+
 /* Larger gap between icon and text on contacts page */
-.contacts .contact-details .contact-line a{ gap: var(--space-md); }
+.contacts .contact-details .contact-line a{ display:inline-flex; align-items:center; gap: var(--space-sm); }
+.contacts .contact-details .contact-line i{ margin-right: var(--space-xs); }
 
-.section-liturgy {
-  background: var(--light-gold);
-  padding: 2rem 0;
-  text-align: center;
-}
-.section-liturgy .card {
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  max-width: 600px;
-  margin: 1rem auto;
-  box-shadow: var(--shadow-md);
-}
-.section-announcements {
-  background: var(--light-gray);
-  padding: 1.5rem 0;
-}
-.announcement-list {
-  list-style: none;
-  padding: 0;
-}
-.announcement-list li {
-  margin-bottom: .5rem;
-}
+/* Contact form errors */
+.contact-form .error-msg { color: #b00020; font-size: 0.875rem; line-height: 1.3; }
+.contact-form .field-error input,
+.contact-form .field-error textarea { border-color: #b00020; box-shadow: none; }
 
-.section-schedule {
-  padding-block: 2.5rem;
-  background: var(--white);
-}
+/* Home: next liturgy highlight */
+.next-liturgy { padding-block: var(--space-lg); background: var(--bg-section); }
+.next-liturgy .next-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: center; }
+.next-liturgy .next-media img { width: 100%; height: auto; display: block; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.next-liturgy .next-info h2 { margin-bottom: var(--space-sm); }
+.next-liturgy .next-info h3 { margin-bottom: var(--space-sm); color: var(--burgundy); }
+.next-liturgy .next-info .meta { color: var(--text-soft); }
+.next-liturgy .next-info .lead { margin-top: var(--space-sm); }
+@media (width <= 900px){ .next-liturgy .next-grid { grid-template-columns: 1fr; } }
 
-.section-schedule h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--burgundy);
-}
+/* Home: brief announcements */
+.home-announcements .brief-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.home-announcements .brief-list li { display: flex; justify-content: space-between; gap: var(--space-sm); background: var(--white); border: 1px solid var(--border); padding: 10px 12px; box-shadow: var(--shadow); }
+.home-announcements .brief-list .title { color: var(--ink); }
+.home-announcements .brief-list .date { color: var(--muted); white-space: nowrap; }
 
-.schedule-block {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--light-gray);
-  border-radius: var(--radius-md);
-}
+/* About: priest cards — keep full image, no crop */
+.priest-card .thumb { height: auto; object-fit: contain; }
 
-.schedule-block h3 {
-  color: var(--burgundy);
-  border-bottom: 2px solid var(--gold);
-  padding-bottom: .3rem;
-  margin-bottom: 1rem;
-}
+/* Article page meta block */
+.article-page .meta { color: var(--text-soft); margin: var(--space-sm) 0 var(--space-md); display: grid; gap: 4px; }
+.article-page .meta .meta-line { display: inline-flex; align-items: baseline; gap: 8px; }
+.article-page .meta i { color: var(--burgundy); }
 
-.schedule-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.schedule-item {
-  display: flex;
-  flex-direction: column;
-  gap: .2rem;
-  padding: .8rem 0;
-  border-bottom: 1px solid rgba(0,0,0,.1);
-}
-
-.schedule-date {
-  font-weight: 600;
-  color: var(--burgundy);
-}
-
-.schedule-details {
-  font-size: .95rem;
-  line-height: 1.4;
-}
-
-.announcement-list {
-  list-style: none;
-  padding: 0;
-}
-
-.announcement-list li {
-  margin-bottom: .5rem;
-  padding-left: 1rem;
-  position: relative;
-}
-
-.announcement-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-}
-
-.event-card {
-  background: white;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  padding: 1rem;
-  text-align: center;
-}
-
-.event-card img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-sm);
-  margin-bottom: .5rem;
-}
-
+/* Simple slider (used for article gallery) */
+.slider { position: relative; overflow: hidden; margin: var(--space-md) 0; border: 1px solid var(--border); background: var(--white); box-shadow: var(--shadow); }
+.slider-track { display: flex; overflow: hidden; scroll-behavior: smooth; }
+.slider .slide { min-width: 100%; }
+.slider .slide img { width: 100%; height: auto; display: block; }
+.slider .nav { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; pointer-events: none; padding: 0 var(--space-sm); }
+.slider .nav button { pointer-events: auto; background: rgb(0 0 0 / 35%); color: #fff; border: 0; width: var(--layout-controls-size); height: var(--layout-controls-size); border-radius: 50%; display: grid; place-items: center; cursor: pointer; }
+.slider .nav button:hover { background: rgb(0 0 0 / 55%); }
+.slider .dots { position: absolute; bottom: var(--space-xs); left: 0; right: 0; display: flex; gap: var(--layout-dots-gap); justify-content: center; }
+.slider .dots button { width: var(--layout-dots-size); height: var(--layout-dots-size); border-radius: 50%; border: 0; background: rgb(255 255 255 / 60%); cursor: pointer; }
+.slider .dots button.active { background: var(--gold); }

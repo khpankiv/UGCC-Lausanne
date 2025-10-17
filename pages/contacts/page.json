@@ -1,23 +1,28 @@
 {
-  "uk": {
-    "page_title": "Контакти — Парафія УГКЦ у Лозанні",
-    "title": "Контакти",
-    "how_to_get": "Як добратись: трамвай/автобус до зупинки Ouchy, далі 5 хв пішки до Chem. de Beau-Rivage 3.",
-    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
-    "email": "info@ugcc-lausanne.ch"
-  },
-  "en": {
-    "page_title": "Contacts — UGCC Lausanne Parish",
-    "title": "Contacts",
-    "how_to_get": "How to get there: tram/bus to Ouchy stop, then 5 min walk to Chem. de Beau-Rivage 3.",
-    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
-    "email": "info@ugcc-lausanne.ch"
-  },
-  "fr": {
-    "page_title": "Contacts — Paroisse UGCC Lausanne",
-    "title": "Contacts",
-    "how_to_get": "Comment y aller: tram/bus jusqu'à Ouchy, puis 5 min à pied jusqu'à Chem. de Beau-Rivage 3.",
-    "address": "Chem. de Beau-Rivage 3, 1006 Lausanne",
-    "email": "info@ugcc-lausanne.ch"
-  }
+		"common": {
+							"page_hero": true,
+							"hero_image": "/assets/images/church-bg.jpg",
+               "icon":  "<svg viewBox='0 0 24 24' focusable='false' role='img'><rect x='3' y='5' width='18' height='14' rx='0'/><path d='M3 7l9 7l9-7'/></svg>"
+						},	
+    "uk":  {
+               "title":  "Контакти",
+               "getThere":  "Як добратися",
+               "how_to_get":  "автобус/трамвай до зупинки Оуши, потім 5 хв пішки до Chem. de Beau-Rivage 3.",
+               "address":  "Chem. de Beau-Rivage 3, 1006 Lausanne",
+               "email":  "info@ugcc-lausanne.ch"
+           },
+    "en":  {
+               "title":  "Contacts",
+               "getThere":  "How to get there",
+               "how_to_get":  "tram/bus to Ouchy stop, then 5 min walk to Chem. de Beau-Rivage 3.",
+               "address":  "Chem. de Beau-Rivage 3, 1006 Lausanne",
+               "email":  "info@ugcc-lausanne.ch"
+           },
+    "fr":  {
+               "title":  "Contacts",
+               "getThere":  "Comment y aller",
+               "how_to_get":  "tram/bus jusqu\u0027Г  Ouchy, puis 5 min Г  pied jusqu\u0027Г  Chem. de Beau-Rivage 3.",
+               "address":  "Chem. de Beau-Rivage 3, 1006 Lausanne",
+               "email":  "info@ugcc-lausanne.ch"
+           }
 }

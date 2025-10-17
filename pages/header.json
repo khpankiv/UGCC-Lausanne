@@ -12,7 +12,8 @@
     ],
     "siteName": "Парафія УГКЦ у Лозанні",
     "siteSubtitle": "Єпархія святого Володимира Великого у Парижі для українців греко-католиків у Франції, Бельгії, Нідерландах, Люксембурзі та Швейцарії",
-    "searchPlaceholder": "Пошук"
+    "searchPlaceholder": "Пошук",
+		"donateCta": "Пожертвувати"
   },
   "en": {
     "menu": [
@@ -27,7 +28,8 @@
     ],
     "siteName": "UGCC Lausanne Parish",
     "siteSubtitle": "Ukrainian Greek-Catholic Church",
-    "searchPlaceholder": "Search"
+    "searchPlaceholder": "Search",
+		"donateCta": "Donate"
   },
   "fr": {
     "menu": [
@@ -42,6 +44,7 @@
     ],
     "siteName": "Paroisse UGCC Lausanne",
     "siteSubtitle": "Église grecque-catholique ukrainienne",
-    "searchPlaceholder": "Recherche"
+    "searchPlaceholder": "Recherche",
+		"donateCta": "Faire un don"
   }
 }

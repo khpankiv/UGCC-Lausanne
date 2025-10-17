@@ -2,11 +2,13 @@
 
 :root {
   /* Colors */
-  --gold: #e6b800;
+  /* --gold: #e6b800; */
+	--gold: #96692a;
   --burgundy: #7c1839;
   --bgsoft: #f6f6f7;
   --bg: #fff;
-  --bg-section: #faf9f9;
+  /* Use single unified background across pages */
+  --bg-section: var(--bgsoft);
   --border: #e0e0e0;
   --text-main: #222;
   --text-soft: #555;
@@ -20,14 +22,32 @@
   --shadow-hover: 0 6px 20px rgb(0 0 0 / 12%);
 
   /* Fonts */
-  --font-main: 'Montserrat', 'Arial', sans-serif;
-  --font-accent: 'Merriweather', serif;
+  /* Headline (gothic), body, and detail fonts */
+  --font-headline: "Forum", serif;
+  --font-body: "Lora", serif;
+  --font-detail: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  /* Backward-compat aliases used across styles */
+  --font-main: var(--font-body);
+  --font-accent: var(--font-headline);
 
   /* Sizes */
   --font-size-main: clamp(1rem, 1vw + 0.9rem, 1.15rem);
   --font-size-title: clamp(2rem, 3vw + 1rem, 3rem);
   --font-size-menu: clamp(1rem, 1vw + 0.8rem, 1.1rem);
   --font-size-small: clamp(0.9rem, 0.7vw + 0.7rem, 1rem);
+
+  /* Radii, borders, UI sizes */
+  --radius: 6px;
+  --border-width: 1px;
+
+  /* Card/layout helpers */
+  --card-thumb-height: 220px;
+  --raise-xs: 4px;
+  --raise-sm: 6px;
+
+  /* Liturgy ribbon measurements */
+  --liturgy-ribbon-width: 76px;
+  --liturgy-ribbon-offset: -10px;
 
   /* Spacing: small — fixed, medium/large — adaptive */
   --space-xs: 6px;
@@ -52,7 +72,7 @@
   --shadow: 0 4px 16px rgb(0 0 0 / 8%);
 
   /* Transition */
-  --transition-fast: 0.2s;
+  --transition: 0.5s;
 
   /* === Base styles for UGCC Lausanne === */
   --container-width: 1200px;

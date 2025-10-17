@@ -1,6 +1,6 @@
 .header {
   background: var(--bg);
-  padding-block: var(--header-block-padding);
+  padding-top: var(--header-block-padding);
 }
 
 .header-top-row {
@@ -322,3 +322,15 @@
 }
 
 .socials-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-sm);width:100%;}
+/* Make search icon look like socials: burgundy, gold on hover, no bg */
+.socials-row .icon-btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--burgundy);
+  font-size: var(--socials-font-size);
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+.socials-row .icon-btn:hover { color: var(--gold); }

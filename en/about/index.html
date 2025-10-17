@@ -3,23 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+
   
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Base Styles -->
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="stylesheet" href="/assets/css/slider.css">
-  <!-- Header -->
-  <link rel="stylesheet" href="/assets/css/header.css">
-  <!-- Footer -->
-  <link rel="stylesheet" href="/assets/css/footer.css">
+    <title>Ukrainian Greek Catholic Church in Lausanne</title>
+  
+
+  
+  
+    <meta name="description" content="Official website of the UGCC community in Lausanne. Liturgies, spiritual life, news and events.">
+  
+  
+    <meta name="keywords" content="UGCC, Lausanne, Greek Catholic, church, Ukrainians in Switzerland">
+  
+  
+
+  <!-- Favicon -->
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts: headline/body/detail -->
+  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900 rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Основні стилі -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/cards.css">  
+	
+	<!-- Стилі героя -->
+	
+  	<link rel="stylesheet" href="/assets/css/page-hero.css">
+	
+
+  <!-- Іконки -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -50,27 +75,32 @@
 							<i class="fa-solid fa-globe"></i>
 							 English</span>
             </button>
-            <ul id="lang-menu" class="lang-list" role="menu" hidden>
-              <li role="menuitem"><a href="/">Українська</a></li>
-              <li role="menuitem"><a href="/fr/">Français</a></li>
-              <li role="menuitem"><a href="/en/">English</a></li>
-            </ul>
+            
+
+
+
+<ul id="lang-menu" class="lang-list" role="menu" hidden>
+  <li role="menuitem"><a href="/about/">Українська</a></li>
+  <li role="menuitem"><a href="/fr/about/">Francais</a></li>
+  <li role="menuitem"><a href="/en/about/">English</a></li>
+</ul>
           </div>
-          <div class="socials-row"><span class="socials socials-header">
-            
-              <a href="https://facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            
-              <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            
-              <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
-            
-              <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            
-            <button class="icon-btn search-toggle" aria-expanded="false" title="Пошук">
+          <div class="socials-row">
+            <span class="socials socials-header">
+              
+                <a href="https://facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              
+                <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              
+                <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+              
+                <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              
+            </span>
+            <button class="icon-btn search-toggle" aria-expanded="false" title="Search">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-          </span><button class="icon-btn search-toggle" aria-expanded="false" title="�����"><i class="fa-solid fa-magnifying-glass"></i></button></div>
-          <a class="btn" href="/en/donate/">Пожертвувати</a>
+          </div><a class="btn" href="/en/donate/">Donate</a>
           <form class="header-search" action="#" method="get">
             <input type="text" placeholder="Search" name="q">
           </form>
@@ -116,8 +146,22 @@
 </header>
 
 
+
+  
+		
+  		<section class="page-hero" style="background-image: url('/assets/images/church-bg.jpg');">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1 class="page-hero-title">About us</h1>
+    
+  </div>
+</section>
+
+		
+
   <main>
     
+
     
     
     
@@ -130,15 +174,43 @@
   </div>
 </section>
 
+<section class="about-priests">
+  <div class="container">
+    
+      <h2>Our Priests</h2>
+    
+
+    <div class="cards-grid cols-2">
+      <article class="list-card priest-card">
+        <img class="thumb" src="/assets/images/priste1.jpg" alt="Priest 1">
+        <div class="body">
+          <h3 class="title">Priest</h3>
+          <p class="text">Pastoral service, liturgies and spiritual guidance.</p>
+        </div>
+      </article>
+
+      <article class="list-card priest-card">
+        <img class="thumb" src="/assets/images/priste2.jpg" alt="Priest 2">
+        <div class="body">
+          <h3 class="title">Priest</h3>
+          <p class="text">Pastoral service, liturgies and spiritual guidance.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
 
   </main>
+
   <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <!-- Contacts column -->
       <div class="footer-col contact-line ">
         <h3>Contacts</h3>
-        <p><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener">Chem. de Beau-Rivage 3, 1006 Lausanne</a></p>
+        <p class="contact-line"><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>Chem. de Beau-Rivage 3, 1006 Lausanne</span></a></p>
         
           <p class="contact-line"><a class="phone" href="tel:+41 77 279 07 13"><i class="fa-solid fa-phone"></i><span>+41 77 279 07 13</span></a></p>
         
@@ -224,6 +296,7 @@
   </div>
   
 </footer>
+
 
 
   <script src="/assets/js/main.js"></script>

@@ -1,103 +1,14 @@
 {% if page == 'schedule' %}
-<section class="section-schedule">
-  <div class="container">
-    <h2>
-      {% if lang == 'uk' %}Розклад богослужінь{% endif %}
-      {% if lang == 'fr' %}Calendrier des liturgies{% endif %}
-      {% if lang == 'en' %}Schedule of Liturgies{% endif %}
-    </h2>
-
-    {# === ЛІТУРГІЇ === #}
-    {% set liturgies = sections.schedule | selectattr("category", "equalto", "liturgy") | list %}
-    {% if liturgies and liturgies.length %}
-    <div class="schedule-block">
-      <h3>
-        {% if lang == 'uk' %}Божественна Літургія{% elif lang == 'fr' %}Liturgie divine{% else %}Divine Liturgy{% endif %}
-      </h3>
-      <ul class="schedule-list">
-        {% for item in liturgies %}
-        <li class="schedule-item">
-          <div class="schedule-date">
-            <i class="fa-regular fa-calendar"></i> {{ item.date }}
-            {% if item.time %}<span> — {{ item.time }}</span>{% endif %}
-          </div>
-          <div class="schedule-details">
-            <strong>{{ item.title }}</strong><br>
-            {% if item.details %}<span>{{ item.details }}</span><br>{% endif %}
-            {% if item.location %}
-              <i class="fa-solid fa-location-dot"></i> {{ item.location }}
-            {% endif %}
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
+<section class="schedule-page container">
+  {% if sections.schedule and sections.schedule.length %}
+    <div class="liturgy-grid">
+      {% for item in sections.schedule | sort_by_time %}
+        {% include "partials/card-liturgy.njk" %}
+      {% endfor %}
     </div>
-    {% endif %}
+  {% else %}
+    <p class="no-events">{{ no-ivents }}</p>
+  {% endif %}
 
-    {# === СПОВІДЬ === #}
-    {% set confessions = sections.schedule | selectattr("category", "equalto", "confession") | list %}
-    {% if confessions and confessions.length %}
-    <div class="schedule-block">
-      <h3>
-        {% if lang == 'uk' %}Сповідь{% elif lang == 'fr' %}Confession{% else %}Confession{% endif %}
-      </h3>
-      <ul class="schedule-list">
-        {% for item in confessions %}
-        <li class="schedule-item">
-          <div class="schedule-date">
-            <i class="fa-regular fa-clock"></i> {{ item.date }} {% if item.time %}о {{ item.time }}{% endif %}
-          </div>
-          <div class="schedule-details">
-            {{ item.details or item.title }}
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    {# === ОГОЛОШЕННЯ === #}
-    {% set announcements = sections.schedule | selectattr("category", "equalto", "announcement") | list %}
-    {% if announcements and announcements.length %}
-    <div class="schedule-block">
-      <h3>
-        {% if lang == 'uk' %}Оголошення{% elif lang == 'fr' %}Annonces{% else %}Announcements{% endif %}
-      </h3>
-      <ul class="announcement-list">
-        {% for item in announcements %}
-        <li>
-          <strong>{{ item.title }}</strong> — {{ item.details or item.excerpt }}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    {# === ПОДІЇ ГРОМАДИ === #}
-    {% set events = sections.schedule | selectattr("category", "equalto", "event") | list %}
-    {% if events and events.length %}
-    <div class="schedule-block">
-      <h3>
-        {% if lang == 'uk' %}Події громади{% elif lang == 'fr' %}Événements communautaires{% else %}Community Events{% endif %}
-      </h3>
-      <div class="grid cols-2">
-        {% for e in events %}
-        <article class="card event-card">
-          {% if e.image %}
-          <img src="{{ e.image }}" alt="{{ e.title }}">
-          {% endif %}
-          <h4>{{ e.title }}</h4>
-          {% if e.date %}
-            <p class="dim"><i class="fa-regular fa-calendar"></i> {{ e.date }}</p>
-          {% endif %}
-          {% if e.details %}
-            <p>{{ e.details }}</p>
-          {% endif %}
-        </article>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-  </div>
 </section>
 {% endif %}
