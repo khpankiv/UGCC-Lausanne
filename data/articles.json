@@ -11,6 +11,28 @@
     "author": "о. Іван"
   },
   {
+    "timestamp": "2025-10-15 09:00:00",
+    "email": "info@ugcc-lausanne.ch",
+    "title": "Fête de la Protection de la Bienheureuse Vierge Marie",
+    "excerpt": "Liturgie solennelle et service commémoratif pour les défenseurs de l'Ukraine.",
+    "category": "news",
+    "language": "fr",
+    "image": "/assets/images/article.png",
+    "content": "Après la liturgie, il y aura une cérémonie commémorative pour les défenseurs et une bénédiction des enfants.",
+    "author": "о. Іван"
+  },
+  {
+    "timestamp": "2025-10-15 09:00:00",
+    "email": "info@ugcc-lausanne.ch",
+    "title": "Feast of the Protection of the Blessed Virgin Mary",
+    "excerpt": "Solemn Liturgy and memorial service for the defenders of Ukraine.",
+    "category": "news",
+    "language": "en",
+    "image": "/assets/images/article.png",
+    "content": "After the Liturgy, there will be a memorial service for the defenders and a blessing of children.",
+    "author": "о. Іван"
+  },
+  {
     "timestamp": "2025-10-10 08:30:00",
     "email": "info@ugcc-lausanne.ch",
     "title": "Молитва Вервиці до Божого Милосердя",

@@ -1,0 +1,51 @@
+{% if page == 'donate' %}
+<section class="donate rich">
+  <div class="container">
+    <p>{{ donateIntro }}</p>
+
+    <p>
+      <a class="btn" href="https://ugcc.fr/don/" target="_blank" rel="noopener">{{ donateCta }}</a>
+    </p>
+
+    <div class="grid cols-2" style="margin-top: var(--space-md)">
+      <div class="list-card">
+        <h3>{{ bankTitle }}</h3>
+        <p>IBAN: CH12 3456 7890 1234 5678 9</p>
+        <p>Banque: UBS Lausanne</p>
+        <p>Référence / Призначення: UGCC Lausanne</p>
+      </div>
+      <div class="list-card">
+        <h3>{{ questionsTitle }}</h3>
+        <p>Email: <a href="mailto:{{ footer.email }}">{{ footer.email }}</a></p>
+      </div>
+    </div>
+
+    {% set twintCountry = 'Switzerland' %}
+    {% set twintInstruction = 'Scan the TWINT QR to donate in CHF.' %}
+    {% if lang == 'uk' %}
+      {% set twintCountry = 'Швейцарія' %}
+      {% set twintInstruction = 'Відскануйте QR TWINT, щоб зробити пожертву в CHF.' %}
+    {% endif %}
+    {% if lang == 'fr' %}
+      {% set twintCountry = 'Suisse' %}
+      {% set twintInstruction = 'Scannez le QR TWINT pour faire un don en CHF.' %}
+    {% endif %}
+    <div class="grid cols-2" style="margin-top: var(--space-md)">
+      <div class="list-card">
+        <h3>TWINT ({{ twintCountry }})</h3>
+        <p>{{ twintInstruction }}</p>
+        <img src="/assets/images/twint-qr.png" alt="TWINT QR" style="max-width:220px;height:auto;">
+      </div>
+      <div class="list-card">
+        <h3>CHF</h3>
+        {% set chfNote = 'All donations are processed in Swiss francs (CHF).' %}
+        {% if lang == 'uk' %}{% set chfNote = 'Усі пожертви обробляються у швейцарських франках (CHF).' %}{% endif %}
+        {% if lang == 'fr' %}{% set chfNote = 'Toutes les donations sont traitées en francs suisses (CHF).' %}{% endif %}
+        <p>{{ chfNote }}</p>
+      </div>
+    </div>
+  </div>
+  
+</section>
+{% endif %}
+

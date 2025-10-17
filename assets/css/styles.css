@@ -45,6 +45,7 @@ a:hover {
 button,
 .btn {
   font-family: var(--font-main);
+	font-weight: 600;
   font-size: var(--font-size-main);
   background: var(--burgundy);
   color: var(--white);
@@ -76,12 +77,6 @@ img {
   display: block;
 }
 
-/* Page title bar under hero (with icon, no underline) */
-.page-title-bar { padding-block: var(--space-md); }
-.page-title { display: flex; align-items: center; gap: var(--space-sm); color: var(--burgundy); margin: 0; }
-.page-title .icon { display: inline-flex; align-items: center; justify-content: center; }
-.page-title svg { width: 28px; height: 28px; color: var(--gold); stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
-
 @media (width <= 900px) {
   .container {
     max-width: 100%;
@@ -93,11 +88,11 @@ img {
   }
 }
 
-
 /* Rich text helpers */
-.rich p { margin-bottom: var(--space-sm); }
-/* About page: justify paragraph text for balanced edges */
-.about .rich p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+.rich p { margin-bottom: var(--space-sm); 
+					text-align: justify; 
+					text-justify: inter-word; 
+					hyphens: auto; }
 .rich figure { margin: var(--space-md) 0; }
 .rich figcaption { font-size: var(--font-size-small); color: var(--muted); font-style: italic; }
 .about .gallery { display: grid; gap: var(--space-md); }

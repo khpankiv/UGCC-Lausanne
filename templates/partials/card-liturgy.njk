@@ -15,10 +15,7 @@
     </span>
 
     <h3 class="title" itemprop="name">{{ item.title }}</h3>
-    {% set timeWord = 'о' %}
-    {% if lang == 'fr' %}{% set timeWord = 'à' %}{% endif %}
-    {% if lang == 'en' %}{% set timeWord = 'at' %}{% endif %}
-    <p class="time"><i class="fa-regular fa-clock"></i> {{ timeWord }} <time itemprop="startDate" datetime="{{ item.date }}T{{ item.time }}">{{ item.time }}</time></p>
+    <p class="time"><i class="fa-regular fa-clock"></i>  <time itemprop="startDate" datetime="{{ item.date }}T{{ item.time }}">{{ item.time }}</time></p>
     {% if item.location %}
       <p class="place"><i class="fa-solid fa-location-dot"></i>
         <span itemprop="location" itemscope itemtype="https://schema.org/Place">

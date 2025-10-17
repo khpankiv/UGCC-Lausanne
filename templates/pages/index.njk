@@ -7,12 +7,12 @@
   {% if next %}
   <section class="next-liturgy">
     <div class="container">
-      <div class="next-grid  list-card">
+      <div class="next-grid list-card">
         <div class="next-media">
           <img src="/assets/images/prayer.png" alt="Prayer">
         </div>
         <div class="next-info">
-          <h2>{% if lang == 'fr' %}Prochaine liturgie{% elif lang == 'en' %}Upcoming Liturgy{% else %}Найближча Літургія{% endif %}</h2>
+          <h2>{{ next_liturgy_title }}</h2>
           <h3>{{ next.title }}</h3>
           <p class="meta"><i class="fa-regular fa-calendar-days"></i> <time>{{ (next.timestamp or next.date) | format_date(lang) }}</time>{% if next.time %} • <i class="fa-regular fa-clock"></i> {{ next.time }}{% endif %}</p>
           {% if next.location %}<p class="meta"><i class="fa-solid fa-location-dot"></i> {{ next.location }}</p>{% endif %}
@@ -27,7 +27,7 @@
   {% if sections.announcements and sections.announcements.length %}
   <section class="home-announcements">
     <div class="container">
-      <h2>{% if lang == 'fr' %}Annonces{% elif lang == 'en' %}Announcements{% else %}Оголошення{% endif %}</h2>
+      <h2>{{ announcements_title }}</h2>
       <ul class="brief-list">
         {% for item in sections.announcements | take(0,3) %}
           <li>
@@ -43,7 +43,7 @@
 {% endif %}
 
   <!-- News (3 cards) -->
-  {% if lang == 'uk' %}{% set title = 'Останні новини' %}{% elif lang == 'fr' %}{% set title = 'Dernières nouvelles' %}{% else %}{% set title = 'Latest News' %}{% endif %}
+  {% set title = latest_news_title %}
   <section class="home-section">
     <div class="container">
       <h2>{{ title }}</h2>
@@ -56,7 +56,7 @@
   </section>
 
   <!-- Spiritual (3 cards) -->
-  {% if lang == 'uk' %}{% set title = 'Духовне' %}{% elif lang == 'fr' %}{% set title = 'Spirituel' %}{% else %}{% set title = 'Spiritual' %}{% endif %}
+  {% set title = spiritual_title %}
   <section class="home-section">
     <div class="container">
       <h2>{{ title }}</h2>
@@ -69,7 +69,7 @@
   </section>
 
   <!-- Community (3 cards) -->
-  {% if lang == 'uk' %}{% set title = 'Життя громади' %}{% elif lang == 'fr' %}{% set title = 'Vie de la communauté' %}{% else %}{% set title = 'Community Life' %}{% endif %}
+  {% set title = community_title %}
   <section class="home-section">
     <div class="container">
       <h2>{{ title }}</h2>

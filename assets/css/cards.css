@@ -3,7 +3,8 @@
 /* Base: apply to common outer card containers */
 .list-card,
 .card-article,
-.card-liturgy {
+.card-liturgy, 
+.card-border {
   background: var(--white);
   border: var(--border-width) solid var(--border);
   box-shadow: var(--shadow);
@@ -18,14 +19,17 @@
 }
 
 /* Normalize inner paddings (keep existing section-specific spacing reasonable) */
-.card-article, .list-card { padding: var(--space-md); }
+.card-article, .list-card { 
+	padding: var(--space-md); 
+	gap: var(--space-md);
+}
 
 /* Liturgy card previously used only bottom border; convert to box card */
 /* Padding for liturgy card will be handled in liturgy-card.css to allow a tighter layout */
 
 /* Ensure images inside cards stay tidy */
-.list-card img,
-.card-article img { display: block; width: 100%; height: auto; }
+/* .list-card img,
+.card-article img { display: block; width: 100%; height: auto; } */
 
 .card-article {
   background: var(--white);
@@ -40,7 +44,7 @@
   height: var(--card-thumb-height);
   object-fit: cover;
 }
-.card-body { padding: var(--space-md); }
+/* .card-body { padding: var(--space-md); } */
 .card-title {
   color: var(--burgundy);
   font-size: 1.2rem;

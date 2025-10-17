@@ -1,0 +1,42 @@
+{
+  "default_lang": "uk",
+  "default_hero_image": "/assets/images/church-bg.jpg",
+  "default_page_hero": true,
+
+  "common": {
+    "email": "info@ugcc-lausanne.ch",
+    "social": {
+      "facebook": "https://www.facebook.com/ugcc.lausanne",
+      "youtube": "https://www.youtube.com/@ugcc-lausanne"
+    },
+    "footer_note": "© UGCC Lausanne, {{year}}"
+  },
+
+  "uk": {
+    "site_name": "УГКЦ Лозанна",
+    "meta": {
+      "title": "Українська Греко-Католицька Церква у Лозанні",
+      "description": "Офіційна сторінка громади УГКЦ у Лозанні. Богослужіння, духовне життя, новини та спільнота.",
+      "keywords": "УГКЦ, Лозанна, греко-католицька церква, українці у Швейцарії"
+    }
+  },
+
+  "fr": {
+    "site_name": "Église Gréco-Catholique Ukrainienne de Lausanne",
+    "meta": {
+      "title": "Église gréco-catholique ukrainienne à Lausanne",
+      "description": "Page officielle de la communauté UGCC à Lausanne. Liturgies, vie spirituelle et actualités.",
+      "keywords": "UGCC, Lausanne, église, catholique grecque, ukrainiens en Suisse"
+    }
+  },
+
+  "en": {
+    "site_name": "Ukrainian Greek Catholic Church Lausanne",
+    "meta": {
+      "title": "Ukrainian Greek Catholic Church in Lausanne",
+      "description": "Official website of the UGCC community in Lausanne. Liturgies, spiritual life, news and events.",
+      "keywords": "UGCC, Lausanne, Greek Catholic, church, Ukrainians in Switzerland"
+    }
+  }
+}
+

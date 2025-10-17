@@ -75,8 +75,8 @@
 }
 
 /* Divider and copyright */
-.footer-divider { height: 1px; background: rgb(255 255 255 / 20%); margin: var(--space-md) 0; }
-.footer-copyright { text-align: center; opacity: .9; }
+.footer-divider { height: 1px; background: rgb(255 255 255 / 20%); margin-block: var(--space-md); }
+.footer-copyright { text-align: left; opacity: .9; }
 
 /* Footer socials: match header spacing */
 .footer .socials { display: inline-flex; align-items: center; gap: var(--space-sm); font-size: var(--socials-font-size); }

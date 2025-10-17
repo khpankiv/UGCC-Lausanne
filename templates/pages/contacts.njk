@@ -5,7 +5,7 @@
     <div class="grid cols-2 contacts-grid">
       <div class="map-wrap">
         <iframe
-          src="https://www.google.com/maps?q=Chem.+de+Beau-Rivage+3+1006+Lausanne&output=embed"
+          src="{{ map_src }}"
           width="100%"
           height="540"
           style="border:0;"
@@ -15,9 +15,9 @@
       </div>
       <div class="contact-details">
 
-        {% if footer.social %}
+        {% if social_list %}
           <p class="socials socials-contacts">
-            {% for social in footer.social %}
+            {% for social in social_list %}
               <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
             {% endfor %}
           </p>
@@ -27,13 +27,13 @@
           <p class="contact-line"><a class="email" href="mailto:{{ email }}"><i class="fa-solid fa-envelope"></i><span>{{ email }}</span></a></p>
         {% endif %}
 
-        {% if footer.phone %}
-          <p class="contact-line"><a class="phone" href="tel:{{ footer.phone }}"><i class="fa-solid fa-phone"></i><span>{{ footer.phone }}</span></a></p>
+        {% if phone %}
+          <p class="contact-line"><a class="phone" href="tel:{{ phone }}"><i class="fa-solid fa-phone"></i><span>{{ phone }}</span></a></p>
         {% endif %}
 
-        <p class="contact-line"><a class="address" href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>{{ address }}</span></a></p>
+        <p class="contact-line"><a class="address" href="{{ map_link }}" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>{{ address }}</span></a></p>
 
-				{% if how_to_get %}
+        {% if how_to_get %}
           <p><strong>{{ getThere }}:</strong> {{ how_to_get }}</p>
         {% endif %}
       </div>
@@ -42,87 +42,53 @@
 </section>
 
 {# Contact form section #}
-<section class="contact-form">
-  <div class="container">
-    {% set formTitle = 'Зворотній зв’язок' %}
-    {% if lang == 'fr' %}{% set formTitle = 'Contact' %}{% endif %}
-    {% if lang == 'en' %}{% set formTitle = 'Contact' %}{% endif %}
-    <h2>{{ formTitle }}</h2>
-    {# Success notice shown after redirect ?sent=1 #}
-    {% set successText = 'Дякуємо! Ваше повідомлення надіслано.' %}
-    {% if lang == 'fr' %}{% set successText = 'Merci ! Votre message a été envoyé.' %}{% endif %}
-    {% if lang == 'en' %}{% set successText = 'Thank you! Your message has been sent.' %}{% endif %}
-    <div id="form-success" class="form-success" hidden>{{ successText }}</div>
-    {# Localized validation messages #}
-    {% set nameRequired = 'Вкажіть ім’я та прізвище (мінімум 2 символи)' %}
-    {% set emailRequired = 'Вкажіть email' %}
-    {% set emailInvalid = 'Невірний формат email' %}
-    {% set messageRequired = 'Вкажіть повідомлення' %}
-    {% set messageMin = 'Повідомлення має містити щонайменше 10 символів' %}
-    {% if lang == 'fr' %}
-      {% set nameRequired = 'Indiquez nom et prénom (min 2 caractères)' %}
-      {% set emailRequired = 'Indiquez votre e‑mail' %}
-      {% set emailInvalid = 'Format e‑mail invalide' %}
-      {% set messageRequired = 'Renseignez le message' %}
-      {% set messageMin = 'Le message doit contenir au moins 10 caractères' %}
-    {% endif %}
-    {% if lang == 'en' %}
-      {% set nameRequired = 'Enter your full name (min 2 characters)' %}
-      {% set emailRequired = 'Enter your email' %}
-      {% set emailInvalid = 'Invalid email format' %}
-      {% set messageRequired = 'Enter a message' %}
-      {% set messageMin = 'Message must be at least 10 characters' %}
-    {% endif %}
-
-    <form class="contact-form" method="post" accept-charset="UTF-8" novalidate
-      data-name-required="{{ nameRequired }}"
-      data-email-required="{{ emailRequired }}"
-      data-email-invalid="{{ emailInvalid }}"
-      data-message-required="{{ messageRequired }}"
-      data-message-min="{{ messageMin }}"
+<section class="container">
+	<h2>{{ formTitle }}</h2>
+	{# Success notice shown after redirect ?sent=1 #}
+	<div id="form-success" class="form-success" hidden>{{ successText }}</div>
+	{# Localized validation messages supplied via data-* attributes #}
+	<form class="contact-form" method="post" accept-charset="UTF-8" novalidate
+		data-name-required="{{ nameRequired }}"
+		data-email-required="{{ emailRequired }}"
+		data-email-invalid="{{ emailInvalid }}"
+		data-message-required="{{ messageRequired }}"
+		data-message-min="{{ messageMin }}"
       action="https://formsubmit.co/{{ email }}">
-      {% set nameLabel = 'Ім’я та прізвище' %}
-      {% set subjectLabel = 'Тема' %}
-      {% set messageLabel = 'Повідомлення' %}
-      {% set sendLabel = 'Надіслати' %}
-      {% if lang == 'fr' %}{% set nameLabel = 'Nom et prénom' %}{% set subjectLabel = 'Sujet' %}{% set messageLabel = 'Message' %}{% set sendLabel = 'Envoyer' %}{% endif %}
-      {% if lang == 'en' %}{% set nameLabel = 'Full name' %}{% set subjectLabel = 'Subject' %}{% set messageLabel = 'Message' %}{% set sendLabel = 'Send' %}{% endif %}
-      <div class="form-row two">
-        <label>
-          <span>{{ nameLabel }}</span>
-          <input type="text" name="name" required minlength="2" pattern="[\p{L} .'-]{2,}" title="{{ nameRequired }}">
-          <small class="error-msg" data-error-for="name" hidden></small>
-        </label>
-        <label>
-          <span>Email</span>
-          <input type="email" name="email" required inputmode="email" autocomplete="email" title="{{ emailInvalid }}">
-          <small class="error-msg" data-error-for="email" hidden></small>
-        </label>
-      </div>
-      <div class="form-row">
-        <label>
-          <span>{{ subjectLabel }}</span>
-          <input type="text" name="subject">
-          <small class="error-msg" data-error-for="subject" hidden></small>
-        </label>
-      </div>
-      <div class="form-row">
-        <label>
-          <span>{{ messageLabel }}</span>
-          <textarea name="message" rows="6" required minlength="10" title="{{ messageMin }}"></textarea>
-          <small class="error-msg" data-error-for="message" hidden></small>
-        </label>
-      </div>
-      <div class="form-actions">
-        <button type="submit" class="btn">{{ sendLabel }}</button>
-      </div>
-      {# FormSubmit configuration and spam prevention #}
-      <input type="hidden" name="_subject" value="Website contact form" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-      <input type="hidden" name="_next" value="/contacts/?sent=1" />
-    </form>
-  </div>
+		<div class="form-row two">
+			<label>
+				<span>{{ nameLabel }}</span>
+				<input type="text" name="name" required minlength="2" pattern="[\p{L} .'-]{2,}" title="{{ nameRequired }}">
+				<small class="error-msg" data-error-for="name" hidden></small>
+			</label>
+			<label>
+				<span>Email</span>
+				<input type="email" name="email" required inputmode="email" autocomplete="email" title="{{ emailInvalid }}">
+				<small class="error-msg" data-error-for="email" hidden></small>
+			</label>
+		</div>
+		<div class="form-row">
+			<label>
+				<span>{{ subjectLabel }}</span>
+				<input type="text" name="subject">
+				<small class="error-msg" data-error-for="subject" hidden></small>
+			</label>
+		</div>
+		<div class="form-row">
+			<label>
+				<span>{{ messageLabel }}</span>
+				<textarea name="message" rows="6" required minlength="10" title="{{ messageMin }}"></textarea>
+				<small class="error-msg" data-error-for="message" hidden></small>
+			</label>
+		</div>
+		<div class="form-actions">
+			<button type="submit" class="btn">{{ sendLabel }}</button>
+		</div>
+		{# FormSubmit configuration and spam prevention #}
+		<input type="hidden" name="_subject" value="Website contact form" />
+		<input type="hidden" name="_template" value="table" />
+		<input type="hidden" name="_captcha" value="false" />
+		<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+		<input type="hidden" name="_next" value="/contacts/?sent=1" />
+	</form>
 </section>
 {% endif %}

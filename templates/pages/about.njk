@@ -1,75 +1,53 @@
 {% if page == 'about' %}
-<section class="about rich">
-  <div class="container">
-    {% if lang == 'uk' %}
-      <h2>Історія українського душпастирства у Швейцарії</h2>
-      <p>Українське церковне життя у Швейцарії тісно пов’язане з історією еміграції з України, що активізувалась після Першої світової війни. Саме тоді перші українці почали знаходити прихисток у цій країні. Серед них був і визначний діяч визвольного руху — Євген Коновалець, який тимчасово проживав у Швейцарії.</p>
+<section class="about rich card-border container">
+  <h2>{{ heading }}</h2>
 
-      <div class="gallery cols-2">
-        <figure>
-          <img src="/assets/images/history1.png" alt="Історичне фото 1">
-          <figcaption>Українська громада у Швейцарії, архівне фото</figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/history2.jpg" alt="Історичне фото 2">
-          <figcaption>Світлина з парафіяльного життя</figcaption>
-        </figure>
+  <p>{{ p1 }}</p>
+
+  <div class="gallery cols-2">
+    <figure>
+      <img src="{{ images.history1 }}" alt="{{ cap1 }}">
+      <figcaption>{{ cap1 }}</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ images.history2 }}" alt="{{ cap2 }}">
+      <figcaption>{{ cap2 }}</figcaption>
+    </figure>
+  </div>
+
+  <p>{{ p2 }}</p>
+
+  <div class="gallery cols-1">
+    <figure>
+      <img src="{{ images.history3 }}" alt="{{ cap3 }}">
+      <figcaption>{{ cap3 }}</figcaption>
+    </figure>
+  </div>
+
+  <p>{{ p3 }}</p>
+
+  <div class="gallery cols-2">
+    <figure>
+      <img src="{{ images.history4 }}" alt="{{ cap4 }}">
+      <figcaption>{{ cap4 }}</figcaption>
+    </figure>
+  </div>
+
+  <p>{{ p4 }}</p>
+</section>
+
+<section class="about-priests container">
+  <h2>{{ priests_title }}</h2>
+  <div class="cards-grid cols-2">
+    {% for pr in priests %}
+    <article class="list-card priest-card">
+      <img class="thumb" src="{{ images[pr.img] }}" alt="{{ pr.name }}">
+      <div class="body">
+        <h3 class="title">{{ pr.name }}</h3>
+        <p class="text">{{ pr.desc }}</p>
       </div>
-
-      <p>Після завершення Другої світової війни українська громада в Швейцарії зросла, що викликало потребу в постійній духовній опіці. 4 лютого 1951 року в катедрі міста Фрібург диякон Данило Дзвоник був висвячений на священика єпископом Іваном Бучком — екзархом для українців за межами України. Протягом кількох років о. Данило душпастирював у Швейцарії, беручи активну участь також у діяльності Українського товариства Швайцарії.</p>
-
-      <div class="gallery cols-1">
-        <figure>
-          <img src="/assets/images/history3.jpg" alt="Історичне фото 3">
-          <figcaption>Богослужіння української громади</figcaption>
-        </figure>
-      </div>
-
-      <p>У 1960-х роках духовну опіку перейняв о. Мирослав Марусин. Згодом створено апостольський екзархат у Франції, який опікувався українцями також у Швейцарії. У 2016 році до Швейцарії прибув о. Володимир Горошко, а згодом долучилися інші священники, які послужили розвитку парафіяльного життя у містах країни.</p>
-
-      <div class="gallery cols-2">
-        <figure>
-          <img src="/assets/images/history4.png" alt="Історичне фото 4">
-          <figcaption>Світлина з парафіяльного архіву</figcaption>
-        </figure>
-      </div>
-
-      <p>Сьогодні українське душпастирство в Швейцарії об’єднує громади в різних кантонах. Завдяки спільним зусиллям формується живе церковне середовище, що допомагає зберігати віру та культурну спадщину.</p>
-    {% else %}
-      <h2>{{ title }}</h2>
-      <p>{{ content }}</p>
-    {% endif %}
+    </article>
+    {% endfor %}
   </div>
 </section>
-{% if page == 'about' %}
-<section class="about-priests">
-  <div class="container">
-    {% if lang == 'uk' %}
-      <h2>Наші священники</h2>
-    {% elif lang == 'fr' %}
-      <h2>Nos prêtres</h2>
-    {% else %}
-      <h2>Our Priests</h2>
-    {% endif %}
-
-    <div class="cards-grid cols-2">
-      <article class="list-card priest-card">
-        <img class="thumb" src="/assets/images/priste1.jpg" alt="{% if lang == 'uk' %}Єрей Святослав ГОРЕЦЬКИЙ{% else %}Priest 1{% endif %}">
-        <div class="body">
-          <h3 class="title">{% if lang == 'uk' %}Єрей Святослав ГОРЕЦЬКИЙ{% elif lang == 'fr' %}Prêtre{% else %}Priest{% endif %}</h3>
-          <p class="text">{% if lang == 'fr' %}Service pastoral, liturgies et accompagnement spirituel.{% elif lang == 'en' %}Pastoral service, liturgies and spiritual guidance.{% else %}Душпастирське служіння, літургії та духовний супровід.{% endif %}</p>
-        </div>
-      </article>
-
-      <article class="list-card priest-card">
-        <img class="thumb" src="/assets/images/priste2.jpg" alt="{% if lang == 'uk' %}Єрей Тарас Овсяник{% else %}Priest 2{% endif %}">
-        <div class="body">
-          <h3 class="title">{% if lang == 'uk' %}Єрей Тарас Овсяник{% elif lang == 'fr' %}Prêtre{% else %}Priest{% endif %}</h3>
-          <p class="text">{% if lang == 'fr' %}Service pastoral, liturgies et accompagnement spirituel.{% elif lang == 'en' %}Pastoral service, liturgies and spiritual guidance.{% else %}Душпастирське служіння, літургії та духовний супровід.{% endif %}</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-{% endif %}
 {% endif %}
