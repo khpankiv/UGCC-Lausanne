@@ -7,7 +7,7 @@
       {% endfor %}
     </div>
   {% else %}
-    <p class="no-events">{{ no-ivents }}</p>
+    <p class="no-events">{{ no_events or 'No events at the moment.' }}</p>
   {% endif %}
 
 </section>

@@ -9,13 +9,25 @@ const path = require('path');
  * Falls back to null if the package is missing or cannot be imported.
  */
 let translatorModulePromise = null;
-async function getTranslator() {
+async function getTranslatorModule() {
   if (!translatorModulePromise) {
     translatorModulePromise = import('@vitalets/google-translate-api')
-      .then((m) => m.default || m)
       .catch(() => null);
   }
   return translatorModulePromise;
+}
+
+// Resolve the actual translate function from various export shapes
+async function resolveTranslateFn() {
+  const m = await getTranslatorModule();
+  if (!m) return null;
+  const cand =
+    (typeof m === 'function' && m) ||
+    (typeof m.default === 'function' && m.default) ||
+    (typeof m.translate === 'function' && m.translate) ||
+    (m.default && typeof m.default.translate === 'function' && m.default.translate) ||
+    null;
+  return cand;
 }
 
 /**
@@ -116,8 +128,34 @@ async function loadSections() {
     return (datePart || 'post') + (ascii ? '-' + ascii : '');
   };
 
-  // Google Translate wrapper with caching; keeps builds resilient
-  const translateText = createTranslator();
+  // Google Translate wrapper with resolver + disk cache + rate limit.
+  const translateFn = await resolveTranslateFn();
+  const cache = loadCache();
+  const translateText = async (text, targetLang) => {
+    if (!text) return null;
+    const key = `${targetLang}::${text}`;
+    if (cache[key]) return cache[key];
+    if (!translateFn) return TL_FALLBACK_ORIGINAL ? text : null;
+    let attempt = 0;
+    while (attempt < TL_RETRIES) {
+      attempt++;
+      try {
+        await rateLimit();
+        const res = await translateFn(text, { to: targetLang });
+        const out = (res && (res.text || res.translation)) || null;
+        if (out) {
+          cache[key] = out;
+          saveCache(cache);
+          return out;
+        }
+      } catch (e) {
+        // Exponential backoff with jitter on errors (e.g., 429 Too Many Requests)
+        const backoff = TL_RATE_MS * Math.pow(2, attempt) + Math.floor(Math.random() * 250);
+        await sleep(backoff);
+      }
+    }
+    return TL_FALLBACK_ORIGINAL ? text : null;
+  };
 
   // Articles: enrich with images[], primary image, slug, url; group by language/category
   for (const a of articles) {
@@ -144,19 +182,22 @@ async function loadSections() {
     for (const lang of langs) {
       if (!sections[lang]) sections[lang] = JSON.parse(JSON.stringify(defaultSections));
 
-      let title = s.title;
-      let details = s.details;
-      if (lang !== baseLang) {
-        title = await translateText(s.title, lang);
-        details = await translateText(s.details, lang);
+      if (lang === baseLang) {
+        sections[lang].schedule.push({ ...s, language: lang });
+        continue;
       }
 
-      sections[lang].schedule.push({
-        ...s,
-        language: lang,
-        title,
-        details,
-      });
+      // For non-base languages: only add when we can translate.
+      const titleT = await translateText(s.title, lang);
+      const detailsT = await translateText(s.details, lang);
+      if (titleT || detailsT) {
+        sections[lang].schedule.push({
+          ...s,
+          language: lang,
+          title: titleT ?? s.title ?? '',
+          details: detailsT ?? s.details ?? '',
+        });
+      }
     }
   }
 
@@ -164,4 +205,32 @@ async function loadSections() {
 }
 
 module.exports = { loadSections };
-
+// ---------------- Translation cache & rate limit ----------------
+const cacheDir = path.join(__dirname, '..', '.cache');
+const cachePath = path.join(cacheDir, 'translations.json');
+function loadCache() {
+  try {
+    if (fs.existsSync(cachePath)) {
+      const raw = fs.readFileSync(cachePath, 'utf-8');
+      return JSON.parse(raw);
+    }
+  } catch {}
+  return {};
+}
+function saveCache(obj) {
+  try {
+    if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir, { recursive: true });
+    fs.writeFileSync(cachePath, JSON.stringify(obj, null, 2), 'utf-8');
+  } catch {}
+}
+const TL_RATE_MS = Number(process.env.TRANSLATE_RATE_MS || 1200);
+const TL_RETRIES = Number(process.env.TRANSLATE_RETRIES || 3);
+const TL_FALLBACK_ORIGINAL = /^1|true$/i.test(String(process.env.TRANSLATE_FALLBACK_ORIGINAL || '')); // optional
+let lastCallAt = 0;
+function sleep(ms){ return new Promise(r=>setTimeout(r, ms)); }
+async function rateLimit() {
+  const now = Date.now();
+  const wait = lastCallAt + TL_RATE_MS - now;
+  if (wait > 0) await sleep(wait);
+  lastCallAt = Date.now();
+}

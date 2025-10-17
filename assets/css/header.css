@@ -236,9 +236,10 @@
   transition: color var(--transition-fast);
   font-weight: 700;
 }
+
 /* Override legacy margins for header socials; use gap instead */
 .socials-header { display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--burgundy); }
-.socials-header a, .socials-header .icon-btn { margin-left: 0; color: currentColor; }
+.socials-header a, .socials-header .icon-btn { margin-left: 0; color: currentcolor; }
 
 /* Hover handled on li for full-block background */
 @media (width <= 900px) {
@@ -322,6 +323,7 @@
 }
 
 .socials-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-sm);width:100%;}
+
 /* Make search icon look like socials: burgundy, gold on hover, no bg */
 .socials-row .icon-btn {
   background: transparent;

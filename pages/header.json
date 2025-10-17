@@ -6,7 +6,7 @@
       { "title": "Розклад", "url": "/schedule/" },
       { "title": "Новини", "url": "/news/" },
       { "title": "Духовне", "url": "/spiritual/" },
-      { "title": "Життя громади", "url": "/community/" },
+      { "title": "Громада", "url": "/community/" },
       { "title": "Контакти", "url": "/contacts/" },
       { "title": "Пожертви", "url": "/donate/" }
     ],
@@ -42,7 +42,7 @@
       { "title": "Horaire", "url": "/fr/schedule/" },
       { "title": "Nouvelles", "url": "/fr/news/" },
       { "title": "Spirituel", "url": "/fr/spiritual/" },
-      { "title": "Vie de la communauté", "url": "/fr/community/" },
+      { "title": "Сommunauté", "url": "/fr/community/" },
       { "title": "Contacts", "url": "/fr/contacts/" },
       { "title": "Faire un don", "url": "/fr/donate/" }
     ],

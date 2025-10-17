@@ -1,6 +1,5 @@
 /* === Basic styles for UGCC Lausanne === */
 @import url('layout.css');
-/* @import url('articles.css'); */
 
 /* Reset */
 *,
@@ -98,12 +97,14 @@ img {
 .about .gallery { display: grid; gap: var(--space-md); }
 .about .gallery.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
 .about .gallery.cols-1 { grid-template-columns: 1fr; }
+
 @media (width <= 800px){ .about .gallery.cols-2 { grid-template-columns: 1fr; } }
 
 /* Cards grid for home/sections */
 .cards-grid { display: grid; gap: var(--space-md); }
 .cards-grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
 .cards-grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+
 @media (width <= 900px) {
   .cards-grid.cols-2,
   .cards-grid.cols-3 { grid-template-columns: 1fr; }
@@ -119,14 +120,6 @@ img {
 /* Detail text font (dates, authors, badges, small meta) */
 .meta, .card-meta, .list-card .meta, .badge, small, time { font-family: var(--font-detail); }
 
-/* Schedule
-.schedule-list .schedule-item { display: grid; grid-template-columns: 160px 1fr auto; align-items: center; gap: var(--space-sm); }
-.schedule-list .schedule-item .date { font-weight: 700; }
-.schedule-list .schedule-item .type { font-weight: 700; color: var(--burgundy); }
-@media (width <= 700px) {
-  .schedule-list .schedule-item { grid-template-columns: 1fr; }
-} */
-
 /* Socials: unified spacing/colors; modifiers per area */
 .socials { display: inline-flex; align-items: center; gap: var(--space-sm); }
 .socials a { color: inherit; transition: color var(--transition-fast); }
@@ -138,6 +131,7 @@ img {
 .contacts .contact-details a:hover { color: var(--gold); }
 .contacts .contact-details a:hover i { color: var(--gold); }
 .contacts .contact-details i { color: var(--black); }
+
 /* Increase vertical spacing between rows on contacts page */
 .contacts .contact-details > * + * { margin-top: var(--space-md); }
 
@@ -149,6 +143,7 @@ img {
 .contact-form { background: var(--white); border: 1px solid var(--border); box-shadow: var(--shadow); padding: var(--space-md); display: grid; gap: var(--space-md); }
 .contact-form .form-row { display: grid; gap: var(--space-md); }
 .contact-form .form-row.two { grid-template-columns: 1fr 1fr; }
+
 @media (width <= 800px) { .contact-form .form-row.two { grid-template-columns: 1fr; } }
 .contact-form label { display: grid; gap: var(--space-xs); color: var(--text-soft); }
 .contact-form input, .contact-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--burgundy); outline: none; border-radius: 0; font-family: var(--font-main); font-size: 1rem; }
@@ -164,6 +159,7 @@ img {
 
 /* Contact form errors */
 .contact-form .error-msg { color: #b00020; font-size: 0.875rem; line-height: 1.3; }
+
 .contact-form .field-error input,
 .contact-form .field-error textarea { border-color: #b00020; box-shadow: none; }
 
@@ -175,6 +171,7 @@ img {
 .next-liturgy .next-info h3 { margin-bottom: var(--space-sm); color: var(--burgundy); }
 .next-liturgy .next-info .meta { color: var(--text-soft); }
 .next-liturgy .next-info .lead { margin-top: var(--space-sm); }
+
 @media (width <= 900px){ .next-liturgy .next-grid { grid-template-columns: 1fr; } }
 
 /* Home: brief announcements */

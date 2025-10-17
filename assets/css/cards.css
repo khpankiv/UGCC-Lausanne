@@ -25,11 +25,8 @@
 }
 
 /* Liturgy card previously used only bottom border; convert to box card */
-/* Padding for liturgy card will be handled in liturgy-card.css to allow a tighter layout */
 
-/* Ensure images inside cards stay tidy */
-/* .list-card img,
-.card-article img { display: block; width: 100%; height: auto; } */
+/* Padding for liturgy card will be handled in liturgy-card.css to allow a tighter layout */
 
 .card-article {
   background: var(--white);
@@ -44,7 +41,7 @@
   height: var(--card-thumb-height);
   object-fit: cover;
 }
-/* .card-body { padding: var(--space-md); } */
+
 .card-title {
   color: var(--burgundy);
   font-size: 1.2rem;
@@ -52,6 +49,7 @@
   margin: 0 0 var(--space-xs);
 }
 .card-date { font-size: var(--font-size-small); color: var(--burgundy); display: block; margin-bottom: 0.25rem; }
+
 .card-text {
   color: var(--ink);
   font-size: var(--font-size-small);
@@ -97,12 +95,14 @@
 }
 .liturgy-details .category-line { display: inline-flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-xs); }
 .card-icon { color: var(--burgundy); }
+
 .liturgy-details .time,
 .liturgy-details .place {
   color: var(--text-soft);
   font-size: var(--font-size-small);
   margin: 0.2rem 0;
 }
+
 .liturgy-details .details {
   color: var(--ink);
   margin-top: var(--space-xs);

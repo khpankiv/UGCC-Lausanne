@@ -14,10 +14,8 @@
 
 .page-hero .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+
   /* background: rgba(0, 0, 0, 0.55); */
 }
 
@@ -25,6 +23,7 @@
   position: relative;
   z-index: 2;
   width: 100%;
+
   /* max-width: var(--container-width);
   padding-inline: var(--container-padding); */
 }
@@ -34,17 +33,18 @@
   font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--hero-title-color, var(--white));
+  color: var(--hero-title-color, var(--gold));
   margin: 0;
   text-shadow: 0 2px 0 rgb(0 0 0 / 20%), 0 6px 14px rgb(0 0 0 / 35%);
 }
 
 /* Icon above title */
 .page-hero .hero-icon { display: inline-flex; align-items: center; justify-content: center; margin-bottom: 12px; color: var(--hero-title-color, var(--white)); }
-.page-hero .hero-icon svg { width: 80px; height: 80px; color: currentColor; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+.page-hero .hero-icon svg { width: 80px; height: 80px; color: currentcolor; stroke: currentcolor; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
 
 /* Title styling only (no inline icon layout) */
 .page-hero-title { display: inline-block; position: relative; padding-bottom: 8px; }
+
 .page-hero-title::after {
   content: "";
   position: absolute;
@@ -53,7 +53,7 @@
   bottom: 0;
   width: 160px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(230,184,0,.9), transparent);
+  background: linear-gradient(90deg, transparent, rgb(230 184 0 / 90%), transparent);
 }
 
 .page-hero p {

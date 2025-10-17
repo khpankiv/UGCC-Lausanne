@@ -54,11 +54,16 @@ const footerData = fs.existsSync(footerPath) ? readJsonSafe(footerPath) : {};
       const footer = footerData[langKey] || {};
       const sections = sheetSections[langKey] || sheetSections.uk || {};
 
+      // Normalize keys that use hyphens (not addressable in Nunjucks directly)
+      const noEventsText = (pageLang['no-events'] ?? pageCommon['no-events']);
+
       const pageData = {
         ...configCommon,
         ...configLang,
         ...pageCommon,
         ...pageLang,
+        // add underscore alias for templates
+        no_events: noEventsText,
         lang: langKey,
         page: pageName,
         header,
@@ -128,4 +133,3 @@ const footerData = fs.existsSync(footerPath) ? readJsonSafe(footerPath) : {};
 
   console.log('Done rendering pages.');
 })();
-
