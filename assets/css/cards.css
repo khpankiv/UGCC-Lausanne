@@ -107,7 +107,7 @@
 
 .event-section { border-top: 1px dashed var(--border); padding-top: var(--space-xs); margin-top: var(--space-xs); }
 .event-section .section-label { font-size: var(--font-size-small); color: var(--muted); text-transform: uppercase; letter-spacing: .02em; margin-bottom: 2px; }
-.before-event, .after-event { display: flex; align-items: baseline; gap: 8px; margin-top: 2px; }
+.before-event, .after-event { display: flex; align-items: baseline; gap: 8px; margin-top: 2px; font-size: var(--font-size-small); }
 
 .liturgy-details .details {
   color: var(--ink);

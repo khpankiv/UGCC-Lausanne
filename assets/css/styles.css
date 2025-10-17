@@ -161,7 +161,7 @@ img {
 .contact-form .field-error textarea { border-color: #b00020; box-shadow: none; }
 
 /* Home: next liturgy highlight */
-.next-liturgy { padding-block: var(--space-lg); background: var(--bg-section); }
+/* .next-liturgy {background: var(--bg-section); } */
 .next-liturgy .next-grid { gap: var(--space-lg); align-items: center; }
 .next-liturgy .next-media img { width: 100%; height: auto; display: block; border: 1px solid var(--border); box-shadow: var(--shadow); }
 .next-liturgy .next-info h2 { margin-bottom: var(--space-sm); }
