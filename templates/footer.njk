@@ -1,19 +1,20 @@
-<footer class="footer">
+﻿<footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <!-- Contacts column -->
       <div class="footer-col contact-line ">
         <h3>{{ footer.contacts_title }}</h3>
-        <p class="contact-line"><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>{{ footer.address }}</span></a></p>
-        {% if footer.phone %}
-          <p class="contact-line"><a class="phone" href="tel:{{ footer.phone }}"><i class="fa-solid fa-phone"></i><span>{{ footer.phone }}</span></a></p>
+        <p class="contact-line"><a href="{{ map_link }}" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>{{ address }}</span></a></p>
+        {% if phone %}
+          <p class="contact-line"><a class="phone" href="tel:{{ phone }}"><i class="fa-solid fa-phone"></i><span>{{ phone }}</span></a></p>
         {% endif %}
-        {% if footer.email %}
-          <p class="contact-line"><a class="email" href="mailto:{{ footer.email }}"><i class="fa-solid fa-envelope"></i><span>{{ footer.email }}</span></a></p>
+        {% if email %}
+          <p class="contact-line"><a class="email" href="mailto:{{ email }}"><i class="fa-solid fa-envelope"></i><span>{{ email }}</span></a></p>
         {% endif %}
-        {% if footer.social %}
+        {% set socials = social_list %}
+        {% if socials %}
           <p class="socials socials-footer">
-            {% for social in footer.social %}
+            {% for social in socials %}
               <a href="{{ social.url }}" title="{{ social.title }}"><i class="fa-brands fa-{{ social.title | lower }}"></i></a>
             {% endfor %}
           </p>
@@ -22,29 +23,15 @@
 
       <!-- Friends + Eparchy column (two headings in one column) -->
       <div class="footer-col">
-        {% set friendsHeading = 'Friends' %}
-        {% if lang == 'uk' %}{% set friendsHeading = 'Наші друзі' %}{% endif %}
-        {% if lang == 'fr' %}{% set friendsHeading = 'Nos amis' %}{% endif %}
-        <h3>{{ footer.friends_title or footer.partners_title or friendsHeading }}</h3>
+        <h3>{{ footer.partners_title }}</h3>
         <ul class="footer-links">
           {% if footer.partners and footer.partners.length %}
             {% for partner in footer.partners %}
               <li><a href="{{ partner.url }}" target="_blank" rel="noopener">{{ partner.title }}</a></li>
             {% endfor %}
           {% endif %}
-          {% if footer.friends and footer.friends.length %}
-            {% for friend in footer.friends %}
-              <li><a href="{{ friend.url }}" target="_blank" rel="noopener">{{ friend.title }}</a></li>
-            {% endfor %}
-          {% endif %}
         </ul>
-        {% set eparchyHeading = footer.eparchy_title %}
-        {% if not eparchyHeading %}
-          {% if lang == 'uk' %}{% set eparchyHeading = 'Єпархія' %}{% endif %}
-          {% if lang == 'fr' %}{% set eparchyHeading = 'Éparchie' %}{% endif %}
-          {% if lang == 'en' %}{% set eparchyHeading = 'Eparchy' %}{% endif %}
-        {% endif %}
-        <h3 style="margin-top: var(--space-md)">{{ eparchyHeading }}</h3>
+        <h3 class="mt-md">{{ footer.eparchy_title }}</h3>
         <ul class="footer-links">
           <li><a href="https://ugcc.fr/" target="_blank" rel="noopener">{{ footer.eparchy_site_label }}</a></li>
         </ul>
@@ -66,4 +53,5 @@
   </div>
   
 </footer>
+
 

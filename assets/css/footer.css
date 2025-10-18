@@ -1,5 +1,5 @@
-/* UGCC Lausanne footer (ugcc.fr style) ----------------------------------- */
 /* Layout: 3 equal columns on desktop; stacked on small screens.           */
+
 /* Colors/spacing use variables from variables.css                          */
 
 .footer {
@@ -44,6 +44,7 @@
   padding-bottom: 6px;
   position: relative;
 }
+
 .footer h3::after {
   content: "";
   position: absolute;
@@ -65,6 +66,7 @@
 /* Keep icons (phone/mail/socials) white on hover */
 .footer .contact-line a:hover,
 .footer .socials a:hover { color: var(--gold); }
+
 /* Ensure icons inside links follow hover color */
 .footer a:hover i { color: var(--gold); }
 
@@ -75,8 +77,8 @@
 }
 
 /* Divider and copyright */
-.footer-divider { height: 1px; background: rgb(255 255 255 / 20%); margin: var(--space-md) 0; }
-.footer-copyright { text-align: center; opacity: .9; }
+.footer-divider { height: 1px; background: rgb(255 255 255 / 20%); margin-block: var(--space-md); }
+.footer-copyright { text-align: left; opacity: .9; }
 
 /* Footer socials: match header spacing */
 .footer .socials { display: inline-flex; align-items: center; gap: var(--space-sm); font-size: var(--socials-font-size); }

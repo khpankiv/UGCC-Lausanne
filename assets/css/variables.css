@@ -2,11 +2,13 @@
 
 :root {
   /* Colors */
+
   /* --gold: #e6b800; */
 	--gold: #96692a;
   --burgundy: #7c1839;
   --bgsoft: #f6f6f7;
   --bg: #fff;
+
   /* Use single unified background across pages */
   --bg-section: var(--bgsoft);
   --border: #e0e0e0;
@@ -22,10 +24,12 @@
   --shadow-hover: 0 6px 20px rgb(0 0 0 / 12%);
 
   /* Fonts */
+
   /* Headline (gothic), body, and detail fonts */
   --font-headline: "Forum", serif;
   --font-body: "Lora", serif;
-  --font-detail: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-detail: "Inter", system-ui, -apple-system, "Segoe UI", roboto, arial, sans-serif;
+
   /* Backward-compat aliases used across styles */
   --font-main: var(--font-body);
   --font-accent: var(--font-headline);
@@ -76,7 +80,7 @@
 
   /* === Base styles for UGCC Lausanne === */
   --container-width: 1200px;
-  --container-padding: var(--space-md);
+  /* --container-padding: var(--space-md); */
 
   /* Layout specific variables */
   --layout-gap: var(--space-md);

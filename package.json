@@ -20,7 +20,7 @@
     "stylelint-config-standard": "^39.0.1"
   },
   "scripts": {
-		"load": "node scripts/fetch-sheets.js",
+    "load": "node scripts/data/fetch-sheets.js",
     "render": "node scripts/render-pages.js",
     "serve": "http-server . -p 8080 -c -1",
     "dev": "npx concurrently \"nodemon --watch pages --watch templates --watch assets/css --exec node scripts/render-pages.js\" \"http-server . -p 8080 -c-1\"",
@@ -36,4 +36,3 @@
     "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run format"
   }
 }
-

@@ -1,10 +1,10 @@
 .liturgy-hero { position: relative; background: center/cover no-repeat; color: var(--white); text-align: center; padding: var(--space-lg) var(--space-sm); }
 
-.liturgy-hero .overlay { background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)); padding: var(--space-lg) var(--space-sm); border-radius: var(--radius); max-width: 750px; margin: 0 auto; }
+.liturgy-hero .overlay { background: linear-gradient(rgb(0 0 0 / 55%), rgb(0 0 0 / 55%)); padding: var(--space-lg) var(--space-sm); border-radius: var(--radius); max-width: 750px; margin: 0 auto; }
 
 .liturgy-hero h2 { font-family: var(--font-headline); font-size: var(--font-size-title); color: var(--gold); margin-bottom: var(--space-sm); }
 
-.liturgy-card { background: rgba(255,255,255,0.12); border-radius: var(--radius); padding: var(--space-md); backdrop-filter: blur(8px); }
+.liturgy-card { background: rgb(255 255 255 / 12%); border-radius: var(--radius); padding: var(--space-md); backdrop-filter: blur(8px); }
 
 .liturgy-card h3 { font-size: 1.5rem; color: var(--burgundy); margin-bottom: var(--space-sm); }
 
@@ -20,6 +20,7 @@
 .announcements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md); }
 
 .announcement-card { background: var(--white); border: var(--border-width) solid #eee; border-left: 6px solid var(--burgundy); border-radius: var(--radius); padding: var(--space-sm) var(--space-md); box-shadow: var(--shadow); transition: transform var(--transition-fast); }
+
 .announcement-card:hover {
   transform: translateY(-3px);
 }

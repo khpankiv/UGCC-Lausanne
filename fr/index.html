@@ -6,12 +6,12 @@
 
   
   
-    <title>Église gréco-catholique ukrainienne à Lausanne</title>
+    <title>Église gréco‑catholique ukrainienne à Lausanne</title>
   
 
   
   
-    <meta name="description" content="Page officielle de la communauté UGCC à Lausanne. Liturgies, vie spirituelle et actualités.">
+    <meta name="description" content="Site officiel de la communauté UGCC à Lausanne. Liturgies, vie spirituelle et actualités.">
   
   
     <meta name="keywords" content="UGCC, Lausanne, église, catholique grecque, ukrainiens en Suisse">
@@ -27,7 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900 rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -39,7 +39,7 @@
 	
 	<!-- Стилі героя -->
 	
-  	<link rel="stylesheet" href="/assets/css/page-hero.css">
+  <link rel="stylesheet" href="/assets/css/page-hero.css">
 	
 
   <!-- Іконки -->
@@ -51,12 +51,10 @@
   <header class="header">
   <div class="container">
     <div class="header-top-row grid">
-      
-      
       <a class="header-logo-titles header-home-link" href="/fr/">
         <img src="https://ugcc.fr/wp-content/uploads/2022/02/logo-5.png" alt="UGCC Logo" class="header-logo-full">
         <div class="header-titles">
-          <div class="header-title-small">Église grecque-catholique ukrainienne</div>
+          <div class="header-title-small">Église gréco‑catholique ukrainienne</div>
           <h1 class="header-title">Paroisse UGCC Lausanne</h1>
         </div>
       </a>
@@ -64,16 +62,10 @@
         <div class="header-actions-grid">
           <div class="lang-circle">
             <!-- Accessible language toggle button: JS expects .lang-btn and toggles .lang-list -->
-            
-            
-            
             <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu" title="Langue">
-              
-              
-              
               <span class="lang-label">
-							<i class="fa-solid fa-globe"></i>
-							 Français</span>
+                <i class="fa-solid fa-globe"></i>
+                Français</span>
             </button>
             
 
@@ -81,18 +73,19 @@
 
 <ul id="lang-menu" class="lang-list" role="menu" hidden>
   <li role="menuitem"><a href="/">Українська</a></li>
-  <li role="menuitem"><a href="/fr/">Francais</a></li>
+  <li role="menuitem"><a href="/fr/">Français</a></li>
   <li role="menuitem"><a href="/en/">English</a></li>
 </ul>
           </div>
           <div class="socials-row">
             <span class="socials socials-header">
               
-                <a href="https://facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              
+                <a href="https://www.facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              
+                <a href="https://www.youtube.com/@ugcc-lausanne" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
               
                 <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              
-                <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
               
                 <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
               
@@ -131,7 +124,7 @@
           
         
           
-            <li><a href="/fr/community/">Communauté</a></li>
+            <li><a href="/fr/community/">Сommunauté</a></li>
           
         
           
@@ -149,10 +142,14 @@
 
   
 		
-  		<section class="page-hero" style="background-image: url('/assets/images/church-bg.jpg');">
+  		
+
+
+
+<section class="page-hero" style="--hero-bg: url('/assets/images/church-bg.jpg')">
   <div class="overlay"></div>
   <div class="hero-content">
-    <h1 class="page-hero-title">Paroisse UGCC Lausanne</h1>
+    <h1 class="page-hero-title">UGCC Lausanne</h1>
     
   </div>
 </section>
@@ -171,18 +168,43 @@
   
   
   
-  <section class="next-liturgy">
+  <section class="next-liturgy home-section ">
     <div class="container">
-      <div class="next-grid  list-card">
+      <div class="grid cols-2 next-grid list-card" itemscope itemtype="https://schema.org/Event">
         <div class="next-media">
           <img src="/assets/images/prayer.png" alt="Prayer">
         </div>
         <div class="next-info">
-          <h2>Prochaine liturgie</h2>
-          <h3>Божественна Літургія</h3>
-          <p class="meta"><i class="fa-regular fa-calendar-days"></i> <time>28 septembre 2025</time> • <i class="fa-regular fa-clock"></i> 14:00</p>
-          <p class="meta"><i class="fa-solid fa-location-dot"></i> Lausanne</p>
-          <p class="lead">Після служби — панахида за загиблих захисників.</p>
+          <h2 itemprop="name">Sainte Liturgie</h2>
+					<h4 class="lead" itemprop="description">Divine Liturgie dominicale. Prions pour la paix et l&#39;unité dans nos familles.</h4>
+          <p class="meta"><i class="fa-regular fa-calendar-days"></i> <time>19 octobre 2025</time> • <i class="fa-regular fa-clock"></i> 10:00</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> <span itemprop="location">Fribourg</span></p>
+
+          
+          <div class="event-section before">
+            <div class="section-label">Avant la liturgie</div>
+            <div class="before-event">
+              <i class="fa-solid fa-cross"></i>
+              
+                <time datetime="2025-10-19T09:30">09:30</time> —
+              
+              Confession avant la liturgie (P. Andriy)
+            </div>
+          </div>
+          
+
+          
+          <div class="event-section after">
+            <div class="section-label">Après la liturgie</div>
+            <div class="after-event">
+              <i class="fa-solid fa-mug-hot"></i>
+              
+                <time datetime="2025-10-19T11:15">11:15</time> —
+              
+              Thé dans la salle paroissiale après la messe
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -190,6 +212,52 @@
   
 
   
+  
+  
+  <section class="home-section">
+    <div class="container">
+      <h2>Annonces</h2>
+      <div class="grid cols-3 announce-grid">
+        
+          <div class="announce" tabindex="0" itemscope itemtype="https://schema.org/Event">
+            
+              <time class="date" itemprop="startDate" datetime="2025-10-21 19:00:00T19:00">21.10.2025</time>
+            
+            <span class="title" itemprop="name">Rencontre de la jeunesse</span>
+            <div class="extra" itemprop="description">
+              
+                <div class="line"><i class="fa-regular fa-clock"></i> 19:00</div>
+              
+              
+                <div class="line"><i class="fa-solid fa-location-dot"></i> <span itemprop="location">Salle paroissiale</span></div>
+              
+              
+                <div class="line details">Thème : Comment cultiver l&#39;amitié dans la foi. Discussion informelle avec le frère Ivan.</div>
+              
+            </div>
+          </div>
+        
+          <div class="announce" tabindex="0" itemscope itemtype="https://schema.org/Event">
+            
+              <time class="date" itemprop="startDate" datetime="2025-10-28 18:30:00T18:30">28.10.2025</time>
+            
+            <span class="title" itemprop="name">Soirée de prière de Taizé</span>
+            <div class="extra" itemprop="description">
+              
+                <div class="line"><i class="fa-regular fa-clock"></i> 18:30</div>
+              
+              
+                <div class="line"><i class="fa-solid fa-location-dot"></i> <span itemprop="location">Chapelle Saint-Joseph</span></div>
+              
+              
+                <div class="line details">Prière dans le style de Taizé avec brèves réflexions et chants.</div>
+              
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
   
 
 
@@ -199,65 +267,65 @@
   <section class="home-section">
     <div class="container">
       <h2>Dernières nouvelles</h2>
-      <div class="cards-grid cols-3">
+      <div class="grid cols-3">
         
-          <a class="card-article" href="/news/20251015/">
+          <a class="card-article" href="/fr/news/20251015-ftedelaprotectiondelabienheureuseviergemarie/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Свято Покрову Пресвятої Богородиці">
+      <img src="/assets/images/article.png" alt="Fête de la Protection de la Bienheureuse Vierge Marie" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Свято Покрову Пресвятої Богородиці</h3>
-    <p class="card-text">Урочиста Літургія та панахида за захисників України.</p>
+    <h3 class="card-title" itemprop="headline">Fête de la Protection de la Bienheureuse Vierge Marie</h3>
+    <p class="card-text" itemprop="description">Liturgie solennelle et service commémoratif pour les défenseurs de l&#39;Ukraine.</p>
     <div class="card-meta">
       
-        <span class="meta-author">о. Іван</span>
+        <span class="meta-author" itemprop="author">о. Іван</span>
       
        
-         <time class="meta-date">15.10.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-10-15 09:00:00">15.10.2025</time>
        
     </div>
   </div>
 </a>
 
         
-          <a class="card-article" href="/news/20251010/">
+          <a class="card-article" href="/fr/news/20251010-ftedelaprotectiondelamrededieu/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Святкування Покрову">
+      <img src="/assets/images/article.png" alt="Fête de la Protection de la Mère de Dieu" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Святкування Покрову</h3>
-    <p class="card-text">Урочиста літургія та панахида за захисників України.</p>
+    <h3 class="card-title" itemprop="headline">Fête de la Protection de la Mère de Dieu</h3>
+    <p class="card-text" itemprop="description">Liturgie solennelle et service commémoratif pour les défenseurs de l&#39;Ukraine.</p>
     <div class="card-meta">
       
-        <span class="meta-author">о. Іван</span>
+        <span class="meta-author" itemprop="author">Père Ivan</span>
       
        
-         <time class="meta-date">10.10.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-10-10 09:00:00">10.10.2025</time>
        
     </div>
   </div>
 </a>
 
         
-          <a class="card-article" href="/news/20251005/">
+          <a class="card-article" href="/fr/news/20251005-dimanchedelamisricorde/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Неділя милосердя">
+      <img src="/assets/images/article.png" alt="Dimanche de la Miséricorde" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Неділя милосердя</h3>
-    <p class="card-text">Після служби збір пожертв для потреб України.</p>
+    <h3 class="card-title" itemprop="headline">Dimanche de la Miséricorde</h3>
+    <p class="card-text" itemprop="description">Après la messe, collecte pour les besoins de l&#39;Ukraine.</p>
     <div class="card-meta">
       
-        <span class="meta-author">п. Оксана</span>
+        <span class="meta-author" itemprop="author">Mme Oksana</span>
       
        
-         <time class="meta-date">05.10.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-10-05 09:00:00">05.10.2025</time>
        
     </div>
   </div>
@@ -273,65 +341,65 @@
   <section class="home-section">
     <div class="container">
       <h2>Spirituel</h2>
-      <div class="cards-grid cols-3">
+      <div class="grid cols-3">
         
-          <a class="card-article" href="/spiritual/20251010/">
+          <a class="card-article" href="/fr/spiritual/20251010-prireduchapeletlamisricordedivine/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Молитва Вервиці до Божого Милосердя">
+      <img src="/assets/images/article.png" alt="Prière du chapelet à la Miséricorde Divine" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Молитва Вервиці до Божого Милосердя</h3>
-    <p class="card-text">Щонеділі перед Літургією — спільна молитва Вервиці.</p>
+    <h3 class="card-title" itemprop="headline">Prière du chapelet à la Miséricorde Divine</h3>
+    <p class="card-text" itemprop="description">Chaque dimanche avant la liturgie — prière commune du chapelet.</p>
     <div class="card-meta">
       
-        <span class="meta-author">сестра Марія</span>
+        <span class="meta-author" itemprop="author">Sœur Marie</span>
       
        
-         <time class="meta-date">10.10.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-10-10 08:30:00">10.10.2025</time>
        
     </div>
   </div>
 </a>
 
         
-          <a class="card-article" href="/spiritual/20250925/">
+          <a class="card-article" href="/fr/spiritual/20250925-prirepourlapaix/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Молитва за мир">
+      <img src="/assets/images/article.png" alt="Prière pour la paix" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Молитва за мир</h3>
-    <p class="card-text">Щотижнева спільна молитва Вервиці.</p>
+    <h3 class="card-title" itemprop="headline">Prière pour la paix</h3>
+    <p class="card-text" itemprop="description">Prière hebdomadaire du chapelet.</p>
     <div class="card-meta">
       
-        <span class="meta-author">сестра Марія</span>
+        <span class="meta-author" itemprop="author">Sœur Marie</span>
       
        
-         <time class="meta-date">25.09.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-09-25 19:00:00">25.09.2025</time>
        
     </div>
   </div>
 </a>
 
         
-          <a class="card-article" href="/spiritual/20250912/">
+          <a class="card-article" href="/fr/spiritual/20250912-rflexionsspirituellesdupreivan/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Духовні роздуми отця Івана">
+      <img src="/assets/images/article.png" alt="Réflexions spirituelles du Père Ivan" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Духовні роздуми отця Івана</h3>
-    <p class="card-text">Роздуми про прощення й силу віри.</p>
+    <h3 class="card-title" itemprop="headline">Réflexions spirituelles du Père Ivan</h3>
+    <p class="card-text" itemprop="description">Réflexions sur le pardon et la force de la foi.</p>
     <div class="card-meta">
       
-        <span class="meta-author">о. Іван</span>
+        <span class="meta-author" itemprop="author">Père Ivan</span>
       
        
-         <time class="meta-date">12.09.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-09-12 08:30:00">12.09.2025</time>
        
     </div>
   </div>
@@ -347,65 +415,65 @@
   <section class="home-section">
     <div class="container">
       <h2>Vie de la communauté</h2>
-      <div class="cards-grid cols-3">
+      <div class="grid cols-3">
         
-          <a class="card-article" href="/community/20250930/">
+          <a class="card-article" href="/fr/community/20250930-foiredautomnedelaparoisse/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Осінній ярмарок громади">
+      <img src="/assets/images/article.png" alt="Foire d’automne de la paroisse" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Осінній ярмарок громади</h3>
-    <p class="card-text">Тепла зустріч після служби з чаєм, солодощами та піснями.</p>
+    <h3 class="card-title" itemprop="headline">Foire d’automne de la paroisse</h3>
+    <p class="card-text" itemprop="description">Rencontre chaleureuse après la messe avec thé, douceurs et chants.</p>
     <div class="card-meta">
       
-        <span class="meta-author">парафіяльна рада</span>
+        <span class="meta-author" itemprop="author">Conseil paroissial</span>
       
        
-         <time class="meta-date">30.09.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-09-30 12:00:00">30.09.2025</time>
        
     </div>
   </div>
 </a>
 
         
-          <a class="card-article" href="/community/20250922/">
+          <a class="card-article" href="/fr/community/20250922-vieparoissialefoiredautomne/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Життя громади: осінній ярмарок">
+      <img src="/assets/images/article.png" alt="Vie paroissiale : foire d’automne" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Життя громади: осінній ярмарок</h3>
-    <p class="card-text">Спільна подія з приготування страв і продажем солодощів.</p>
+    <h3 class="card-title" itemprop="headline">Vie paroissiale : foire d’automne</h3>
+    <p class="card-text" itemprop="description">Événement commun pour la préparation et la vente de douceurs.</p>
     <div class="card-meta">
       
-        <span class="meta-author">рада парафії</span>
+        <span class="meta-author" itemprop="author">Conseil paroissial</span>
       
        
-         <time class="meta-date">22.09.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-09-22 14:00:00">22.09.2025</time>
        
     </div>
   </div>
 </a>
 
         
-          <a class="card-article" href="/community/20250905/">
+          <a class="card-article" href="/fr/community/20250905-concertdesartistesukrainiens/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
-      <img src="/assets/images/article.png" alt="Концерт українських виконавців">
+      <img src="/assets/images/article.png" alt="Concert des artistes ukrainiens" itemprop="image">
     </div>
   
   <div class="card-body">
-    <h3 class="card-title">Концерт українських виконавців</h3>
-    <p class="card-text">Благодійний вечір на підтримку школи «Зернятко».</p>
+    <h3 class="card-title" itemprop="headline">Concert des artistes ukrainiens</h3>
+    <p class="card-text" itemprop="description">Soirée caritative au profit de l’école « Zerniatko ».</p>
     <div class="card-meta">
       
-        <span class="meta-author">рада громади</span>
+        <span class="meta-author" itemprop="author">Conseil paroissial</span>
       
        
-         <time class="meta-date">05.09.2025</time>
+         <time class="meta-date" itemprop="datePublished" datetime="2025-09-05 08:30:00">05.09.2025</time>
        
     </div>
   </div>
@@ -416,10 +484,9 @@
     </div>
   </section>
 
-
   </main>
 
-  <footer class="footer">
+  ﻿<footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <!-- Contacts column -->
@@ -433,13 +500,14 @@
           <p class="contact-line"><a class="email" href="mailto:info@ugcc-lausanne.ch"><i class="fa-solid fa-envelope"></i><span>info@ugcc-lausanne.ch</span></a></p>
         
         
+        
           <p class="socials socials-footer">
             
-              <a href="https://facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              <a href="https://www.facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            
+              <a href="https://www.youtube.com/@ugcc-lausanne" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
             
               <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            
-              <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
             
               <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             
@@ -449,9 +517,6 @@
 
       <!-- Friends + Eparchy column (two headings in one column) -->
       <div class="footer-col">
-        
-        
-        
         <h3>Nos partenaires</h3>
         <ul class="footer-links">
           
@@ -461,11 +526,8 @@
               <li><a href="#" target="_blank" rel="noopener">Communauté ukrainienne de Lausanne</a></li>
             
           
-          
         </ul>
-        
-        
-        <h3 style="margin-top: var(--space-md)">Éparchie</h3>
+        <h3 class="mt-md">Éparchie</h3>
         <ul class="footer-links">
           <li><a href="https://ugcc.fr/" target="_blank" rel="noopener">Éparchie UGCC en France</a></li>
         </ul>
@@ -495,7 +557,7 @@
             
           
             
-              <li><a href="/fr/community/">Communauté</a></li>
+              <li><a href="/fr/community/">Сommunauté</a></li>
             
           
             
@@ -511,6 +573,7 @@
   </div>
   
 </footer>
+
 
 
 
