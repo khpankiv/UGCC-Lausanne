@@ -1,0 +1,16 @@
+// =======================
+// MAIN STYLES ENTRY POINT
+// =======================
+
+// 1. Variables & Mixins
+@use 'variables';
+@use 'mixins';
+
+// 2. Base reset & typography
+@use 'base';
+
+// 3. Layout: header, footer, grid
+@use 'layout';
+
+// 4. Components: cards, hero, etc.
+@use 'components';
