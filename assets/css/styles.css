@@ -179,19 +179,42 @@ img {
 
 /* Home: narrow announcements strip under next-liturgy */
 .home-announce-strip { padding-block: var(--space-sm); background: var(--bg-section); }
-.home-announce-strip .announce-grid { align-items: stretch; }
+.home-announce-strip .announce-grid,
+.home-section .announce-grid { align-items: stretch; }
 .home-announce-strip h2 { margin-bottom: var(--space-sm); }
-.home-announce-strip .announce { position: relative; display: grid; gap: 6px; padding: 10px 12px; background: var(--white); border: 1px solid var(--border); box-shadow: var(--shadow); min-height: 44px; transition: transform var(--transition-fast), box-shadow var(--transition-fast); outline: none; }
-.home-announce-strip .announce:hover, .home-announce-strip .announce:focus-visible { transform: scale(1.035); box-shadow: var(--shadow-hover); z-index: 2; }
-.home-announce-strip .announce .date { color: var(--muted); font-family: var(--font-detail); white-space: nowrap; }
-.home-announce-strip .announce .title { color: var(--ink); font-weight: 700; }
-.home-announce-strip .announce .extra { color: var(--text-soft); font-size: var(--font-size-small); display: none; }
-.home-announce-strip .announce:hover .extra, .home-announce-strip .announce:focus-visible .extra { display: block; }
-.home-announce-strip .announce .extra .line { display: flex; align-items: baseline; gap: 6px; }
-.home-announce-strip .announce .extra .details { color: var(--ink); }
+.home-announce-strip .announce,
+.home-section .announce-grid .announce { position: relative; display: grid; gap: 6px; padding: 10px 12px; background: var(--white); border: 1px solid var(--border); box-shadow: var(--shadow); min-height: 44px; transition: transform var(--transition-fast), box-shadow var(--transition-fast); outline: none; }
+.home-announce-strip .announce:hover, .home-announce-strip .announce:focus-visible,
+.home-section .announce-grid .announce:hover, .home-section .announce-grid .announce:focus-visible { transform: scale(1.035); box-shadow: var(--shadow-hover); z-index: 2; }
+.home-announce-strip .announce .date,
+.home-section .announce-grid .announce .date { color: var(--muted); font-family: var(--font-detail); white-space: nowrap; }
+.home-announce-strip .announce .title,
+.home-section .announce-grid .announce .title { color: var(--ink); font-weight: 700; }
+.home-announce-strip .announce .extra,
+.home-section .announce-grid .announce .extra {
+  color: var(--text-soft);
+  font-size: var(--font-size-small);
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-hover);
+  padding: 10px 12px;
+  z-index: 50;
+}
+.home-announce-strip .announce:hover .extra, .home-announce-strip .announce:focus-visible .extra,
+.home-section .announce-grid .announce:hover .extra, .home-section .announce-grid .announce:focus-visible .extra { display: block; }
+.home-announce-strip .announce .extra .line,
+.home-section .announce-grid .announce .extra .line { display: flex; align-items: baseline; gap: 6px; }
+.home-announce-strip .announce .extra .details,
+.home-section .announce-grid .announce .extra .details { color: var(--ink); }
 
 @media (width <= 900px) {
-  .home-announce-strip .announce-grid { grid-template-columns: 1fr !important; }
+  .home-announce-strip .announce-grid,
+  .home-section .announce-grid { grid-template-columns: 1fr !important; }
 }
 
 /* About: priest cards — keep full image, no crop */
