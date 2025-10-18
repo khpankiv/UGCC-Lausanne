@@ -23,7 +23,7 @@
   {% endif %}
 
   <!-- Favicon -->
-  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{ base }}/assets/images/favicon.svg" type="image/svg+xml">
 
   <!-- Fonts: headline/body/detail -->
   <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
@@ -36,14 +36,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Основні стилі -->
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="stylesheet" href="/assets/css/header.css">
-  <link rel="stylesheet" href="/assets/css/footer.css">
-  <link rel="stylesheet" href="/assets/css/cards.css">  {# новий файл для карток і сторінок #}
+  <link rel="stylesheet" href="{{ base }}/assets/css/styles.css">
+  <link rel="stylesheet" href="{{ base }}/assets/css/header.css">
+  <link rel="stylesheet" href="{{ base }}/assets/css/footer.css">
+  <link rel="stylesheet" href="{{ base }}/assets/css/cards.css">  {# новий файл для карток і сторінок #}
 	
 	<!-- Стилі героя -->
 	{% if page_hero %}
-  <link rel="stylesheet" href="/assets/css/page-hero.css">
+  <link rel="stylesheet" href="{{ base }}/assets/css/page-hero.css">
 	{% endif %}
 
   <!-- Іконки -->
@@ -69,6 +69,6 @@
 
   {% include "footer.njk" %}
 
-  <script src="/assets/js/main.js"></script>
+  <script src="{{ base }}/assets/js/main.js"></script>
 </body>
 </html>

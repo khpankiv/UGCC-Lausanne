@@ -43,7 +43,7 @@
         <ul class="footer-links">
           {% for item in header.menu %}
             {% if item.url != '/' and item.url != '/en/' and item.url != '/fr/' and ('/donate/' not in item.url) %}
-              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+              <li><a href="{{ base }}{{ item.url }}">{{ item.title }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -53,5 +53,4 @@
   </div>
   
 </footer>
-
 
