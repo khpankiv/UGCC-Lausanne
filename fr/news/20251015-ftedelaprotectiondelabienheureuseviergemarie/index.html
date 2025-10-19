@@ -11,6 +11,23 @@
 
   
   
+  
+  
+  
+  <meta property="og:title" content="Église gréco‑catholique ukrainienne à Lausanne">
+  <meta property="og:description" content="Site officiel de la communauté UGCC à Lausanne. Liturgies, vie spirituelle et actualités.">
+  
+  <meta property="og:type" content="website">
+  
+  
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Église gréco‑catholique ukrainienne à Lausanne">
+  <meta name="twitter:description" content="Site officiel de la communauté UGCC à Lausanne. Liturgies, vie spirituelle et actualités.">
+  
+
+  
+  
     <meta name="description" content="Site officiel de la communauté UGCC à Lausanne. Liturgies, vie spirituelle et actualités.">
   
   
@@ -19,23 +36,24 @@
   
 
   <!-- Favicon -->
-  <link rel="icon" href="/UGCC-Lausanne/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 
   <!-- Fonts: headline/body/detail -->
-  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="preload" as="font" href="/assets/fonts/Forum/Forum-Regular.ttf" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" as="font" href="/assets/fonts/Lora/Lora-VariableFont_wght.ttf" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" as="font" href="/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" type="font/ttf" crossorigin="anonymous">
+  
 
-  <!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  
 
   <!-- Основні стилі -->
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/styles.css">
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/header.css">
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/footer.css">
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/cards.css">  
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/cards.css">  
+  <link rel="stylesheet" href="/assets/css/overrides.css">
 	
 	<!-- Стилі героя -->
 	
@@ -46,10 +64,11 @@
 </head>
 
 <body>
-  <header class="header">
+  
+<header class="header">
   <div class="container">
     <div class="header-top-row grid">
-      <a class="header-logo-titles header-home-link" href="/UGCC-Lausanne/fr/">
+      <a class="header-logo-titles header-home-link" href="/fr/">
         <img src="https://ugcc.fr/wp-content/uploads/2022/02/logo-5.png" alt="UGCC Logo" class="header-logo-full">
         <div class="header-titles">
           <div class="header-title-small">Église gréco‑catholique ukrainienne</div>
@@ -58,21 +77,22 @@
       </a>
       <div class="header-actions-right">
         <div class="header-actions-grid">
+          <button class="icon-btn menu-toggle" aria-expanded="false" aria-controls="main-menu" title="Menu">
+            <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
           <div class="lang-circle">
             <!-- Accessible language toggle button: JS expects .lang-btn and toggles .lang-list -->
             <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu" title="Langue">
-              <span class="lang-label">
-                <i class="fa-solid fa-globe"></i>
-                Français</span>
+              <span class="lang-label"><i class="fa-solid fa-globe"></i><span class="label-text">Français</span></span>
             </button>
 
 
 
 
 <ul id="lang-menu" class="lang-list" role="menu" hidden>
-  <li role="menuitem"><a href="/UGCC-Lausanne/article/">Українська</a></li>
-  <li role="menuitem"><a href="/UGCC-Lausanne/fr/article/">Français</a></li>
-  <li role="menuitem"><a href="/UGCC-Lausanne/en/article/">English</a></li>
+  <li role="menuitem"><a href="/article/">Українська</a></li>
+  <li role="menuitem"><a href="/fr/article/">Français</a></li>
+  <li role="menuitem"><a href="/en/article/">English</a></li>
 </ul>
           </div>
           <div class="socials-row">
@@ -91,7 +111,8 @@
             <button class="icon-btn search-toggle" aria-expanded="false" title="Recherche">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-          </div><a class="btn" href="/UGCC-Lausanne/fr/donate/">Faire un don</a>
+          </div>
+					<a class="donate-link" href="/fr/donate/"><i class="fa-solid fa-heart" aria-hidden="true"></i><span class="label-text">&nbsp;Faire un don</span></a>
           <form class="header-search" action="#" method="get">
             <input type="text" placeholder="Recherche" name="q">
           </form>
@@ -99,34 +120,44 @@
       </div>
     </div>
   </div>
-  <nav class="header-menu-row">
+  <nav class="header-menu-row" aria-label="Main navigation">
     <div class="container">
-      <ul>
+      
+      
+        
+      
+      <ul id="main-menu">
         
           
         
           
-            <li><a href="/UGCC-Lausanne/fr/about/">À propos</a></li>
+            
+            <li><a href="/fr/about/" class="">À propos</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/fr/schedule/">Horaire</a></li>
+            
+            <li><a href="/fr/schedule/" class="">Horaire</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/fr/news/">Nouvelles</a></li>
+            
+            <li><a href="/fr/news/" class="">Nouvelles</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/fr/spiritual/">Spirituel</a></li>
+            
+            <li><a href="/fr/spiritual/" class="">Spirituel</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/fr/community/">Сommunauté</a></li>
+            
+            <li><a href="/fr/community/" class="">Сommunauté</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/fr/contacts/">Contacts</a></li>
+            
+            <li><a href="/fr/contacts/" class="">Contacts</a></li>
           
         
           
@@ -135,6 +166,9 @@
     </div>
   </nav>
 </header>
+
+
+
 
 
   
@@ -166,7 +200,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Fête de la Protection de la Bienheureuse Vierge Marie">
+      <img src="/assets/images/article.png" alt="Fête de la Protection de la Bienheureuse Vierge Marie">
     </figure>
   
 
@@ -177,38 +211,26 @@
 </section>
 
 
+
+
   </main>
 
-  ﻿<footer class="footer">
+  <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <!-- Contacts column -->
-      <div class="footer-col contact-line ">
+      <div class="footer-col ">
         <h3>Contacts</h3>
         <p class="contact-line"><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>Chem. de Beau-Rivage 3, 1006 Lausanne</span></a></p>
         
           <p class="contact-line"><a class="phone" href="tel:+41 77 279 07 13"><i class="fa-solid fa-phone"></i><span>+41 77 279 07 13</span></a></p>
         
         
-          <p class="contact-line"><a class="email" href="mailto:info@ugcc-lausanne.ch"><i class="fa-solid fa-envelope"></i><span>info@ugcc-lausanne.ch</span></a></p>
-        
-        
-        
-          <p class="socials socials-footer">
-            
-              <a href="https://www.facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            
-              <a href="https://www.youtube.com/@ugcc-lausanne" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            
-              <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            
-              <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            
-          </p>
+          <p class="contact-line"><a class="email" href="mailto:ugcc.lausanne@gmail.com"><i class="fa-solid fa-envelope"></i><span>ugcc.lausanne@gmail.com</span></a></p>
         
       </div>
 
-      <!-- Friends + Eparchy column (two headings in one column) -->
+      <!-- Friends -->
       <div class="footer-col">
         <h3>Nos partenaires</h3>
         <ul class="footer-links">
@@ -220,47 +242,16 @@
             
           
         </ul>
-        <h3 class="mt-md">Éparchie</h3>
+			</div>
+
+			<!-- Eparchy column-->
+			<div class="footer-col">
+        <h3 >Éparchie</h3>
         <ul class="footer-links">
           <li><a href="https://ugcc.fr/" target="_blank" rel="noopener">Éparchie UGCC en France</a></li>
         </ul>
       </div>
 
-      <!-- Sections column -->
-      <div class="footer-col">
-        <h3>Rubriques</h3>
-        <ul class="footer-links">
-          
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/fr/about/">À propos</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/fr/schedule/">Horaire</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/fr/news/">Nouvelles</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/fr/spiritual/">Spirituel</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/fr/community/">Сommunauté</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/fr/contacts/">Contacts</a></li>
-            
-          
-            
-          
-        </ul>
-      </div>
     </div>
     <p class="footer-copyright"><small class="dim">© 2025 Paroisse UGCC Lausanne</small></p>
   </div>
@@ -269,6 +260,7 @@
 
 
 
-  <script src="/UGCC-Lausanne/assets/js/main.js"></script>
+
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

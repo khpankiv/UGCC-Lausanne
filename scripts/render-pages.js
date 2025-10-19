@@ -43,6 +43,8 @@ const footerData = fs.existsSync(footerPath) ? readJson(footerPath) : {};
     return b;
   };
   const basePath = normalizeBase(process.env.BASE_PATH || globalConfig.base_path || '');
+  const siteUrl = (process.env.SITE_URL || globalConfig.site_url || '').replace(/\/$/, '');
+  const collectedRoutes = new Set();
   const pageJsonFiles = glob.sync(pagesDir.replace(/\\/g, '/') + '/*/page.json');
   console.log('Found pages:', pageJsonFiles.map(p => path.relative(path.join(__dirname, '..'), p)));
 
@@ -99,6 +101,12 @@ const footerData = fs.existsSync(footerPath) ? readJson(footerPath) : {};
         const html = nunjucks.render('base.njk', pageData);
         fs.writeFileSync(outPath, html, 'utf-8');
         console.log(`Rendered: ${outPath}`);
+        // Collect route for sitemap
+        let route;
+        if (pageName === 'index' && lang.dir === '.') route = '/';
+        else if (pageName === 'index') route = `/${lang.dir}/`;
+        else route = lang.dir === '.' ? `/${pageName}/` : `/${lang.dir}/${pageName}/`;
+        collectedRoutes.add(route);
       } catch (e) {
         console.error(`Render error for ${pageName} (${langKey}):`, e.message);
       }
@@ -135,11 +143,36 @@ const footerData = fs.existsSync(footerPath) ? readJson(footerPath) : {};
           const html = nunjucks.render('base.njk', pageData);
           fs.writeFileSync(outPath, html, 'utf-8');
           console.log(`Rendered article: ${outPath}`);
+          const route = lang.dir === '.' ? `/${cat}/${item.slug}/` : `/${lang.dir}/${cat}/${item.slug}/`;
+          collectedRoutes.add(route);
         } catch (e) {
           console.error(`Render error for article ${item.slug} (${langKey}):`, e.message);
         }
       }
     }
+  }
+
+  // ===== Generate sitemap.xml and robots.txt if siteUrl configured =====
+  try {
+    if (siteUrl) {
+      const urls = Array.from(collectedRoutes).sort();
+      const fullBase = siteUrl + basePath;
+      const now = new Date().toISOString();
+      const xml = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        ...urls.map((u) => `  <url><loc>${fullBase}${u}</loc><lastmod>${now}</lastmod></url>`),
+        '</urlset>'
+      ].join('\n');
+      fs.writeFileSync(path.join(__dirname, '..', 'sitemap.xml'), xml, 'utf-8');
+      const robots = `User-agent: *\nAllow: /\nSitemap: ${fullBase}/sitemap.xml\n`;
+      fs.writeFileSync(path.join(__dirname, '..', 'robots.txt'), robots, 'utf-8');
+      console.log(`Generated sitemap.xml with ${urls.length} URLs and robots.txt`);
+    } else {
+      console.log('SITE_URL not set; skip sitemap/robots generation.');
+    }
+  } catch (e) {
+    console.warn('Could not generate sitemap/robots:', e.message);
   }
 
   console.log('Done rendering pages.');
