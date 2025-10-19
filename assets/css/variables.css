@@ -81,7 +81,7 @@
 
   /* === Base styles for UGCC Lausanne === */
   --container-width: 1200px;
-  /* --container-padding: var(--space-md); */
+  --container-padding: var(--space-md);
 
   /* Layout specific variables */
   --layout-gap: var(--space-md);

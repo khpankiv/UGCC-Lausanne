@@ -5,7 +5,7 @@
 .grid,
 .cards-grid {
   display: grid;
-  gap: var(--layout-gap);
+  row-gap: var(--layout-gap);
   width: 100%;
   box-sizing: border-box;
 }
