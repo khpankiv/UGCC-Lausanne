@@ -34,6 +34,15 @@ const footerData = fs.existsSync(footerPath) ? readJson(footerPath) : {};
 
 // Render all pages
 (async function renderAll() {
+  // Normalize base path for GitHub Pages (project sites)
+  const normalizeBase = (s) => {
+    if (!s) return '';
+    let b = String(s).trim();
+    if (b.endsWith('/')) b = b.slice(0, -1);
+    if (b && !b.startsWith('/')) b = '/' + b;
+    return b;
+  };
+  const basePath = normalizeBase(process.env.BASE_PATH || globalConfig.base_path || '');
   const pageJsonFiles = glob.sync(pagesDir.replace(/\\/g, '/') + '/*/page.json');
   console.log('Found pages:', pageJsonFiles.map(p => path.relative(path.join(__dirname, '..'), p)));
 
@@ -68,7 +77,8 @@ const footerData = fs.existsSync(footerPath) ? readJson(footerPath) : {};
         page: pageName,
         header,
         footer,
-        sections
+        sections,
+        base: basePath
       };
 
       let outDir, outPath;
@@ -115,7 +125,8 @@ const footerData = fs.existsSync(footerPath) ? readJson(footerPath) : {};
           header,
           footer,
           article: item,
-          category: cat
+          category: cat,
+          base: basePath
         };
         const outDir = lang.dir === '.' ? path.join('..', cat, item.slug) : path.join('..', lang.dir, cat, item.slug);
         const outPath = path.join(__dirname, outDir, 'index.html');

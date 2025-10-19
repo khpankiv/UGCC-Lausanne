@@ -16,10 +16,13 @@
     "http-server": "^14.1.1",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
+    "sass": "^1.93.2",
     "stylelint": "^16.25.0",
     "stylelint-config-standard": "^39.0.1"
   },
   "scripts": {
+		"scss:build": "sass src/scss/main.scss:assets/css/main.css --style=compressed",
+  	"scss:watch": "sass --watch src/scss/main.scss:assets/css/main.css",
     "load": "node scripts/data/fetch-sheets.js",
     "render": "node scripts/render-pages.js",
     "serve": "http-server . -p 8080 -c -1",

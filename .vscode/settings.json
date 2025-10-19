@@ -25,5 +25,13 @@
   "editor.formatOnSave": false,
   "workbench.editor.enablePreview": true,
   "workbench.startupEditor": "none",
-  "files.maxMemoryForLargeFilesMB": 4096
+  "files.maxMemoryForLargeFilesMB": 4096,
+"files.associations": {
+"*.njk": "jinja-html"
+},
+"emmet.includeLanguages": {
+"nunjucks": "html",
+"jinja-html": "html"
+},
+"html.format.templating": true
 }
