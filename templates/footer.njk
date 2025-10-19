@@ -4,7 +4,7 @@
       <!-- Contacts column -->
       <div class="footer-col ">
         <h3>{{ footer.contacts_title }}</h3>
-        <p class="contact-line"><a href="{{ map_link }}" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>{{ address }}</span></a></p>
+        <p class="contact-line"><a class="address" href="{{ map_link }}" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>{{ address }}</span></a></p>
         {% if phone %}
           <p class="contact-line"><a class="phone" href="tel:{{ phone }}"><i class="fa-solid fa-phone"></i><span>{{ phone }}</span></a></p>
         {% endif %}

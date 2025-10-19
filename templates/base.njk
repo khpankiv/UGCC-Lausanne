@@ -50,27 +50,11 @@
   <!-- Favicon -->
   <link rel="icon" href="{{ base }}/assets/images/favicon.svg" type="image/svg+xml">
 
-  <!-- Fonts: headline/body/detail -->
+  <!-- Fonts: headline/body/detail (no preload to avoid console warnings) -->
   <link rel="stylesheet" href="{{ base }}/assets/css/fonts.css">
-  <link rel="preload" as="font" href="{{ base }}/assets/fonts/Forum/Forum-Regular.ttf" type="font/ttf" crossorigin="anonymous">
-  <link rel="preload" as="font" href="{{ base }}/assets/fonts/Lora/Lora-VariableFont_wght.ttf" type="font/ttf" crossorigin="anonymous">
-  <link rel="preload" as="font" href="{{ base }}/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" type="font/ttf" crossorigin="anonymous">
   {# If web-hosted fonts are desired as fallback, re-enable the links below. Now using self-hosted faces. #}
 
-  {# Preload hero image to reduce LCP #}
-  {% if page_hero %}
-    {% set _hero = hero_image or default_hero_image %}
-    {% if _hero %}
-      {% if (_hero | substr(0,4)) != 'http' %}
-        {% if (_hero | substr(0,1)) == '/' %}
-          {% set _hero = base + _hero %}
-        {% else %}
-          {% set _hero = base + '/' + _hero %}
-        {% endif %}
-      {% endif %}
-      <link rel="preload" as="image" href="{{ _hero }}">
-    {% endif %}
-  {% endif %}
+  {# Dropped hero preload to silence "preloaded but not used" warnings in Chrome. #}
 
   <!-- Основні стилі -->
   <link rel="stylesheet" href="{{ base }}/assets/css/styles.css">
