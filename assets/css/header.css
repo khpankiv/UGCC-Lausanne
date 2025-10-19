@@ -47,6 +47,12 @@
   font-size: var(--font-size-title);
 }
 
+/* Make logo titles turn gold on hover/focus of the home link */
+.header-home-link:hover .header-title,
+.header-home-link:hover .header-title-small,
+.header-home-link:focus .header-title,
+.header-home-link:focus .header-title-small { color: var(--gold); }
+
 .header-actions-right {
   display: grid;
   grid-template-rows: auto;
@@ -276,6 +282,8 @@
 .menu-toggle { display: none; }
 @media (width <= 900px) {
   .menu-toggle { display: inline-grid; place-items: center; background: transparent; border: 0; color: var(--burgundy); width: 44px; height: 44px; }
+  /* Prevent blinking text caret after tapping the burger */
+  .menu-toggle { caret-color: transparent; user-select: none; }
   .menu-toggle:focus-visible { outline: none; box-shadow: 0 0 0 3px rgb(150 105 42 / 35%); border-radius: 4px; }
   .menu-toggle:hover, .menu-toggle:active { background: transparent; }
   .menu-toggle .burger { display: grid; gap: 4px; }
