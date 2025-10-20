@@ -11,6 +11,23 @@
 
   
   
+  
+  
+  
+  <meta property="og:title" content="Українська Греко‑Католицька Церква в Лозанні">
+  <meta property="og:description" content="Офіційний сайт громади УГКЦ в Лозанні. Літургії, духовне життя, новини та події.">
+  
+  <meta property="og:type" content="website">
+  
+  
+  <meta property="og:locale" content="uk_UA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Українська Греко‑Католицька Церква в Лозанні">
+  <meta name="twitter:description" content="Офіційний сайт громади УГКЦ в Лозанні. Літургії, духовне життя, новини та події.">
+  
+
+  
+  
     <meta name="description" content="Офіційний сайт громади УГКЦ в Лозанні. Літургії, духовне життя, новини та події.">
   
   
@@ -19,27 +36,24 @@
   
 
   <!-- Favicon -->
-  <link rel="icon" href="/UGCC-Lausanne/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/ugcc-site/assets/images/favicon.svg" type="image/svg+xml">
 
-  <!-- Fonts: headline/body/detail -->
-  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts: headline/body/detail (no preload to avoid console warnings) -->
+  <link rel="stylesheet" href="/ugcc-site/assets/css/fonts.css">
+  
 
-  <!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
 
   <!-- Основні стилі -->
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/styles.css">
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/header.css">
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/footer.css">
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/cards.css">  
+  <link rel="stylesheet" href="/ugcc-site/assets/css/styles.css">
+  <link rel="stylesheet" href="/ugcc-site/assets/css/header.css">
+  <link rel="stylesheet" href="/ugcc-site/assets/css/footer.css">
+  <link rel="stylesheet" href="/ugcc-site/assets/css/cards.css">  
+  <link rel="stylesheet" href="/ugcc-site/assets/css/overrides.css">
 	
 	<!-- Стилі героя -->
 	
-  <link rel="stylesheet" href="/UGCC-Lausanne/assets/css/page-hero.css">
+  <link rel="stylesheet" href="/ugcc-site/assets/css/page-hero.css">
 	
 
   <!-- Іконки -->
@@ -48,10 +62,11 @@
 </head>
 
 <body>
-  <header class="header">
+  
+<header class="header">
   <div class="container">
-    <div class="header-top-row grid">
-      <a class="header-logo-titles header-home-link" href="/UGCC-Lausanne/">
+    <div class="header-top-row grid-header">
+      <a class="header-logo-titles header-home-link" href="/ugcc-site/">
         <img src="https://ugcc.fr/wp-content/uploads/2022/02/logo-5.png" alt="UGCC Logo" class="header-logo-full">
         <div class="header-titles">
           <div class="header-title-small">Українська греко‑католицька церква</div>
@@ -60,21 +75,22 @@
       </a>
       <div class="header-actions-right">
         <div class="header-actions-grid">
+          <button class="icon-btn menu-toggle" aria-expanded="false" aria-controls="main-menu" title="Menu">
+            <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
           <div class="lang-circle">
             <!-- Accessible language toggle button: JS expects .lang-btn and toggles .lang-list -->
             <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu" title="Мова">
-              <span class="lang-label">
-                <i class="fa-solid fa-globe"></i>
-                Українська</span>
+              <span class="lang-label"><i class="fa-solid fa-globe"></i><span class="label-text">Українська</span></span>
             </button>
 
 
 
 
 <ul id="lang-menu" class="lang-list" role="menu" hidden>
-  <li role="menuitem"><a href="/UGCC-Lausanne/">Українська</a></li>
-  <li role="menuitem"><a href="/UGCC-Lausanne/fr/">Français</a></li>
-  <li role="menuitem"><a href="/UGCC-Lausanne/en/">English</a></li>
+  <li role="menuitem"><a href="/ugcc-site/">Українська</a></li>
+  <li role="menuitem"><a href="/ugcc-site/fr/">Français</a></li>
+  <li role="menuitem"><a href="/ugcc-site/en/">English</a></li>
 </ul>
           </div>
           <div class="socials-row">
@@ -93,7 +109,8 @@
             <button class="icon-btn search-toggle" aria-expanded="false" title="Пошук">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-          </div><a class="btn" href="/UGCC-Lausanne/donate/">Зробити пожертву</a>
+          </div>
+					<a class="donate-link" href="/ugcc-site/donate/"><i class="fa-solid fa-heart" aria-hidden="true"></i><span class="label-text">&nbsp;Пожертвувати</span></a>
           <form class="header-search" action="#" method="get">
             <input type="text" placeholder="Пошук" name="q">
           </form>
@@ -101,34 +118,44 @@
       </div>
     </div>
   </div>
-  <nav class="header-menu-row">
+  <nav class="header-menu-row" aria-label="Main navigation">
     <div class="container">
-      <ul>
+      
+      
+        
+      
+      <ul id="main-menu">
         
           
         
           
-            <li><a href="/UGCC-Lausanne/about/">Про нас</a></li>
+            
+            <li><a href="/ugcc-site/about/" class="">Про нас</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/schedule/">Розклад</a></li>
+            
+            <li><a href="/ugcc-site/schedule/" class="">Розклад</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/news/">Новини</a></li>
+            
+            <li><a href="/ugcc-site/news/" class="">Новини</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/spiritual/">Духовне</a></li>
+            
+            <li><a href="/ugcc-site/spiritual/" class="">Духовне</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/community/">Громада</a></li>
+            
+            <li><a href="/ugcc-site/community/" class="">Громада</a></li>
           
         
           
-            <li><a href="/UGCC-Lausanne/contacts/">Контакти</a></li>
+            
+            <li><a href="/ugcc-site/contacts/" class="">Контакти</a></li>
           
         
           
@@ -137,6 +164,9 @@
     </div>
   </nav>
 </header>
+
+
+
 
 
   
@@ -149,7 +179,8 @@
   
 
 
-<section class="page-hero" style="--hero-bg: url('/UGCC-Lausanne/assets/images/church-bg.jpg')">
+
+<section class="page-hero" style="--hero-bg: url('/ugcc-site/assets/images/church-bg.jpg'); --hero-pos: center">
   <div class="overlay"></div>
   <div class="hero-content">
     <h1 class="page-hero-title">УГКЦ у Лозанні</h1>
@@ -175,38 +206,16 @@
     <div class="container">
       <div class="grid cols-2 next-grid list-card" itemscope itemtype="https://schema.org/Event">
         <div class="next-media">
-          <img src="/UGCC-Lausanne/assets/images/prayer.png" alt="Prayer">
+          <img src="/ugcc-site/assets/images/prayer.png" alt="Prayer">
         </div>
         <div class="next-info">
-          <h2 itemprop="name">Свята Літургія</h2>
-					<h4 class="lead" itemprop="description">Недільна Божественна Літургія. Молімось за мир і єдність у наших родинах.</h4>
-          <p class="meta"><i class="fa-regular fa-calendar-days"></i> <time>19 жовтня 2025 р.</time> • <i class="fa-regular fa-clock"></i> 10:00</p>
-          <p class="meta"><i class="fa-solid fa-location-dot"></i> <span itemprop="location">Фрібур</span></p>
+          <h2 itemprop="name">Зустріч молоді</h2>
+					<h4 class="lead" itemprop="description">Тема: Як плекати дружбу у вірі. Неформальна дискусія з братом Іваном.</h4>
+          <p class="meta"><i class="fa-regular fa-calendar-days"></i> <time>21 жовтня 2025 р.</time> • <i class="fa-regular fa-clock"></i> 19:00</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> <span itemprop="location">Парафіяльна зала</span></p>
 
           
-          <div class="event-section before">
-            <div class="section-label">Перед службою</div>
-            <div class="before-event">
-              <i class="fa-solid fa-cross"></i>
-              
-                <time datetime="2025-10-19T09:30">09:30</time> —
-              
-              Сповідь перед Літургією (о. Андрій)
-            </div>
-          </div>
-          
 
-          
-          <div class="event-section after">
-            <div class="section-label">Після служби</div>
-            <div class="after-event">
-              <i class="fa-solid fa-mug-hot"></i>
-              
-                <time datetime="2025-10-19T11:15">11:15</time> —
-              
-              Чаювання у парафіяльній залі після служби
-            </div>
-          </div>
           
         </div>
       </div>
@@ -258,6 +267,24 @@
             </div>
           </div>
         
+          <div class="announce" tabindex="0" itemscope itemtype="https://schema.org/Event">
+            
+              <time class="date" itemprop="startDate" datetime="2025-10-30 18:30:00T18:30">30.10.2025</time>
+            
+            <span class="title" itemprop="name">Вечір молитви</span>
+            <div class="extra" itemprop="description">
+              
+                <div class="line"><i class="fa-regular fa-clock"></i> 18:30</div>
+              
+              
+                <div class="line"><i class="fa-solid fa-location-dot"></i> <span itemprop="location">Каплиця св. Йосифа</span></div>
+              
+              
+                <div class="line details">Молитва за мир</div>
+              
+            </div>
+          </div>
+        
       </div>
     </div>
   </section>
@@ -272,7 +299,7 @@
       <h2>Останні новини</h2>
       <div class="grid cols-3">
         
-          <a class="card-article" href="/UGCC-Lausanne/news/20251015/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/news/20251015/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -281,7 +308,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Свято Покрову Пресвятої Богородиці" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Свято Покрову Пресвятої Богородиці" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -299,7 +326,7 @@
 </a>
 
         
-          <a class="card-article" href="/UGCC-Lausanne/news/20251010/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/news/20251010/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -308,7 +335,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Святкування Покрову" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Святкування Покрову" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -326,7 +353,7 @@
 </a>
 
         
-          <a class="card-article" href="/UGCC-Lausanne/news/20251005/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/news/20251005/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -335,7 +362,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Неділя милосердя" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Неділя милосердя" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -364,7 +391,7 @@
       <h2>Духовне</h2>
       <div class="grid cols-3">
         
-          <a class="card-article" href="/UGCC-Lausanne/spiritual/20251010/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/spiritual/20251010/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -373,7 +400,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Молитва Вервиці до Божого Милосердя" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Молитва Вервиці до Божого Милосердя" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -391,7 +418,7 @@
 </a>
 
         
-          <a class="card-article" href="/UGCC-Lausanne/spiritual/20250925/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/spiritual/20250925/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -400,7 +427,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Молитва за мир" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Молитва за мир" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -418,7 +445,7 @@
 </a>
 
         
-          <a class="card-article" href="/UGCC-Lausanne/spiritual/20250912/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/spiritual/20250912/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -427,7 +454,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Духовні роздуми отця Івана" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Духовні роздуми отця Івана" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -456,7 +483,7 @@
       <h2>Життя громади</h2>
       <div class="grid cols-3">
         
-          <a class="card-article" href="/UGCC-Lausanne/community/20250930/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/community/20250930/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -465,7 +492,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Осінній ярмарок громади" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Осінній ярмарок громади" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -483,7 +510,7 @@
 </a>
 
         
-          <a class="card-article" href="/UGCC-Lausanne/community/20250922/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/community/20250922/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -492,7 +519,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Життя громади: осінній ярмарок" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Життя громади: осінній ярмарок" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -510,7 +537,7 @@
 </a>
 
         
-          <a class="card-article" href="/UGCC-Lausanne/community/20250905/" itemscope itemtype="https://schema.org/Article">
+          <a class="card-article" href="/ugcc-site/community/20250905/" itemscope itemtype="https://schema.org/Article">
   
     <div class="card-img">
       
@@ -519,7 +546,7 @@
           
         
       
-      <img src="/UGCC-Lausanne/assets/images/article.png" alt="Концерт українських виконавців" itemprop="image">
+      <img src="/ugcc-site/assets/images/article.png" alt="Концерт українських виконавців" itemprop="image">
     </div>
   
   <div class="card-body">
@@ -541,38 +568,26 @@
     </div>
   </section>
 
+
+
   </main>
 
-  ﻿<footer class="footer">
+  <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <!-- Contacts column -->
-      <div class="footer-col contact-line ">
+      <div class="footer-col ">
         <h3>Контакти</h3>
-        <p class="contact-line"><a href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>Chem. de Beau-Rivage 3, 1006 Lausanne</span></a></p>
+        <p class="contact-line"><a class="address" href="https://maps.google.com/?q=Chem.+de+Beau-Rivage+3+1006+Lausanne" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i><span>Chem. de Beau-Rivage 3, 1006 Lausanne</span></a></p>
         
           <p class="contact-line"><a class="phone" href="tel:+41 77 279 07 13"><i class="fa-solid fa-phone"></i><span>+41 77 279 07 13</span></a></p>
         
         
-          <p class="contact-line"><a class="email" href="mailto:info@ugcc-lausanne.ch"><i class="fa-solid fa-envelope"></i><span>info@ugcc-lausanne.ch</span></a></p>
-        
-        
-        
-          <p class="socials socials-footer">
-            
-              <a href="https://www.facebook.com/ugcc.lausanne" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            
-              <a href="https://www.youtube.com/@ugcc-lausanne" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            
-              <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            
-              <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            
-          </p>
+          <p class="contact-line"><a class="email" href="mailto:ugcc.lausanne@gmail.com"><i class="fa-solid fa-envelope"></i><span>ugcc.lausanne@gmail.com</span></a></p>
         
       </div>
 
-      <!-- Friends + Eparchy column (two headings in one column) -->
+      <!-- Friends -->
       <div class="footer-col">
         <h3>Партнери</h3>
         <ul class="footer-links">
@@ -584,47 +599,16 @@
             
           
         </ul>
-        <h3 class="mt-md">Єпархія</h3>
+			</div>
+
+			<!-- Eparchy column-->
+			<div class="footer-col">
+        <h3 >Єпархія</h3>
         <ul class="footer-links">
           <li><a href="https://ugcc.fr/" target="_blank" rel="noopener">Єпархія УГКЦ у Франції</a></li>
         </ul>
       </div>
 
-      <!-- Sections column -->
-      <div class="footer-col">
-        <h3>Розділи</h3>
-        <ul class="footer-links">
-          
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/about/">Про нас</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/schedule/">Розклад</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/news/">Новини</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/spiritual/">Духовне</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/community/">Громада</a></li>
-            
-          
-            
-              <li><a href="/UGCC-Lausanne/contacts/">Контакти</a></li>
-            
-          
-            
-          
-        </ul>
-      </div>
     </div>
     <p class="footer-copyright"><small class="dim">© 2025 УГКЦ Лозанна</small></p>
   </div>
@@ -633,6 +617,7 @@
 
 
 
-  <script src="/UGCC-Lausanne/assets/js/main.js"></script>
+
+  <script src="/ugcc-site/assets/js/main.js"></script>
 </body>
 </html>
